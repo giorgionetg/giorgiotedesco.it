@@ -22,6 +22,7 @@ module.exports = withPlugins([[withSass], [withImages]], {
     return config;
   },
   trailingSlash: true,
+  webpack5: false,
   i18n: {
     locales: ['en', 'it', 'pt'],
     defaultLocale: 'en',
