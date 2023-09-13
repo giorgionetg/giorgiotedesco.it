@@ -34,7 +34,7 @@
       "highlights": ["Docker", "Git", "React", "Next.js", "MongoDB", "Strapi.js"],
       "position": "Fullstack Web Developer",
       "startDate": "2022-06-04",
-      "summary": "As a full-stack web developer, I have experience working in a containerized environment (Docker), where I brought a web application to life using React and Next.js technologies. I collaborated on the project within a private GitLab context alongside other full-stack developers.",
+      "summary": "As a full-stack web developer, I have experience working in a containerized environment (Docker), where I'm working on a web application fully tested using React and Next.js technologies. I collaborated on the project within a private GitLab context alongside other full-stack developers.",
       "url": "https://www.wonderlandengine.com"
     },
     {
@@ -341,6 +341,14 @@
     }
   ],
   "projects": [{
+    "name": "GiorgioTedesco.it",
+    "startDate": "1983-12-26",
+    "description": "My personal website github",
+    "highlights": [
+      "React", "Next.js"
+    ],
+    "url": "https://github.com/giorgionetg/giorgiotedesco.it"
+  },{
     "name": "FTSO.eu",
     "startDate": "2020-12-31",
     "description": "A Bot to scrape exchanges and feed the Oracle system on Flare Network Blockchain",

@@ -113,6 +113,7 @@ export async function getStaticProps(context) {
   let postListCryptocurrencies = [];
 
   for (let p = 0; p < paths.length; p++) {
+    console.log(paths[p])
     let data = await mdCryptoLoader('on-web-development/' + paths[p] + '.md');
     console.log(data.datePublished)
     data.datePublished = JSON.stringify(data.datePublished);
