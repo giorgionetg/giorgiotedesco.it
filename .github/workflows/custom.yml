@@ -3,7 +3,7 @@ env:
   NODE_AUTH_TOKEN: ${{ secrets.PAGES_DEPLOYMENT }}
 on:
   push:
-    branches: ["source-code"]
+    branches: ["main"]
   workflow_dispatch:
 permissions:
   contents: read
