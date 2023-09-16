@@ -57,7 +57,7 @@ export default function GTheaderLinks(props) {
       <ListItem className={classes.listItem}>
         <Button
           as="link"
-          href="/the-blog/on-cryptocurrencies"
+          href="/the-blog"
           color="transparent"
           className={classes.navLink}
         >
