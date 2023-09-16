@@ -3,7 +3,7 @@ import { title } from "assets/jss/nextjs-material-kit.js";
 const productStyle = {
   section: {
     padding: "15px 0",
-    textAlign: "left"
+    textAlign: "left",
   },
   title: {
     ...title,
@@ -11,11 +11,11 @@ const productStyle = {
     marginTop: "30px",
     minHeight: "32px",
     textDecoration: "none",
-    textAlign: "left"
+    textAlign: "left",
   },
   description: {
-    color: "#999"
-  }
+    color: "#999",
+  },
 };
 
 export default productStyle;
