@@ -5,7 +5,7 @@ description: A little tutorial to discover what there is behind this website
 category: on-web-development
 tags: ['frontend', 'backend', 'JavaScript', 'CSS', 'HTML']
 image: patrick-fore-0_AX9pab940-unsplash.jpg
-datePublished: "2020-12-05T09:00:00+08:00"
+datePublished: "2023-09-14T09:00:00+08:00"
 dateModified: "2020-12-22T09:00:00+08:00"
 ---
 
@@ -45,4 +45,4 @@ Why not to call the most famous open source project like WordPress? Because it's
 
 ### About this website
 
-This website is made by JavaScript (NodeJS, ReactJS and NextJS) and others frontend frameworks and libraries. This page is served by a Blockchain project named **Blockstacks** (in deep a DApp^1 called **[Runkod](https://www.runkod.com)**).
+This website is made by JavaScript (NodeJS, ReactJS and NextJS) and others frontend frameworks and libraries.

@@ -179,7 +179,7 @@ export async function getStaticPaths () {
 }
 
 export async function getStaticProps (context) {
-
+    console.log(context.params)
     let data = await mdCryptoLoader('on-web-development/' + context.params.slug + '.md');
 
     console.log(data);
