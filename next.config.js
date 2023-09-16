@@ -10,23 +10,21 @@ module.exports = withPlugins([[withSass], [withImages]], {
 
     config.module.rules.push({
       test: /\.(glb|gltf)$/,
-      use:
-      [
+      use: [
         {
-          loader: 'file-loader'
-        }
-      ]
+          loader: "file-loader",
+        },
+      ],
     });
-
 
     return config;
   },
   trailingSlash: true,
   webpack5: false,
   i18n: {
-    locales: ['en', 'it', 'pt'],
-    defaultLocale: 'en',
-    localeDetection: true
+    locales: ["en", "it", "pt"],
+    defaultLocale: "en",
+    localeDetection: true,
   },
-  env: {}
+  env: {},
 });

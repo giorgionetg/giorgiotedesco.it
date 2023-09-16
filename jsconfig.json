@@ -1,44 +1,49 @@
 {
-    "compilerOptions": {
-      "target": "es5",
-      "lib": [
-        "dom",
-        "dom.iterable",
-        "esnext"
-      ],
-      "allowJs": true,
-      "skipLibCheck": true,
-      "strict": true,
-      "forceConsistentCasingInFileNames": true,
-      "noEmit": true,
-      "esModuleInterop": true,
-      "module": "NodeNext",
-      "moduleResolution": "NodeNext",
-      "noUnusedLocals": true,
-      "noUnusedParameters": true,
-      "importsNotUsedAsValues": "remove",
-      "resolveJsonModule": true,
-      "isolatedModules": true,
-      "jsx": "preserve",
-      "incremental": true,
-      "plugins": [
-        {
-          "name": "next"
-        }
-      ],
-      "baseUrl": ".",
-    },
-    "include": [
-      "**/*.js",
-      "**/.jsx",
+  "compilerOptions": {
+    "target": "es5",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "importsNotUsedAsValues": "remove",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
     ],
-    "exclude": [
-      "node_modules",
-    ],
-    "types": [
-      "node",
-      "jest",
-      "@testing-library/jest-dom"
-    ]
-  }
-  
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./components/*", "./pages/*", "./assets/*"]
+    }
+  },
+  "include": [
+    "**/*.js",
+    "**/.jsx",
+    "pages/privacy.jsx",
+    "pages/index.jsx",
+    "pages/credits.jsx",
+    "pages/admin.jsx",
+    "pages/about-me.jsx",
+    "pages/about-me-with-3d.jsx",
+    "pages/404.jsx",
+    "pages/_error.jsx",
+    "pages/_document.jsx",
+    "pages/_app.jsx",
+    "pages-sections/LandingPage-Sections/HomeSection.jsx",
+    "assets/jss/nextjs-material-kit/pages/components.jsx",
+    "assets/jss/nextjs-material-kit/pages/components.jsx"
+, "pages-sections/LandingPage-Sections/TweetSection.tsx", "pages/web-developer.tsx", "pages/web-apps/index.jsx", "pages/web-apps/json-resume/viewer.jsx", "pages/the-blog/on-web-development.jsx", "pages/the-blog/on-cryptocurrencies.jsx", "pages/the-blog/on-web-development/[slug].jsx", "pages/the-blog/on-cryptocurrencies/[slug].jsx", "pages/the-blog/index.jsx"  ],
+  "exclude": ["node_modules"],
+  "types": ["node", "jest", "@testing-library/jest-dom"]
+}
