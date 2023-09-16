@@ -1,0 +1,44 @@
+{
+    "compilerOptions": {
+      "target": "es5",
+      "lib": [
+        "dom",
+        "dom.iterable",
+        "esnext"
+      ],
+      "allowJs": true,
+      "skipLibCheck": true,
+      "strict": true,
+      "forceConsistentCasingInFileNames": true,
+      "noEmit": true,
+      "esModuleInterop": true,
+      "module": "NodeNext",
+      "moduleResolution": "NodeNext",
+      "noUnusedLocals": true,
+      "noUnusedParameters": true,
+      "importsNotUsedAsValues": "remove",
+      "resolveJsonModule": true,
+      "isolatedModules": true,
+      "jsx": "preserve",
+      "incremental": true,
+      "plugins": [
+        {
+          "name": "next"
+        }
+      ],
+      "baseUrl": ".",
+    },
+    "include": [
+      "**/*.js",
+      "**/.jsx",
+    ],
+    "exclude": [
+      "node_modules",
+    ],
+    "types": [
+      "node",
+      "jest",
+      "@testing-library/jest-dom"
+    ]
+  }
+  
