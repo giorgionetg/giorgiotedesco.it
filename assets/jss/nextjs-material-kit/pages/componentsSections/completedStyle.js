@@ -4,16 +4,16 @@ import imagesStyles from "assets/jss/nextjs-material-kit/imagesStyles.js";
 
 const completedStyle = {
   section: {
-    padding: "70px 0"
+    padding: "70px 0",
   },
   container: {
     ...container,
-    textAlign: "justify !important"
+    textAlign: "justify !important",
   },
   specificStyle: {
-    textAlign: "left !important"
+    textAlign: "left !important",
   },
-  ...imagesStyles
+  ...imagesStyles,
 };
 
 export default completedStyle;

@@ -18,16 +18,15 @@ import styles from "assets/jss/nextjs-material-kit/components/footerStyle.js";
 const useStyles = makeStyles(styles);
 
 export default function Footer(props) {
-
   const classes = useStyles();
   const { whiteFont } = props;
   const footerClasses = classNames({
     [classes.footer]: true,
-    [classes.footerWhiteFont]: whiteFont
+    [classes.footerWhiteFont]: whiteFont,
   });
   const aClasses = classNames({
     [classes.a]: true,
-    [classes.footerWhiteFont]: whiteFont
+    [classes.footerWhiteFont]: whiteFont,
   });
   return (
     <footer className={footerClasses}>
@@ -72,20 +71,12 @@ export default function Footer(props) {
             </ListItem> */}
 
             <ListItem className={classes.inlineBlock}>
-              <a
-                as='link'
-                href="/privacy"
-                className={classes.block}
-              >
+              <a as="link" href="/privacy" className={classes.block}>
                 Privacy
               </a>
             </ListItem>
             <ListItem className={classes.inlineBlock}>
-              <a
-                as='link'
-                href="/credits"
-                className={classes.block}
-              >
+              <a as="link" href="/credits" className={classes.block}>
                 Credits
               </a>
             </ListItem>
@@ -101,5 +92,5 @@ export default function Footer(props) {
 }
 
 Footer.propTypes = {
-  whiteFont: PropTypes.bool
+  whiteFont: PropTypes.bool,
 };

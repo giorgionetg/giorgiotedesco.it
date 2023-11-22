@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import Link from "next/link";
 
 import classNames from "classnames";
@@ -32,30 +32,45 @@ export default function CookieConsent(props) {
     [classes.appBar]: true,
     [classes[color]]: color,
     [classes.absolute]: absolute,
-    [classes.fixed]: fixed
+    [classes.fixed]: fixed,
   });
 
-  return(
+  return (
     <AppBar className={appBarClasses}>
       <Toolbar className={classes.container}>
         <div className={classes.flex}>
           <List component="nav">
-            <ListItem><strong>Privacy</strong>:</ListItem>
-            <ListItem><i>Please, take care about latest UE GDPO/GDPR rules on this website.</i></ListItem>
-            <ListItem><strong><Button type="button" color="warning" as='link' href="/privacy">Read More</Button></strong></ListItem>
+            <ListItem>
+              <strong>Privacy</strong>:
+            </ListItem>
+            <ListItem>
+              <i>
+                Please, take care about latest UE GDPO/GDPR rules on this
+                website.
+              </i>
+            </ListItem>
+            <ListItem>
+              <strong>
+                <Button type="button" color="warning" as="link" href="/privacy">
+                  Read More
+                </Button>
+              </strong>
+            </ListItem>
           </List>
         </div>
 
         <List>
-          <ListItem><Button type="button" color="success">I Allow!</Button></ListItem>
+          <ListItem>
+            <Button type="button" color="success">
+              I Allow!
+            </Button>
+          </ListItem>
         </List>
-
       </Toolbar>
     </AppBar>
   );
-
 }
 
 CookieConsent.defaultProp = {
-  color: "#ff5e00"
+  color: "#ff5e00",
 };

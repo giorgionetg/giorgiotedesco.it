@@ -25,14 +25,14 @@ export default function Components(props) {
     <div>
 
       <NextSeo
-        title="Giorgio Tedesco | Just a web developer"
+        title="Giorgio Tedesco | a senior Web Developer for innovative solutions"
         description="a personal Giorgio Tedesco's website used to share my interests on web developing, 3D Graphic, Cryptocurrencies (Bitcoin & Altcoin), Artificial Inteligence, Deep Learning."
         canonical="https://www.giorgiotedesco.it"
         openGraph={{
           type: 'website',
           url: 'https://www.giorgiotedesco.it',
           title: 'Giorgio Tedesco',
-          description: 'an expert Web Developer for innovative solutions',
+          description: 'A senior web developer',
           images: [
             {
               url: 'https://www.giorgiotedesco.it/_next/static/images/andras-vas-Bd7gNnWJBkU-unsplash-61553867678a3db4ae1acd2767d06321.jpg',
@@ -42,7 +42,7 @@ export default function Components(props) {
         }}
       />
 
-      <Layout title='a senior Web Developer' description='with proven expertise in creating web solutions.' image='epicRealismV5-homepage.png'>
+      <Layout title='a senior Web Developer for innovative solutions' description='with proven expertise in creating web solutions.' image='epicRealismV5-homepage.png'>
         <HomeSection />
       </Layout>
     </div>
