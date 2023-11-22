@@ -30,9 +30,9 @@ export default function ProductSection() {
       <div className={classes.container}>
         <GridContainer justify="center">
           <GridItem xs={12} sm={12} md={8}>
-            <h2 className={classes.title}>Let{"'"}s talk about</h2>
+            <h2 className={classes.title}>GiorgioTedesco.it</h2>
             <h5 className={classes.description}>
-              <Link href='/about-me'><b>GiorgioTedesco.it</b></Link> is a website (of <b>Giorgio Tedesco</b> of course) and a personal space I use to share <b>my interests</b>, my studies and not only my skills and CV.
+              This is a space I use to share <b>my interests</b>, studies, skills and CV.
             </h5>
           </GridItem>
         </GridContainer>
@@ -46,7 +46,7 @@ export default function ProductSection() {
               <GridItem xs={12} sm={12} md={4}>
                 <InfoArea
                   title="About Me"
-                  description="In this section you can find my updated skills, my jobs and my CV/Resume"
+                  description="In this section you can find my updated skills, jobs and CV/Resume"
                   icon={Person}
                   iconColor="warning"
                   vertical
@@ -56,7 +56,7 @@ export default function ProductSection() {
               <GridItem xs={12} sm={12} md={4}>
                 <InfoArea
                   title="Apps & DApps"
-                  description={(<div>This is a little space where to play at my WebApps and DApps freely. <b>HARDCORE WIP</b></div>)}
+                  description={(<div>A space where to play my WebApps & DApps freely. <b>HARDCORE WIP</b></div>)}
                   icon={Apps}
                   iconColor="success"
                   vertical
@@ -66,7 +66,7 @@ export default function ProductSection() {
               <GridItem xs={12} sm={12} md={4}>
                 <InfoArea
                   title="The Blog"
-                  description="I will share my experiences on Web Developing, Cryptocurrencies and Bitcoin, but also 3D"
+                  description="My experiences on Web Developing, Cryptocurrencies, and 3D Coding"
                   icon={ChromeReaderModeIcon}
                   iconColor="info"
                   vertical

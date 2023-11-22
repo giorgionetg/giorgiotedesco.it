@@ -32,7 +32,7 @@ export default function Components(props) {
           type: 'website',
           url: 'https://www.giorgiotedesco.it',
           title: 'Giorgio Tedesco',
-          description: 'Just a web developer',
+          description: 'an expert Web Developer for innovative solutions',
           images: [
             {
               url: 'https://www.giorgiotedesco.it/_next/static/images/andras-vas-Bd7gNnWJBkU-unsplash-61553867678a3db4ae1acd2767d06321.jpg',
@@ -42,7 +42,7 @@ export default function Components(props) {
         }}
       />
 
-      <Layout title='Just a web developer' description='Based in Rome (Italy) and born in Brazil!' image='epicRealismV5-homepage.png'>
+      <Layout title='a senior Web Developer' description='with proven expertise in creating web solutions.' image='epicRealismV5-homepage.png'>
         <HomeSection />
       </Layout>
     </div>

@@ -16,11 +16,11 @@ export default class AboutMe extends Component {
 
         <NextSeo
           title="About Me | Giorgio Tedesco"
-          description="the skills of Giorgio Tedesco as a webdeveloper, CV/Resume and a little Bio"
+          description="the skills of Giorgio Tedesco, a senior webdeveloper with CV/Resume and Bio"
           canonical="https://wwww.giorgiotedesco.it/about-me"
         />
 
-        <Layout title='about Giorgio Tedesco' description='just a web developer' image='headway-5QgIuuBxKwM-unsplash.jpg'>
+        <Layout title='about Giorgio Tedesco' description='a senior web developer with proven expertise' image='headway-5QgIuuBxKwM-unsplash.jpg'>
           <SectionMicroBio />
         </Layout>
       </div>

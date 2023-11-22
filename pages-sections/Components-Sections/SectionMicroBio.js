@@ -13,8 +13,8 @@ import styles from "assets/jss/nextjs-material-kit/pages/componentsSections/comp
 
 const useStyles = makeStyles(styles);
 
-// import image from "assets/img/giorgio-tedesco-images/giorgio-tedesco-01.jpg";
-import image from "assets/img/giorgio-tedesco-images/giorgio-tedesco-low-res.jpg";
+import image from "assets/img/giorgio-tedesco-images/giorgio-tedesco-01.jpg";
+// import image from "assets/img/giorgio-tedesco-images/giorgio-tedesco-low-res.jpg";
 
 export default function SectionMicroBio() {
   const classes = useStyles();
@@ -23,8 +23,8 @@ export default function SectionMicroBio() {
       <div className={classes.container}>
         <GridContainer>
           <GridItem xs={12} sm={12} md={12}>
-            <h2 className={classes.specificStyle}>Giorgio Tedesco <sup><small><i>just a web developer</i></small></sup></h2>
-            <h3>Let me talk about my hobbies and skills.</h3><br />
+            <h2 className={classes.specificStyle}>Giorgio Tedesco <sup><small><i>a senior web developer</i></small></sup></h2>
+            <h3>Writing about my hobbies and skills.</h3><br />
           </GridItem>
         </GridContainer>
         <GridContainer>
