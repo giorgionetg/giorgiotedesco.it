@@ -1,20 +1,20 @@
-import React from "react";
+import React from 'react';
 // @material-ui/core components
-import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles } from '@material-ui/core/styles';
 // @material-ui/icons
 
 // core components
-import GridContainer from "components/Grid/GridContainer.js";
-import GridItem from "components/Grid/GridItem.js";
+import GridContainer from 'components/Grid/GridContainer.js';
+import GridItem from 'components/Grid/GridItem.js';
 
-import Button from "components/CustomButtons/Button.js";
+import Button from 'components/CustomButtons/Button.js';
 
-import styles from "assets/jss/nextjs-material-kit/pages/componentsSections/completedStyle.js";
+import styles from 'assets/jss/nextjs-material-kit/pages/componentsSections/completedStyle.js';
 
 const useStyles = makeStyles(styles);
 
-// import image from "assets/img/giorgio-tedesco-images/giorgio-tedesco-01.jpg";
-import image from "assets/img/giorgio-tedesco-images/giorgio-tedesco-low-res.jpg";
+import image from 'assets/img/giorgio-tedesco-images/giorgio-tedesco-01.jpg';
+// import image from "assets/img/giorgio-tedesco-images/giorgio-tedesco-low-res.jpg";
 
 export default function SectionMicroBio() {
   const classes = useStyles();
@@ -24,27 +24,27 @@ export default function SectionMicroBio() {
         <GridContainer>
           <GridItem xs={12} sm={12} md={12}>
             <h2 className={classes.specificStyle}>
-              Giorgio Tedesco{" "}
+              Giorgio Tedesco{' '}
               <sup>
                 <small>
-                  <i>just a web developer</i>
+                  <i>a senior web developer</i>
                 </small>
               </sup>
             </h2>
-            <h3>Let me talk about my hobbies and skills.</h3>
+            <h3>Writing about my hobbies and skills.</h3>
             <br />
           </GridItem>
         </GridContainer>
         <GridContainer>
-          <GridItem justify="center" xs={12} sm={12} md={4}>
+          <GridItem justify='center' xs={12} sm={12} md={4}>
             <img
               src={image}
-              alt="Giorgio Tedesco"
+              alt='Giorgio Tedesco'
               className={
                 classes.imgRaised +
-                " " +
+                ' ' +
                 classes.imgRounded +
-                " " +
+                ' ' +
                 classes.imgFluid
               }
             />
@@ -85,7 +85,7 @@ export default function SectionMicroBio() {
               pursuit of knowledge and innovation, and I'm excited to see where
               this ever-evolving field will take me next.
             </h4>
-            <Button as="link" href="/web-apps/json-resume/viewer/" color="info">
+            <Button as='link' href='/web-apps/json-resume/viewer/' color='info'>
               My CV / Resumé
             </Button>
           </GridItem>
