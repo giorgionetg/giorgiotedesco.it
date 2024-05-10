@@ -332,11 +332,26 @@
   ],
   "languages": [
     {
-      "language": "en",
+      "language": "it",
       "fluency": "Native Speaker"
+    },
+    {
+      "language": "en",
+      "fluency": "Fluent Speaker"
     }
   ],
-  "interests": [],
+  "interests": [{
+    "name": "Photography",
+    "keywords": ["360", "HDR", "Equirectangular Map", "Panorama"]
+  }, {
+    "name": "Cryptocurrencies",
+    "keywords": ["BTC", "ETH", "XRP", "FLR"]
+  },
+  {
+    "name": "Machine Learning",
+    "keywords": ["Stable Diffusion", "LLM", "transform.js"]
+  }
+  ],
   "references": [
     {
       "name": "Luigi Girardi",
@@ -366,7 +381,8 @@
         "Solitidy Language",
         "Hardhat.js",
         "ethereum.js",
-        "Blockchain"
+        "Blockchain",
+        "Machine Learning"
       ],
       "url": "https://ftso.eu/"
     }

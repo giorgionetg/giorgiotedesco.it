@@ -7,7 +7,7 @@ import GridContainer from '../../../components/Grid/GridContainer';
 import GridItem from '../../../components/Grid/GridItem';
 import Layout from '../../../components/Layout/Layout';
 
-// import myResume from '../../../cv/giorgio-tedesco-resume.json';
+import myResume from '../../../cv/resume.json';
 
 export default function Viewer({ myResume }) {
   const works = myResume.work;
@@ -48,15 +48,16 @@ export default function Viewer({ myResume }) {
               }
               return (
                 <GridItem xs={12} sm={12} md={12}>
-                  <Card>
+                  <Card key={work.name}>
                     <CardBody>
                       <h4>
                         {work.name}
                         <br />
                         <small>
                           <i>
-                            from
-                            {work.startDate}
+                            from 
+                            {' '}
+                            {work.startDate} 
                             {' '}
                             {today}
                           </i>
@@ -135,7 +136,7 @@ export default function Viewer({ myResume }) {
 }
 
 export async function getStaticProps() {
-  const myResume = await require('../../../cv/giorgio-tedesco-resume.json');
+  const myResume = await require('../../../cv/resume.json');
 
   return {
     props: { myResume },
