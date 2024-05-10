@@ -36,6 +36,7 @@ const useStyles = makeStyles(newstyles);
 
 export default function OnCryptocurrencies({ postListCryptocurrencies }) {
   const classes = useStyles();
+  console.log(postListCryptocurrencies)
   return (
     <div>
       <Header
@@ -77,8 +78,7 @@ export default function OnCryptocurrencies({ postListCryptocurrencies }) {
         <div className={classes.container}>
           <GridContainer className={classes.gridStyle}>
             {postListCryptocurrencies.map((item) => {
-              const linking = `/web-apps/${item.slug}`;
-              // return <li><Link href={linking}>{item.title}</Link></li>
+              const linking = item.slug.startsWith('/') ? item.slug : `/web-apps/${item.slug}`;
 
               return (
                 <GridItem sm={12} md={4}>
@@ -90,7 +90,6 @@ export default function OnCryptocurrencies({ postListCryptocurrencies }) {
                     }}
                   >
                     <CardHeader color="info">{item.type}</CardHeader>
-                    {/* <img class="card-img-top" src="https://images.unsplash.com/photo-1517303650219-83c8b1788c4c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=bd4c162d27ea317ff8c67255e955e3c8&auto=format&fit=crop&w=200&q=30" rel="nofollow" alt="Card image cap" /> */}
                     <CardBody>
                       <h4 className={classes.cardTitle}>{item.title}</h4>
                       <p>{item.description}</p>
@@ -106,62 +105,44 @@ export default function OnCryptocurrencies({ postListCryptocurrencies }) {
         </div>
       </div>
 
-      {/* <ul>
-        {categoryList.map((item) => {
-          let linking = '/the-blog/' + item.slug;
-          return <li><Link href={linking}>{item.title}</Link></li>
-        })}
-      </ul> */}
-
       <Footer />
     </div>
   );
 }
 
 export async function getStaticProps() {
-  // let posts = await mdLoader('on-cryptocurrencies');
-  // let paths = [];
-  /* for (let c = 0; c < posts.length; c++) {
-    let res = posts[c].split('.', 1);
-    paths.push(res[0]);
-  }
-
-  let categoryList = [
-    { slug: 'on-cryptocurrencies', title: 'The Blog on Cryptocurrencies' },
-    {
-      slug: 'on-3d-computer-graphic-and-blender',
-      title: 'The Blog on Computer Graphic 3D and Blender'
-    },
-    { slug: 'on-artificial-intelligence', title: 'The Blog on Artificial Intelligence' }
-  ]; */
 
   const postListCryptocurrencies = [];
 
-  /* postListCryptocurrencies.push({
-    title: 'QR Code Generator',
-    slug: 'tools/qr-code-generator',
-    description: 'An easy QR Code Generator for all'
-  })
-
   postListCryptocurrencies.push({
-    title: 'Hex To Binary and viceversa',
-    slug: 'hex-to-binary-n-viceversa',
-    description: 'An easy QR Code Generator for all'
-  }) */
+    title: 'Tax Manager',
+    slug: 'tax-manager',
+    type: 'tool',
+    description: 'Useful fast tools for calculus',
+  });
 
   postListCryptocurrencies.push({
     title: 'JSON CV Viewer',
     slug: 'json-resume/viewer',
     type: 'tool',
-    description: 'Try to find me!',
+    description: 'My jsonresume.org viewer',
   });
 
   postListCryptocurrencies.push({
+    title: 'An old dApp on Blockstack',
+    slug: '/web-developer',
+    type: 'tool',
+    description: 'Could not imagine still there. I lost that keys.',
+  });
+
+
+
+  /*postListCryptocurrencies.push({
     title: 'Who am I?',
     slug: 'games/who-am-i',
     type: 'game',
     description: 'Try to find me!',
-  });
+  });*/
 
   /* for (let p = 0; p < paths.length; p++) {
     let data = await mdCryptoLoader('on-cryptocurrencies/' + paths[p] + '.md');
