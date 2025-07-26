@@ -69,6 +69,7 @@ export default class MyApp extends App {
             href="https://use.fontawesome.com/releases/v5.0.10/css/all.css"
             rel="stylesheet"
           />
+          <script defer src="https://get.giorgiotedesco.it/script.js" data-website-id="177a1a7f-6206-4656-9668-88f9f69eb853"></script>
         </Head>
         <Component {...pageProps} userData={userData} />
       </>
