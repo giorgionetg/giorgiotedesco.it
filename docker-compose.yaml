@@ -1,0 +1,18 @@
+
+services:
+  gtapp:
+    # image: gt
+    build:
+      context: .
+    container_name: giorgiotedesco
+    environment:
+      - NODE_ENV=dev
+      - UID=1000
+      - GID=1000
+    user: "${UID}:${GID}"
+    volumes:
+      - .:/app
+      - /app/node_modules
+    ports:
+      - "3000:3000"
+    command: yarn dev
