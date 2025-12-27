@@ -1,0 +1,26 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Giorgio Tedesco",
+  "url": "https://giorgiotedesco.it",
+  "jobTitle": "Full Stack Web Developer & 3D Artist",
+  "description": "Sviluppatore Web Full Stack specializzato in Laravel, WordPress e tecnologie 3D come Blender e Unity. Esperienza nella gestione DNS e infrastrutture web.",
+  "sameAs": [
+    "https://twitter.com/tuo_profilo",
+    "https://www.linkedin.com/in/tuo_profilo",
+    "https://www.instagram.com/tuo_profilo_professionale/"
+  ],
+  "knowsAbout": [
+    "Web Development",
+    "Laravel",
+    "WordPress",
+    "3D Modeling",
+    "Unity 3D",
+    "DNS Management",
+    "Cybersecurity"
+  ],
+  "alumniOf": {
+    "@type": "Organization",
+    "name": "TEDxRoma"
+  }
+}

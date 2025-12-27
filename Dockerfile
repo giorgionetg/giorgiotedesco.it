@@ -2,6 +2,8 @@ FROM node:slim
 
 WORKDIR /app
 
+RUN rm -rf node_modules
+
 COPY package.json yarn.lock* ./
 
 RUN yarn install
