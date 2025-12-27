@@ -1,14 +1,13 @@
 
 import type { Job } from "@/lib/types";
 
-interface JobPageProps {
-  params: Promise<{ job: string }>; 
+interface JobProps {
+  job: Job
 }
 
-export default async function JobComponent({ params }: JobPageProps) {
-    //let job = params.job as Job;
-    const resolvedParams = await params;
-    const jobData = resolvedParams.job as unknown as Job;
+export default async function JobComponent({ job }: JobProps) {
+    
+    const jobData: Job = job;
 
     return (<>
         <div className="card bg-base-100 w-96 shadow-sm">
@@ -18,8 +17,8 @@ export default async function JobComponent({ params }: JobPageProps) {
                 alt="Shoes" />
             </figure>
             <div className="card-body">
-                <h2 className="card-title">CC {jobData.name} CC</h2>
-                <p>A card component has a figure, a body part, and inside body there are title and actions parts</p>
+                <h2 className="card-title">{jobData.name}</h2>
+                <p>{jobData.summary}</p>
                 <div className="card-actions justify-end">
                 <button className="btn btn-primary">Buy Now</button>
                 </div>

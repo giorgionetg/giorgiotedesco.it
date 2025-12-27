@@ -1,7 +1,12 @@
 
 const cvUrl = process.env.JSON_RESUME;
 
-import Job from "@/components/cv/Job";
+import type { Job } from "@/lib/types";
+import JobComponent from "@/components/cv/JobComponent";
+
+export async function getCV() {
+
+}
 
 export default async function Page() {
 
@@ -13,9 +18,9 @@ export default async function Page() {
         <h1>Hello Next.js!</h1>
         <h2 className="text-5xl font-bold text-red-500">ciao</h2>
         <hr />
-        { cv.work.map((dataJob: any) => {
+        { cv.work.map((dataJob: Job) => {
             //console.log(dataJob);
-            return (<Job key={dataJob.name} job={dataJob}  />);
+            return (<JobComponent key={dataJob.name} job={dataJob}  />);
         })}
         </>)
 }
