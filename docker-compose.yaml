@@ -12,6 +12,7 @@ services:
     user: "${UID}:${GID}"
     volumes:
       - .:/app
+      - /home/giorgionetg/WebSiteLogSeq:/app/logseq
       - /app/node_modules
     ports:
       - "3000:3000"
