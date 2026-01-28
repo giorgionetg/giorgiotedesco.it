@@ -3,6 +3,7 @@ FROM node:slim
 WORKDIR /app
 
 RUN rm -rf node_modules
+RUN rm -rf .next
 
 COPY package.json yarn.lock* ./
 

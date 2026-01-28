@@ -11,7 +11,10 @@ services:
       - GID=1000
     user: "${UID}:${GID}"
     volumes:
-      - .:/app
+      - ./src:/app/src
+      - ./public:/app/public
+      - ./package.json:/app/package.json
+      - ./package-lock.json:/app/package-lock.json
       - /home/giorgionetg/WebSiteLogSeq:/app/logseq
       - /app/node_modules
     ports:
