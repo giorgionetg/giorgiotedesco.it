@@ -2,7 +2,7 @@
 /* ... (Rest of the content from previous version, just adding 'use client') ... */
 import React, { useState } from 'react';
 import { Sprout, Leaf, TreeDeciduous, Search, Filter, ArrowLeft, ArrowRight, Share2, BookOpen } from 'lucide-react';
-import { GardenNote } from '../types';
+import { GardenNote } from '@/app/lib/types';
 
 const notes: GardenNote[] = [
   { id: '1', title: 'Atomic Design in 2024', topic: 'Architecture', status: 'Evergreen', preview: 'Is Atomic Design still relevant with modern component libraries?' },
@@ -35,10 +35,10 @@ const DigitalGarden: React.FC = () => {
           </div>
         </div>
         <div className="container mx-auto px-6 py-12 max-w-7xl">
-           <article className="max-w-3xl mx-auto prose prose-slate">
-              <h1 className="text-4xl font-bold text-slate-900 mb-6">{selectedNote.title}</h1>
-              <p>Living documents that evolve over time. This is a simulation of the content.</p>
-           </article>
+          <article className="max-w-3xl mx-auto prose prose-slate">
+            <h1 className="text-4xl font-bold text-slate-900 mb-6">{selectedNote.title}</h1>
+            <p>Living documents that evolve over time. This is a simulation of the content.</p>
+          </article>
         </div>
       </div>
     );
@@ -66,9 +66,9 @@ const DigitalGarden: React.FC = () => {
                 <h3 className="card-title text-xl font-bold text-slate-800 mb-2">{note.title}</h3>
                 <p className="text-slate-600 text-sm leading-relaxed mb-4">{note.preview}</p>
                 <div className="card-actions justify-end mt-auto">
-                   <button className="text-sm font-medium text-slate-400 group-hover:text-brand-blue flex items-center gap-1">
-                      Read Note <ArrowRight size={14} />
-                   </button>
+                  <button className="text-sm font-medium text-slate-400 group-hover:text-brand-blue flex items-center gap-1">
+                    Read Note <ArrowRight size={14} />
+                  </button>
                 </div>
               </div>
             </div>
