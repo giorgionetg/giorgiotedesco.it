@@ -14,6 +14,8 @@
     "@react-three/drei": "^10.7.7",
     "@react-three/fiber": "^9.5.0",
     "framer-motion": "^12.26.1",
+    "gray-matter": "^4.0.3",
+    "grey-matter": "^0.0.0",
     "lucide-react": "^0.562.0",
     "next": "16.1.0",
     "react": "19.2.3",
