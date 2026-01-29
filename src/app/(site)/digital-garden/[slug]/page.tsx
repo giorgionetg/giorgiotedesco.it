@@ -26,7 +26,11 @@ export function getAllSlugs(): string[] {
 }
 
 export async function generateStaticParams() {
-  return getAllSlugs().map(slug => ({
+  const slugs = getAllSlugs();
+  if (slugs.length === 0) {
+    return [{ slug: 'placeholder' }];
+  }
+  return slugs.map(slug => ({
     slug
   }));
 }
@@ -56,6 +60,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 export default async function Page({ params }: PageProps) {
 
   const { slug } = await params;
+
+  if (slug === 'placeholder') {
+    return <DigitalGardenView initialMarkdown="# Digital Garden\n\nNotes are coming soon..." />;
+  }
+
   const title = deslugify(slug);
   const raw = loadLogseqPage(title);
 
@@ -64,7 +73,7 @@ export default async function Page({ params }: PageProps) {
   }
 
   const ast = parseLogseq(raw);
-  console.log(ast);
+  // console.log(ast); // removed log
   const md = astToMarkdown(ast);
 
   return (
