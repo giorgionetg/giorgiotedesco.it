@@ -62,6 +62,10 @@ export function getAllPages(): PageIndex[] {
 
 export function getAllTagsPages() {
 
+  if (!fs.existsSync(filePath)) {
+    return [];
+  }
+
   const files = fs.readdirSync(filePath);
 
   return [];
