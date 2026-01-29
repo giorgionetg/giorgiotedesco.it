@@ -10,7 +10,7 @@ function slugify(str: string) {
 }
 
 export function loadLogseqPage(slug: string) {
-  
+
   if (!slug) return null;
 
   const filePath = path.join(
@@ -34,13 +34,17 @@ type PageIndex = {
 };
 
 const filePath = path.join(
-    process.cwd(),
-    "logseq",
-    "pages"
-  );
+  process.cwd(),
+  "logseq",
+  "pages"
+);
 
 export function getAllPages(): PageIndex[] {
-  
+
+  if (!fs.existsSync(filePath)) {
+    return [];
+  }
+
   const files = fs.readdirSync(filePath);
 
   return files
