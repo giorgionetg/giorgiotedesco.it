@@ -9,7 +9,6 @@ export interface Post {
     slug: string[];
     title: string;
     date?: string;
-    draft?: boolean;
     content: string;
     [key: string]: any;
 }
@@ -54,7 +53,6 @@ export async function getAllPosts(): Promise<Post[]> {
 
     // Sort posts by date if available
     return posts
-        .filter((post) => !post.draft)
         .sort((a, b) => {
             if (a.date && b.date) {
                 return new Date(a.date).getTime() < new Date(b.date).getTime() ? 1 : -1;
