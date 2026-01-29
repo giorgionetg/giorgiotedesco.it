@@ -41,6 +41,7 @@ export default function Layout({
                     type="application/ld+json"
                     dangerouslySetInnerHTML={{ __html: JSON.stringify(myschema) }}
                 />
+                <script defer src="https://get.giorgiotedesco.it/script.js" data-website-id="177a1a7f-6206-4656-9668-88f9f69eb853"></script>
             </head>
             <body className={`${inter.variable} font-sans text-slate-900 min-h-screen flex flex-col`}>
                 {/* Architectural Grid Background implemented via CSS in layout or globals */}
