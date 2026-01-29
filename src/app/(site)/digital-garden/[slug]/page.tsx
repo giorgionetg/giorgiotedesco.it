@@ -25,7 +25,7 @@ export function getAllSlugs(): string[] {
   return getAllPages().map(p => p.slug);
 }
 
-export function generateStaticParams() {
+export async function generateStaticParams() {
   return getAllSlugs().map(slug => ({
     slug
   }));
