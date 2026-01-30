@@ -15,14 +15,19 @@ const JobZod = z.object({
 export type Job = z.infer<typeof JobZod>;
 
 
-export interface BlogPost {
-  id: string;
+export interface Post {
+  slug: string[];
   title: string;
-  excerpt: string;
-  date: string;
-  category: string;
-  readTime: string;
+  date?: string;
+  datePublished?: string;
+  content: string;
+  excerpt?: string;
+  coverImage?: string;
+  readingTime?: string; // Common field name, formerly readTime?
+  [key: string]: any;
 }
+
+export type BlogPost = Post;
 
 export interface CaseStudy {
   id: string;

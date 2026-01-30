@@ -5,33 +5,41 @@ import { Clock, Calendar, ArrowLeft, Linkedin, Twitter, Mail, ArrowRight, Trendi
 const posts: BlogPost[] = [
    {
       id: '1',
+      slug: ['scalable-frontend-architecture'],
       title: 'Scalable Frontend Architecture for Enterprise',
       excerpt: 'How to structure large-scale React applications using domain-driven design principles to maintain velocity as the team grows.',
       date: 'Oct 12, 2023',
+      content: '',
       category: 'Engineering',
       readTime: '8 min read'
    },
    {
       id: '2',
+      slug: ['optimizing-web-vitals'],
       title: 'Optimizing Web Vitals: A Case Study',
       excerpt: 'We reduced LCP by 40% and improved CLS to 0.01. Here is the technical breakdown of the strategies we employed.',
       date: 'Sep 28, 2023',
+      content: '',
       category: 'Performance',
       readTime: '12 min read'
    },
    {
       id: '3',
+      slug: ['effective-remote-communication'],
       title: 'Effective Remote Communication for Dev Teams',
       excerpt: 'Soft skills matter. Strategies for async communication that keep international teams aligned and productive.',
       date: 'Aug 15, 2023',
+      content: '',
       category: 'Leadership',
       readTime: '5 min read'
    },
    {
       id: '4',
+      slug: ['monolith-to-micro-frontends'],
       title: 'From Monolith to Micro-Frontends',
       excerpt: 'A retrospective on breaking down a 5-year-old monolith. The good, the bad, and the ugly of module federation.',
       date: 'Jul 02, 2023',
+      content: '',
       category: 'Architecture',
       readTime: '15 min read'
    }
@@ -96,21 +104,7 @@ const Blog: React.FC = () => {
             </div>
 
             {/* Article Header */}
-            <header className="bg-ice-50 py-16 border-b border-slate-100">
-               <div className="container mx-auto px-6 max-w-4xl text-center">
-                  <div className="flex items-center justify-center gap-3 text-sm text-slate-500 mb-6 font-medium uppercase tracking-wide">
-                     <span className="text-brand-blue">{selectedPost.category}</span>
-                     <span>•</span>
-                     <span>{selectedPost.readTime}</span>
-                  </div>
-                  <h1 className="text-4xl md:text-6xl font-bold text-slate-900 mb-6 leading-tight">
-                     {selectedPost.title}
-                  </h1>
-                  <div className="flex items-center justify-center gap-2 text-slate-500 text-sm">
-                     <Calendar size={16} /> Posted on {selectedPost.date}
-                  </div>
-               </div>
-            </header>
+
 
             <div className="container mx-auto px-6 py-12 max-w-7xl">
                <div className="grid lg:grid-cols-12 gap-12 max-w-6xl mx-auto">

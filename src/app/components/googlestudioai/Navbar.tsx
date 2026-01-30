@@ -21,9 +21,9 @@ const Navbar: React.FC = () => {
   const openBooking = () => setIsModalOpen(true);
 
   const navLinks = [
-    { name: 'Home', href: '/' }
+    { name: 'Home', href: '/' },
     // { name: 'Digital Garden', href: '/digital-garden' },
-    // { name: 'Blog', href: '/blog' },
+    { name: 'Blog', href: '/blog' },
     // { name: 'Case Studies', href: '/cases' },
   ];
 

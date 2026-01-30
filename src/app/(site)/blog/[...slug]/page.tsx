@@ -19,12 +19,12 @@ export default async function BlogPost(props: { params: Promise<{ slug: string[]
     }
 
     return (
-        <div className="container mx-auto px-4 py-12 max-w-3xl">
+        <div className="container mx-auto px-4 py-12 max-w-3xl pt-32">
             <article className="prose lg:prose-xl mx-auto">
-                <h1 className="mb-2">{post.title}</h1>
+                {/*<h1 className="mb-2">{post.title}</h1>*/}
                 {post.date && (
                     <div className="text-sm text-base-content/60 mb-8">
-                        {new Date(post.date).toLocaleDateString()}
+                        {new Date(post.datePublished).toLocaleDateString()}
                     </div>
                 )}
                 <div className="markdown-content">

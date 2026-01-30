@@ -5,13 +5,9 @@ import matter from 'gray-matter';
 
 const contentDirectory = path.join(process.cwd(), 'content');
 
-export interface Post {
-    slug: string[];
-    title: string;
-    date?: string;
-    content: string;
-    [key: string]: any;
-}
+import { Post } from '@/app/lib/types';
+
+
 
 export async function getAllPosts(): Promise<Post[]> {
     // Recursively find all markdown files in contentDirectory
@@ -53,11 +49,11 @@ export async function getAllPosts(): Promise<Post[]> {
 
     // Sort posts by date if available
     return posts
+        .filter((post) => !post.draft)
         .sort((a, b) => {
-            if (a.date && b.date) {
-                return new Date(a.date).getTime() < new Date(b.date).getTime() ? 1 : -1;
-            }
-            return 0;
+            const dateA = a.datePublished ? new Date(a.datePublished).getTime() : (a.date ? new Date(a.date).getTime() : 0);
+            const dateB = b.datePublished ? new Date(b.datePublished).getTime() : (b.date ? new Date(b.date).getTime() : 0);
+            return dateB - dateA;
         });
 }
 
