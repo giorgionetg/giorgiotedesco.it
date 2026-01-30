@@ -32,7 +32,7 @@ const SelectedPostHeader = ({ selectedPost }: { selectedPost: BlogPost }) => {
                     <div className="flex items-center gap-4 text-sm text-slate-500 mb-4">
                         <span className="text-brand-blue font-bold">Engineering</span>
                         <span>•</span>
-                        <span className="flex items-center gap-1"><Calendar size={14} /> {new Date(selectedPost.datePublished).toLocaleDateString()}</span>
+                        <span className="flex items-center gap-1"><Calendar size={14} /> {new Date(selectedPost.datePublished || selectedPost.date || '').toLocaleDateString()}</span>
                     </div>
                     <h2 className="card-title text-3xl md:text-4xl font-bold text-slate-900 mb-4 group-hover:text-brand-blue transition-colors">
                         {selectedPost.title}
@@ -71,9 +71,9 @@ export default async function BlogIndex() {
                                         {post.title}
                                     </Link>
                                 </h2>
-                                {post.date && (
+                                {(post.datePublished || post.date) && (
                                     <div className="text-sm text-base-content/60">
-                                        {new Date(post.date).toLocaleDateString()}
+                                        {new Date(post.datePublished || post.date || '').toLocaleDateString()}
                                     </div>
                                 )}
                                 {post.excerpt && (

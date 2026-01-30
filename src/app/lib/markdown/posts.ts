@@ -30,7 +30,7 @@ export async function getAllPosts(): Promise<Post[]> {
 
     const files = await getFiles(contentDirectory);
 
-    const posts = await Promise.all(files.map(async (filePath) => {
+    const posts: Post[] = await Promise.all(files.map(async (filePath) => {
         const fileContents = await fs.readFile(filePath, 'utf8');
         const { data, content } = matter(fileContents);
 

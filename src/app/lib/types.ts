@@ -24,6 +24,7 @@ export interface Post {
   excerpt?: string;
   coverImage?: string;
   readingTime?: string; // Common field name, formerly readTime?
+  draft?: boolean;
   [key: string]: any;
 }
 
