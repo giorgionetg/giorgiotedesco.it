@@ -27,7 +27,7 @@ export default async function BlogPost(props: { params: Promise<{ slug: string[]
                     __html: JSON.stringify({
                         "@context": "https://schema.org",
                         "@type": "BlogPosting",
-                        "@id": `https://www.giorgiotedesco.it/blog/${post.slug.join('/')}#blogposting`,
+                        "@id": `https://www.giorgiotedesco.it/blog/${post.slug.join('/')}`,
                         "mainEntityOfPage": {
                             "@type": "WebPage",
                             "@id": `https://www.giorgiotedesco.it/blog/${post.slug.join('/')}`
@@ -41,12 +41,12 @@ export default async function BlogPost(props: { params: Promise<{ slug: string[]
                         "isAccessibleForFree": true,
                         "author": {
                             "@type": "Person",
-                            "@id": "https://www.giorgiotedesco.it/#person",
+                            "@id": "https://www.giorgiotedesco.it/about-me/",
                             "name": "Giorgio Tedesco"
                         },
                         "publisher": {
                             "@type": "Organization",
-                            "@id": "https://www.giorgiotedesco.it/#organization",
+                            "@id": "https://www.giorgiotedesco.it/",
                             "name": "Giorgio Tedesco",
                             "logo": {
                                 "@type": "ImageObject",
