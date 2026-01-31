@@ -9,8 +9,6 @@ datePublished: "2023-09-14T09:00:00+08:00"
 dateModified: "2020-12-22T09:00:00+08:00"
 ---
 
-# How this website is made
-
 ## Abstract
 
 To follow this little story I will have to going deep in some arguments. But I will try to stay easy long the way.
