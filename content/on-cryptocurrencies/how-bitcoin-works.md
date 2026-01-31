@@ -10,8 +10,6 @@ datePublished: "2020-09-05T09:00:00+08:00"
 dateModified: "2020-10-22T09:00:00+08:00"
 ---
 
-# How Bitcoin works
-
 ### Abstract
 
 All cryptocurrencies works at the almost same way. Cryptocurrencies are based on a [**Peer to Peer** (P2P) network](https://www.giorgiotedesco.com/the-blog/on-cryptocurrencies/what-is-a-p2p-network). Down here we cover multiple arguments inerhit how cryptocurrencies works:
