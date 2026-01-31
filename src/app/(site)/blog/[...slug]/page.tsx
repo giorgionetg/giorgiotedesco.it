@@ -27,30 +27,30 @@ export default async function BlogPost(props: { params: Promise<{ slug: string[]
                     __html: JSON.stringify({
                         "@context": "https://schema.org",
                         "@type": "BlogPosting",
-                        "@id": `https://giorgiotedesco.it/blog/${post.slug.join('/')}#blogposting`,
+                        "@id": `https://www.giorgiotedesco.it/blog/${post.slug.join('/')}#blogposting`,
                         "mainEntityOfPage": {
                             "@type": "WebPage",
-                            "@id": `https://giorgiotedesco.it/blog/${post.slug.join('/')}`
+                            "@id": `https://www.giorgiotedesco.it/blog/${post.slug.join('/')}`
                         },
                         "headline": post.title,
                         "description": post.excerpt || post.content.slice(0, 160).replace(/\n/g, ' '),
-                        "image": post.coverImage ? [`https://giorgiotedesco.it${post.coverImage}`] : [],
+                        "image": post.coverImage ? [`https://www.giorgiotedesco.it${post.coverImage}`] : [],
                         "datePublished": post.datePublished || post.date,
                         "dateModified": post.date || post.datePublished,
                         "inLanguage": "it-IT",
                         "isAccessibleForFree": true,
                         "author": {
                             "@type": "Person",
-                            "@id": "https://giorgiotedesco.it/#person",
+                            "@id": "https://www.giorgiotedesco.it/#person",
                             "name": "Giorgio Tedesco"
                         },
                         "publisher": {
                             "@type": "Organization",
-                            "@id": "https://giorgiotedesco.it/#organization",
+                            "@id": "https://www.giorgiotedesco.it/#organization",
                             "name": "Giorgio Tedesco",
                             "logo": {
                                 "@type": "ImageObject",
-                                "url": "https://giorgiotedesco.it/images/logo.png",
+                                "url": "https://www.giorgiotedesco.it/images/logo.png",
                                 "width": 512,
                                 "height": 512
                             }
