@@ -23,6 +23,7 @@ const Navbar: React.FC = () => {
   const navLinks = [
     { name: 'Home', href: '/' },
     // { name: 'Digital Garden', href: '/digital-garden' },
+    { name: 'About Me', href: '/about-me' },
     { name: 'Blog', href: '/blog' },
     // { name: 'Case Studies', href: '/cases' },
   ];
@@ -83,7 +84,6 @@ const Navbar: React.FC = () => {
         {isMobileMenuOpen && (
           <div className="md:hidden absolute top-full left-0 right-0 bg-white border-t border-slate-100 p-4 shadow-xl h-screen overflow-y-auto">
             <ul className="menu w-full gap-2 text-slate-600 text-lg">
-              <li><Link href="/" onClick={() => setIsMobileMenuOpen(false)}>Home</Link></li>
               {navLinks.map((link) => (
                 <li key={link.href}><Link href={link.href} onClick={() => setIsMobileMenuOpen(false)}>{link.name}</Link></li>
               ))}
