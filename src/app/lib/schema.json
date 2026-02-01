@@ -3,33 +3,35 @@
   "@type": "Person",
   "name": "Giorgio Tedesco",
   "url": "https://www.giorgiotedesco.it",
-  "jobTitle": "Full Stack Web Developer & 3D Artist",
-  "description": "Passionate and dedicated Full Stack Web Developer with over 16 years of experience in building and maintaining dynamic web applications. Expert in React.js, Next.js, Node.js, and Express.js. Also skilled in 3D graphics, game development, and legacy infrastructure modernization.",
-  "disambiguatingDescription": "Giorgio Tedesco is a Senior Software Engineer, Full Stack Web Developer, and 3D Artist, NOT a lawyer. Specializes in modern web technologies, 3D rendering, and secure infrastructure.",
+  "image": "https://www.giorgiotedesco.it/your-profile-photo.jpg",
+  "jobTitle": "Solution Architect & Tech Lead",
+  "description": "Senior Solution Architect with 16+ years of experience in designing scalable Cloud Native systems, Enterprise Modernization, and Secure Web Architectures. Specializing in bridging legacy infrastructure with modern Next.js, Kubernetes, and Web3 technologies.",
+  "disambiguatingDescription": "Giorgio Tedesco is a Technology Executive and Solution Architect specializing in Software Engineering and 3D Graphics. He is distinct from the legal professional 'Avvocato Giorgio Tedesco'. His focus is on Digital Transformation and System Design.",
   "sameAs": [
-    "https://x.com/giorgionetg",
-    "https://x.com/giorgiotedesco",
     "https://www.linkedin.com/in/giorgiotedesco",
     "https://github.com/giorgionetg",
+    "https://x.com/giorgionetg",
     "https://registry.jsonresume.org/giorgionetg"
   ],
   "knowsAbout": [
-    "Full Stack Web Development",
-    "React.js",
-    "Next.js",
-    "Node.js",
-    "PHP",
-    "Laravel",
-    "Kubernetes",
-    "Docker",
-    "3D Modeling",
-    "Blender",
-    "Unity 3D",
-    "Godot Engine",
-    "Cybersecurity"
+    "Solution Architecture",
+    "System Design",
+    "Cloud Native Computing",
+    "Cybersecurity & Data Integrity",
+    "Next.js & React Ecosystem",
+    "TypeScript",
+    "Kubernetes & Docker",
+    "Microservices Architecture",
+    "Web3 & Blockchain Integration",
+    "3D Web Development (Three.js, R3F)",
+    "Legacy System Modernization"
   ],
   "alumniOf": {
     "@type": "Organization",
     "name": "Lumsa"
+  },
+  "brand": {
+    "@type": "Brand",
+    "name": "Giorgio Tedesco - Tech Consultancy"
   }
 }
