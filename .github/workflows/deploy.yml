@@ -25,9 +25,18 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: "22"
-          cache: "yarn"
+          # RIMOSSO: cache: "yarn" 
+          # Disabilitando la cache, forziamo il download pulito delle dipendenze ogni volta.
+
+      # STEP AGGIUNTO: TABULA RASA
+      - name: Nuclear Clean
+        run: |
+          rm -rf .next out node_modules
+          echo "Cartelle di build e moduli eliminate."
 
       - name: Install dependencies
+        # Usa --no-lockfile o elimina yarn.lock prima se sospetti che il lockfile sia corrotto,
+        # ma di solito install è sufficiente dopo il rm -rf node_modules
         run: yarn install
 
       - name: Build
