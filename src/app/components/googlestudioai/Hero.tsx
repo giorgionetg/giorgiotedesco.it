@@ -35,8 +35,11 @@ const Hero: React.FC<HeroProps> = ({ onBookCall, onDownloadCV }) => {
             Based in Italy • Working Worldwide
           </div>
           <h1 className="text-5xl md:text-7xl font-bold text-slate-900 tracking-tight mb-8 leading-tight">
-            {heroData.title}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-blue to-cyan-500">Giorgio Tedesco</span>,
           </h1>
+          <h2 className="text-5xl md:text-7xl font-bold text-slate-900 tracking-tight mb-8 leading-tight">
+            {heroData.title}
+          </h2>
           <p className="text-xl text-slate-600 mb-12 max-w-2xl mx-auto leading-relaxed">
             {heroData.subtitle}
           </p>
