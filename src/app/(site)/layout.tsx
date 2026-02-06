@@ -24,8 +24,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-    title: "Giorgio Tedesco | Full Stack Web Developer & 3D Artist",
-    description: "Sviluppatore Web Full Stack specializzato in Laravel, WordPress e tecnologie 3D come Blender e Unity. Esperienza nella gestione DNS e infrastrutture web.",
+    title: "Giorgio Tedesco | Senior Solution Architect & Tech Lead",
+    description: "Senior Solution Architect with 16+ years of experience in designing scalable Cloud Native systems, Enterprise Modernization, and Secure Web Architectures. Specializing in bridging legacy infrastructure with modern Next.js, Kubernetes, and Web3 technologies.",
 };
 
 
