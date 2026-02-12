@@ -126,7 +126,6 @@ export default async function BlogPost(props: { params: Promise<{ slug: string[]
                 )}
 
                 <div className="markdown-content">
-                    {/* Consiglio: Per un blog tecnico, valuta l'uso di 'remark-gfm' per tabelle e 'rehype-highlight' per il codice */}
                     <ReactMarkdown>{post.content}</ReactMarkdown>
                 </div>
             </article>

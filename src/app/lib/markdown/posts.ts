@@ -76,6 +76,7 @@ export async function getPostBySlug(slug: string[]): Promise<Post | null> {
             content,
         };
     } catch (error) {
+        console.log(error);
         return null;
     }
 }
