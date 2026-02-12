@@ -1,6 +1,6 @@
 ---
-slug: from-architecht-to-a-job
-title: From Architecht to a Job
+slug: how-i-engineered-my-job-search-with-a-privacy-first-ai-pipeline-in-2024-summer
+title: How I Engineered My Job Search with a privacy-first AI Pipeline in 2024 Summer
 description: Beyond Web Scraping; Engineering an Intelligent, Privacy-First Pipeline for Targeted Job Hunting
 category: on-web-development
 tags: ["typescript", "supabase", "playwright", "ollama", "small LLM", "embedding LLM", "redis"]
