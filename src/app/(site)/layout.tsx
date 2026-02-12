@@ -1,6 +1,6 @@
 
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+
 
 import myschema from '@/app/lib/schema.json'
 
@@ -9,19 +9,7 @@ import "@/app/(site)/globals.css";
 import Navbar from "@/app/components/googlestudioai/Navbar";
 import Footer from "@/app/components/googlestudioai/Footer";
 
-import { Inter } from "next/font/google";
-
-const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
-
-const geistSans = Geist({
-    variable: "--font-geist-sans",
-    subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-    variable: "--font-geist-mono",
-    subsets: ["latin"],
-});
+import { inter, geistSans, geistMono } from "@/app/fonts";
 
 export const metadata: Metadata = {
     title: "Giorgio Tedesco | Senior Solution Architect & Tech Lead",
@@ -43,7 +31,7 @@ export default function Layout({
                 />
                 <script defer src="https://get.giorgiotedesco.it/script.js" data-website-id="177a1a7f-6206-4656-9668-88f9f69eb853"></script>
             </head>
-            <body className={`${inter.variable} font-sans text-slate-900 min-h-screen flex flex-col`}>
+            <body className={`${inter.variable} ${geistSans.variable} ${geistMono.variable} font-sans text-slate-900 min-h-screen flex flex-col`}>
                 {/* Architectural Grid Background implemented via CSS in layout or globals */}
                 <div className="fixed inset-0 -z-50 pointer-events-none opacity-100 bg-brand-ice"
                     style={{

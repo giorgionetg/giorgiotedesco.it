@@ -1,6 +1,6 @@
 
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { geistSans, geistMono } from "@/app/fonts";
 
 import myschema from '@/app/lib/schema.json'
 
@@ -10,16 +10,6 @@ import Navbar from "@/app/components/layouts/Navbar";
 import Footer from "../components/landing/footer";
 import MainBlock from "../components/layouts/MainBlock";
 import Sidebar from "../components/layouts/SideBar";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export const metadata: Metadata = {
   title: "Giorgio Tedesco | Full Stack Web Developer & 3D Artist",
