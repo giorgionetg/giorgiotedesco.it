@@ -3,7 +3,10 @@ import { getPostBySlug, getAllPosts } from '@/app/lib/markdown/posts';
 import ReactMarkdown from 'react-markdown';
 import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
+import BlogHeader from '@/app/components/googlestudioai/BlogHeader';
+import SideBar from '@/app/components/googlestudioai/SideBar';
 
+import BookingModal from "@/app/components/googlestudioai/BookingModal";
 // 1. Generazione statica dei percorsi
 export async function generateStaticParams() {
     const posts = await getAllPosts();
@@ -99,36 +102,41 @@ export default async function BlogPost(props: { params: Promise<{ slug: string[]
     };
 
     return (
-        <div className="container mx-auto px-4 py-12 max-w-3xl pt-32">
+        <>
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{
                     __html: JSON.stringify(jsonLd)
                 }}
             />
-            <article className="prose lg:prose-xl mx-auto dark:prose-invert">
-                {/* Aggiunto dark:prose-invert se usi tailwind typography col tema scuro */}
+            <BlogHeader title={post.title} written={new Date(post.datePublished || post.date || '').toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            })} category={post.category || 'Tech'} />
+            <div className="container mx-auto px-6 py-12 max-w-7xl bg-white/95 backdrop-blur-sm mb-10 rounded-lg shadow-lg">
+                <div className="grid lg:grid-cols-12 gap-12 max-w-6xl mx-auto">
+                    <main className="lg:col-span-12">
+                        <article className="pprose prose-lg prose-slate prose-headings:font-bold prose-headings:text-slate-900 prose-a:text-brand-blue max-w-none dark:prose-invert">
 
-                <h1 className="mb-2 text-4xl font-bold tracking-tight">{post.title}</h1>
-
-                {(post.datePublished || post.date) && (
-                    <div className="text-sm text-gray-500 dark:text-gray-400 mb-8 flex items-center gap-2">
-                        <time dateTime={post.datePublished || post.date}>
-                            {new Date(post.datePublished || post.date || '').toLocaleDateString('en-US', {
-                                year: 'numeric',
-                                month: 'long',
-                                day: 'numeric'
-                            })}
-                        </time>
-                        <span>•</span>
-                        <span>{post.category || 'Tech'}</span>
-                    </div>
-                )}
-
-                <div className="markdown-content">
-                    <ReactMarkdown>{post.content}</ReactMarkdown>
+                            <div className="markdown-content">
+                                <ReactMarkdown>{post.content}</ReactMarkdown>
+                            </div>
+                        </article>
+                        <div className="mt-16 bg-slate-50 p-6 rounded-xl border border-slate-100 flex items-center gap-4">
+                            <div className="avatar placeholder">
+                                <div className="bg-brand-blue text-white rounded-full w-16 h-16 flex items-center justify-center text-xl font-bold"><img src="/images/giorgiotedesco-ai-clone.png" alt="Giorgio Tedesco" className="rounded-full w-16 h-16 object-cover"/></div>
+                            </div>
+                            <div>
+                                <h4 className="font-bold text-slate-900">Giorgio Tedesco</h4>
+                                <p className="text-sm text-slate-600"><b>Solution Architect & Tech Lead</b>. Passionate about performance, DX, and clean code.</p>
+                            </div>
+                        </div>
+                    </main>
+                    {/*<SideBar />*/}
                 </div>
-            </article>
-        </div>
+            </div>
+            {/*<BookingModal isOpen={false}  /> */}
+        </>
     );
 }
