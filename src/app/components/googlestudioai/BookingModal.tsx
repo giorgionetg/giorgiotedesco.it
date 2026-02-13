@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { X, Briefcase, Building2, Calendar, ArrowRight } from 'lucide-react';
 import { UserType } from '@/app/lib/types';
