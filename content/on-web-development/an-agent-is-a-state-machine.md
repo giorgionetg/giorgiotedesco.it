@@ -9,9 +9,12 @@ datePublished: "2026-05-07T09:00:00+01:00"
 dateModified: "2026-06-01T09:00:00+01:00"
 ---
 
-# The new ABC of AI
+# An Agent Is a State Machine
+
+**Part I — From LangGraph to XState, before calling the LLM.**
 
 A deep dive into developing trhough Agent AI and LLM, from LangGraph to XState.
+
 
 **TLDR**: Agent Programming it's very expensive. It cost like a fullstack engineer.
 
