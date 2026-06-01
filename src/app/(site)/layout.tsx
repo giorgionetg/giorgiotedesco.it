@@ -5,6 +5,7 @@ import type { Metadata } from "next";
 import myschema from '@/app/lib/schema.json'
 
 import "@/app/(site)/globals.css";
+import 'highlight.js/styles/github-dark.css';
 
 import Navbar from "@/app/components/googlestudioai/Navbar";
 import Footer from "@/app/components/googlestudioai/Footer";

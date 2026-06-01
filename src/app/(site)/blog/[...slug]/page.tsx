@@ -1,10 +1,115 @@
 import React from 'react';
 import { getPostBySlug, getAllPosts } from '@/app/lib/markdown/posts';
 import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
 import BlogHeader from '@/app/components/googlestudioai/BlogHeader';
 import SideBar from '@/app/components/googlestudioai/SideBar';
+
+import rehypeHighlight from 'rehype-highlight';
+
+type MarkdownRendererProps = {
+  content: string;
+};
+
+export function MarkdownRenderer({ content }: MarkdownRendererProps) {
+  return (
+    <ReactMarkdown
+      remarkPlugins={[remarkGfm]}
+      rehypePlugins={[rehypeHighlight]}
+      components={{
+        pre({ children, ...props }) {
+          return (
+            <pre
+              {...props}
+              className="not-prose my-6 overflow-x-auto rounded-xl border border-slate-800 bg-slate-950 p-4 text-sm leading-6 shadow-lg"
+            >
+              {children}
+            </pre>
+          );
+        },
+
+        code({ className, children, ...props }) {
+          const isBlockCode =
+            className?.includes('language-') || className?.includes('hljs');
+
+          if (isBlockCode) {
+            return (
+              <code
+                {...props}
+                className={`${className ?? ''} font-mono text-sm`}
+              >
+                {children}
+              </code>
+            );
+          }
+
+          return (
+            <code
+              {...props}
+              className="rounded bg-slate-100 px-1.5 py-0.5 font-mono text-sm text-slate-900"
+            >
+              {children}
+            </code>
+          );
+        },
+
+        a({ children, href, ...props }) {
+          return (
+            <a
+              {...props}
+              href={href}
+              target={href?.startsWith('http') ? '_blank' : undefined}
+              rel={href?.startsWith('http') ? 'noopener noreferrer' : undefined}
+              className="font-medium text-brand-blue underline underline-offset-4"
+            >
+              {children}
+            </a>
+          );
+        },
+
+        table({ children, ...props }) {
+          return (
+            <div className="not-prose my-8 overflow-x-auto">
+              <table
+                {...props}
+                className="w-full border-collapse rounded-lg text-left text-sm"
+              >
+                {children}
+              </table>
+            </div>
+          );
+        },
+
+        th({ children, ...props }) {
+          return (
+            <th
+              {...props}
+              className="border border-slate-200 bg-slate-100 px-4 py-2 font-semibold text-slate-900"
+            >
+              {children}
+            </th>
+          );
+        },
+
+        td({ children, ...props }) {
+          return (
+            <td
+              {...props}
+              className="border border-slate-200 px-4 py-2 align-top text-slate-700"
+            >
+              {children}
+            </td>
+          );
+        },
+      }}
+    >
+      {content}
+    </ReactMarkdown>
+  );
+}
+
 
 import BookingModal from "@/app/components/googlestudioai/BookingModal";
 // 1. Generazione statica dei percorsi
@@ -120,7 +225,7 @@ export default async function BlogPost(props: { params: Promise<{ slug: string[]
                         <article className="pprose prose-lg prose-slate prose-headings:font-bold prose-headings:text-slate-900 prose-a:text-brand-blue max-w-none dark:prose-invert">
 
                             <div className="markdown-content">
-                                <ReactMarkdown>{post.content}</ReactMarkdown>
+                                <MarkdownRenderer content={post.content} />
                             </div>
                         </article>
                         <div className="mt-16 bg-slate-50 p-6 rounded-xl border border-slate-100 flex items-center gap-4">

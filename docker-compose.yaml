@@ -9,8 +9,11 @@ services:
       - NODE_ENV=dev
       - UID=1000
       - GID=1000
+      - WATCHPACK_POLLING=true
+      - CHOKIDAR_USEPOLLING=true
     user: "${UID}:${GID}"
     volumes:
+      - ./content:/app/content
       - ./src:/app/src
       - ./public:/app/public
       - ./package.json:/app/package.json
@@ -19,4 +22,7 @@ services:
       - /app/node_modules
     ports:
       - "3000:3000"
+    dns:
+      - 1.1.1.1
+      - 8.8.8.8
     command: yarn dev
