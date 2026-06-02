@@ -14,7 +14,6 @@ tags:
     "Jonathan Hale",
   ]
 links:
-image: epicRealismV5-on-my-job.png
 datePublished: "2023-09-16T09:00:00+08:00"
 dateModified: "2023-09-16T09:00:00+08:00"
 ---

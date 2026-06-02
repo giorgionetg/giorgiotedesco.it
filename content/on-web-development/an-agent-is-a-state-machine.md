@@ -4,7 +4,7 @@ title: "An Agent Is a State Machine"
 description: "Part I — From LangGraph to XState, before calling the LLM."
 category: on-web-development
 tags: ["devs", "llm", "agent", "LangGraph", "XState", "local-first"]
-image: patrick-fore-0_AX9pab940-unsplash.jpg
+image: /ai-images/chatgpt-20260601.png
 datePublished: "2026-05-07T09:00:00+01:00"
 dateModified: "2026-06-01T09:00:00+01:00"
 ---

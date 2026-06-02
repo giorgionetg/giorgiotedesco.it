@@ -4,7 +4,6 @@ title: How I Engineered My Job Search with a privacy-first AI Pipeline in 2024 S
 description: Beyond Web Scraping; Engineering an Intelligent, Privacy-First Pipeline for Targeted Job Hunting
 category: on-web-development
 tags: ["typescript", "supabase", "playwright", "ollama", "small LLM", "embedding LLM", "redis"]
-image: patrick-fore-0_AX9pab940-unsplash.jpg
 datePublished: "2026-02-01T09:00:00+08:00"
 dateModified: "2026-02-01T09:00:00+08:00"
 ---
