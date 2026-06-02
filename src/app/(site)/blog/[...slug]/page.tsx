@@ -221,8 +221,9 @@ export default async function BlogPost(props: { params: Promise<{ slug: string[]
             })} category={post.category || 'Tech'} />
             <div className="container mx-auto px-6 py-12 max-w-7xl bg-white/95 backdrop-blur-sm mb-10 rounded-lg shadow-lg">
                 <div className="grid lg:grid-cols-12 gap-12 max-w-6xl mx-auto">
+                    {/*<main className="lg:col-span-8 space-y-12">*/}
                     <main className="lg:col-span-12">
-                        <article className="pprose prose-lg prose-slate prose-headings:font-bold prose-headings:text-slate-900 prose-a:text-brand-blue max-w-none dark:prose-invert">
+                        <article className="prose prose-lg prose-slate prose-headings:font-bold prose-headings:text-slate-900 prose-a:text-brand-blue max-w-none dark:prose-invert">
 
                             <div className="markdown-content">
                                 <MarkdownRenderer content={post.content} />
@@ -241,7 +242,6 @@ export default async function BlogPost(props: { params: Promise<{ slug: string[]
                     {/*<SideBar />*/}
                 </div>
             </div>
-            {/*<BookingModal isOpen={false}  /> */}
         </>
     );
 }

@@ -18,16 +18,72 @@ const BlogHeader = () => {
     );
 }
 
+const CardArticle = ({ post }: { post: BlogPost }) => {
+  const href = `/blog/${post.slug.join('/')}`;
+  const date = post.datePublished || post.date;
+
+  return (
+    <article className="group relative min-h-[380px] overflow-hidden rounded-4xl shadow-xl border border-base-200 bg-base-200">
+      
+        <img
+          src={post.image || '/ai-images/gemini-gt-placeholder.jpg'}
+          alt={post.title}
+          className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+        />
+      
+
+      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/55 to-black/15" />
+
+      <div className="relative z-10 flex min-h-[380px] flex-col justify-end p-6 text-white">
+        <div className="mb-5">
+          {date && (
+            <div className="mb-2 text-sm text-white/70">
+              {new Date(date).toLocaleDateString('en-GB', {
+                day: 'numeric',
+                month: 'long',
+                year: 'numeric',
+              })}
+            </div>
+          )}
+
+          <h2 className="text-2xl font-bold leading-tight">
+            <Link href={href} className="hover:text-primary transition-colors">
+              {post.title}
+            </Link>
+          </h2>
+
+          {post.excerpt && (
+            <p className="mt-3 line-clamp-3 text-sm leading-relaxed text-white/80">
+              {post.excerpt}
+            </p>
+          )}
+        </div>
+
+        <Link href={href} className="btn btn-primary w-full rounded-full text-sm font-bold hover:bg-primary-focus transition-colors">
+          Read More
+        </Link>
+      </div>
+    </article>
+  );
+};
+
 const SelectedPostHeader = ({ selectedPost }: { selectedPost: BlogPost }) => {
     return (
         <div className="mb-12">
             <div
-                className="card lg:card-side bg-white shadow-xl border border-slate-100 overflow-hidden group cursor-pointer"
+                className="card lg:card-side bg-white shadow-xl border border-slate-100 overflow-hidden group cursor-pointer rounded-4xl"
             >
-                <figure className="lg:w-1/2 bg-slate-200 min-h-[300px] relative">
-                    <img src="https://picsum.photos/seed/tech/800/600" alt="Featured" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-                    <div className="absolute top-4 left-4 z-10 inline-flex items-center justify-center px-4 py-1.5 rounded-full bg-brand-orange text-white text-sm font-bold shadow-md w-fit h-fit leading-none">Featured</div>
-                </figure>
+                <figure className="relative h-[260px] md:h-[340px] lg:h-auto lg:w-1/2 bg-slate-200 overflow-hidden">
+                    <img
+                        src={selectedPost.image || '/ai-images/gemini-gt-placeholder.jpg'}
+                        alt={selectedPost.title}
+                        className="absolute inset-0 w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
+                    />
+
+                    <div className="absolute top-4 left-4 z-10 inline-flex items-center justify-center px-4 py-1.5 rounded-full bg-brand-orange text-white text-sm font-bold shadow-md w-fit h-fit leading-none">
+                        Featured
+                    </div>
+                    </figure>
                 <div className="card-body lg:w-1/2 justify-center p-8 md:p-12">
                     <div className="flex items-center gap-4 text-sm text-slate-500 mb-4">
                         <span className="text-brand-blue font-bold">Engineering</span>
@@ -56,36 +112,16 @@ export default async function BlogIndex() {
     let posts = await getAllPosts();
     let selected = posts[0];
     posts = posts.slice(1);
+    
     return (
         <>
             <BlogHeader />
             <div className="container mx-auto px-4 py-8 max-w-4xl">
                 <SelectedPostHeader selectedPost={selected} />
                 <h1 className="text-4xl text-center md:text-left font-bold mb-8">Latest Posts</h1>
-                <div className="grid gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     {posts.map((post) => (
-                        <article key={post.slug.join('/')} className="card bg-base-100 shadow-xl border border-base-200">
-                            <div className="card-body">
-                                <h2 className="card-title text-2xl">
-                                    <Link href={`/blog/${post.slug.join('/')}`} className="hover:text-primary transition-colors">
-                                        {post.title}
-                                    </Link>
-                                </h2>
-                                {(post.datePublished || post.date) && (
-                                    <div className="text-sm text-base-content/60">
-                                        {new Date(post.datePublished || post.date || '').toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}
-                                    </div>
-                                )}
-                                {post.excerpt && (
-                                    <p className="text-base-content/80 mt-2">{post.excerpt}</p>
-                                )}
-                                <div className="card-actions justify-end mt-4">
-                                    <Link href={`/blog/${post.slug.join('/')}`} className="btn btn-primary btn-sm">
-                                        Leggi
-                                    </Link>
-                                </div>
-                            </div>
-                        </article>
+                        <CardArticle key={post.slug.join('/')} post={post} />
                     ))}
                 </div>
             </div>
