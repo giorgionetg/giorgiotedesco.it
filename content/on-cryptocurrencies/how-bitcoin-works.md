@@ -5,7 +5,7 @@ description: A little description to discover how Bitcoin and other cryptocurren
 category: on-cryptocurrencies
 tags: ["bitcoin", "ethereum", "xrp", "erc20", "defi"]
 links:
-image: andre-francois-mckenzie-iGYiBhdNTpE-unsplash.jpg
+
 datePublished: "2020-09-05T09:00:00+08:00"
 dateModified: "2020-10-22T09:00:00+08:00"
 ---
