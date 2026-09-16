@@ -7,9 +7,10 @@ import Cal, { getCalApi } from "@calcom/embed-react";
 interface BookingModalProps {
   isOpen: boolean;
   onClose: () => void;
+  locale?: 'en' | 'it';
 }
 
-const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose }) => {
+const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose, locale = 'en' }) => {
   const [selectedType, setSelectedType] = useState<UserType | null>(null);
 
   useEffect(() => {
@@ -30,7 +31,7 @@ const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose }) => {
         {/* Header */}
         <div className="flex justify-between items-center p-6 border-b border-slate-100 bg-slate-50/50">
           <h3 className="font-bold text-lg text-slate-800">
-            {selectedType ? "Schedule a Meeting" : "Let's Connect"}
+            {selectedType ? (locale === 'it' ? 'Scegli un orario' : 'Schedule a Meeting') : (locale === 'it' ? 'Parliamone' : "Let's Connect")}
           </h3>
           <button onClick={onClose} className="btn btn-sm btn-circle btn-ghost text-slate-500">
             <X size={20} />
@@ -42,7 +43,7 @@ const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose }) => {
           {!selectedType ? (
             <div className="space-y-6">
               <p className="text-center text-slate-600 mb-8">
-                To better prepare for our conversation, please tell me who you represent.
+                {locale === 'it' ? 'Per preparare bene il confronto, dimmi chi rappresenti.' : 'To better prepare for our conversation, please tell me who you represent.'}
               </p>
 
               <div className="grid md:grid-cols-2 gap-4">
@@ -53,8 +54,8 @@ const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose }) => {
                   <div className="w-12 h-12 rounded-lg bg-blue-100 text-brand-blue flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                     <Briefcase size={24} />
                   </div>
-                  <h3 className="font-bold text-slate-900 text-lg mb-2">I'm a Recruiter</h3>
-                  <p className="text-sm text-slate-500">Looking for a Senior Engineer for an international role.</p>
+                  <h3 className="font-bold text-slate-900 text-lg mb-2">{locale === 'it' ? 'Sono un recruiter' : "I'm a Recruiter"}</h3>
+                  <p className="text-sm text-slate-500">{locale === 'it' ? 'Cerco un profilo senior per un ruolo o un progetto.' : 'Looking for a Senior Engineer for an international role.'}</p>
                 </button>
 
                 <button
@@ -64,8 +65,8 @@ const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose }) => {
                   <div className="w-12 h-12 rounded-lg bg-orange-100 text-brand-orange flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                     <Building2 size={24} />
                   </div>
-                  <h3 className="font-bold text-slate-900 text-lg mb-2">I represent a Company</h3>
-                  <p className="text-sm text-slate-500">Need a technical partner or consultant for a project.</p>
+                  <h3 className="font-bold text-slate-900 text-lg mb-2">{locale === 'it' ? "Rappresento un'azienda" : 'I represent a Company'}</h3>
+                  <p className="text-sm text-slate-500">{locale === 'it' ? 'Devo capire come affrontare un progetto o un problema digitale.' : 'Need a technical partner or consultant for a project.'}</p>
                 </button>
               </div>
             </div>
@@ -73,7 +74,7 @@ const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose }) => {
             <div className="h-full flex flex-col">
               <div className="px-4 py-2 border-b border-slate-100 flex items-center">
                 <button onClick={handleBack} className="btn btn-link btn-sm px-0 no-underline hover:no-underline text-slate-400 hover:text-slate-600 flex items-center gap-1">
-                  &larr; Back
+                  &larr; {locale === 'it' ? 'Indietro' : 'Back'}
                 </button>
               </div>
 

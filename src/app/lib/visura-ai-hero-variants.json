@@ -1,0 +1,86 @@
+{
+  "experiment_id": "visura-ai-hero-v1",
+  "canonical_variant_id": "visura-ai",
+  "variants": [
+    {
+      "id": "visura-ai",
+      "eyebrow": "VISURA AI DEL SITO",
+      "headline": "Prima di intervenire sul sito, guarda cosa sta già comunicando.",
+      "description": "Una diagnosi preliminare per leggere messaggio, struttura, SEO visibile e punti di contatto. Parti dall’URL: poi definiamo insieme ciò che vale la pena verificare.",
+      "cta": "Avvia la visura",
+      "microcopy": "Legge segnali pubblici. Non accede a traffico, vendite, Analytics o Search Console senza autorizzazione."
+    },
+    {
+      "id": "prima-lettura",
+      "eyebrow": "VISURA AI — PRIMA LETTURA",
+      "headline": "Prima di rifarlo, capisci dove il sito perde chiarezza.",
+      "description": "Una prima lettura per individuare messaggi poco chiari, azioni mancanti e aspetti SEO osservabili. Il risultato serve a scegliere il prossimo passo con più contesto.",
+      "cta": "Inizia la lettura",
+      "microcopy": "Non è una promessa automatica: la lettura parte da segnali pubblici e non sostituisce una revisione umana."
+    },
+    {
+      "id": "lettura-del-sito",
+      "eyebrow": "VISURA AI — LETTURA DEL SITO",
+      "headline": "Il sito racconta bene cosa fai, a chi e per quale motivo?",
+      "description": "Parti dal tuo URL per leggere il messaggio, il percorso di contatto e i segnali visibili prima di progettare un cambiamento più grande.",
+      "cta": "Leggi il mio sito",
+      "microcopy": "La lettura considera ciò che è pubblico. Dati di traffico, vendite e conversioni richiedono accesso autorizzato."
+    },
+    {
+      "id": "segnali-web",
+      "eyebrow": "VISURA AI — SEGNALI WEB",
+      "headline": "Dal sito emergono segnali: il punto è capire quali contano.",
+      "description": "La visura mette in ordine messaggio, struttura, SEO visibile e punti di contatto per separare ciò che è già chiaro da ciò che merita verifica.",
+      "cta": "Osserva i segnali",
+      "microcopy": "Nessun accesso automatico a strumenti proprietari: la base iniziale è costituita da segnali pubblici."
+    },
+    {
+      "id": "punto-zero",
+      "eyebrow": "VISURA AI — PUNTO ZERO",
+      "headline": "Prima di investire nel sito, stabilisci il punto da cui parti.",
+      "description": "Inserisci l’URL e il contesto. La visura prepara una prima mappa di ciò che il sito comunica e delle priorità da discutere.",
+      "cta": "Definisci il punto zero",
+      "microcopy": "È una diagnosi preliminare, non una previsione su ranking, lead o fatturato."
+    },
+    {
+      "id": "mappa-del-sito",
+      "eyebrow": "VISURA AI — MAPPA DEL SITO",
+      "headline": "Per cambiare il sito con criterio, prima mappa ciò che c’è.",
+      "description": "Una lettura iniziale di pagine, messaggio, azioni e SEO visibile per capire dove il percorso del visitatore è chiaro e dove si interrompe.",
+      "cta": "Mappa il mio sito",
+      "microcopy": "La mappa nasce dalle pagine pubbliche e indica priorità da approfondire, non risultati garantiti."
+    },
+    {
+      "id": "quadro-digitale",
+      "eyebrow": "VISURA AI — QUADRO DIGITALE",
+      "headline": "Ricomponi il quadro prima di scegliere cosa cambiare.",
+      "description": "La visura riunisce i segnali pubblici del sito in una prima lettura: offerta, contatto, struttura e aspetti SEO osservabili.",
+      "cta": "Guarda il quadro",
+      "microcopy": "I dati non pubblici restano fuori dalla lettura finché non vengono forniti con autorizzazione."
+    },
+    {
+      "id": "sito-in-chiaro",
+      "eyebrow": "VISURA AI — SITO IN CHIARO",
+      "headline": "Rendi leggibile il tuo sito prima di chiedergli di convertire.",
+      "description": "Parti dall’URL per capire se offerta, contenuti e inviti al contatto danno al visitatore le informazioni necessarie per scegliere.",
+      "cta": "Metti il sito in chiaro",
+      "microcopy": "La visura non misura conversioni o traffico senza strumenti e autorizzazioni specifiche."
+    },
+    {
+      "id": "orientamento-web",
+      "eyebrow": "VISURA AI — ORIENTAMENTO WEB",
+      "headline": "Se non sai da dove cominciare, comincia da ciò che il sito mostra già.",
+      "description": "Una prima lettura per orientare il prossimo intervento: chiarire l’offerta, costruire il contatto o verificare prima di investire.",
+      "cta": "Trova il prossimo passo",
+      "microcopy": "Ricevi indicazioni iniziali basate su segnali pubblici; la valutazione progettuale resta una scelta umana."
+    },
+    {
+      "id": "check-di-partenza",
+      "eyebrow": "VISURA AI — CHECK DI PARTENZA",
+      "headline": "Prima di modificare pagine e campagne, fai un check di partenza.",
+      "description": "La visura osserva il sito come lo vede un visitatore: messaggio, struttura, SEO visibile e inviti a proseguire il contatto.",
+      "cta": "Fai il check",
+      "microcopy": "Non sostituisce Analytics, Search Console o una revisione umana: chiarisce cosa vale la pena verificare."
+    }
+  ]
+}
