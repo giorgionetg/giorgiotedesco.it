@@ -17,6 +17,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
         { url: url('/about-me'), lastModified },
         { url: url('/blog'), lastModified },
+        { url: url('/it/servizi/visura-ai'), lastModified },
         //{ url: url('/credits'), lastModified },
         //{ url: url('/privacy'), lastModified },
         { url: url('/blog/on-web-development/how-this-website-is-made'), lastModified },
