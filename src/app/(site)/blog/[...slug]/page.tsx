@@ -8,6 +8,7 @@ import BlogHeader from '@/app/components/googlestudioai/BlogHeader';
 import SideBar from '@/app/components/googlestudioai/SideBar';
 
 import rehypeHighlight from 'rehype-highlight';
+import { absoluteUrl, pageMetadata, postImage, siteIdentity } from '@/app/lib/seo';
 
 type MarkdownRendererProps = {
   content: string;
@@ -129,33 +130,15 @@ export async function generateMetadata(props: { params: Promise<{ slug: string[]
     if (!post) return {};
 
     const title = `${post.title} | Giorgio Tedesco`;
-    const description = post.excerpt || post.content.slice(0, 160).replace(/\n/g, ' ') + '...';
-    const url = `https://www.giorgiotedesco.it/blog/${params.slug.join('/')}`;
-    const images = post.coverImage ? [`https://www.giorgiotedesco.it${post.coverImage}`] : [];
-
-    return {
+    const description = post.description || post.excerpt || post.content.slice(0, 160).replace(/\n/g, ' ') + '...';
+    return pageMetadata({
         title,
         description,
-        alternates: {
-            canonical: url,
-        },
-        openGraph: {
-            title,
-            description,
-            url,
-            type: 'article',
-            publishedTime: post.datePublished || post.date,
-            authors: ['Giorgio Tedesco'],
-            images: images.map(img => ({ url: img })),
-        },
-        twitter: {
-            card: 'summary_large_image',
-            title,
-            description,
-            images,
-            creator: '@giorgionetg', // Il tuo handle Twitter corretto
-        },
-    };
+        path: `/blog/${params.slug.join('/')}/`,
+        type: 'article',
+        image: postImage(post),
+        publishedTime: post.datePublished || post.date,
+    });
 }
 
 // 3. Componente Pagina
@@ -168,42 +151,30 @@ export default async function BlogPost(props: { params: Promise<{ slug: string[]
     }
 
     // URL Stabile per l'ID univoco
-    const pageUrl = `https://www.giorgiotedesco.it/blog/${params.slug.join('/')}`;
+    const pageUrl = absoluteUrl(`/blog/${params.slug.join('/')}/`);
+    const image = postImage(post);
 
     // Schema LD strutturato per collegarsi alla tua identità "Architect"
     const jsonLd = {
         "@context": "https://schema.org",
-        "@type": "BlogPosting",
-        "@id": pageUrl,
-        "mainEntityOfPage": {
-            "@type": "WebPage",
-            "@id": pageUrl
-        },
-        "headline": post.title,
-        "description": post.excerpt || post.content.slice(0, 160).replace(/["\n]/g, ' '),
-        "image": post.coverImage ? [`https://www.giorgiotedesco.it${post.coverImage}`] : [],
-        "datePublished": post.datePublished || post.date,
-        "dateModified": post.date || post.datePublished,
-        "inLanguage": "en-US", // CORRETTO: Lingua inglese
-        "isAccessibleForFree": true,
-        "author": {
-            "@type": "Person",
-            "@id": "https://www.giorgiotedesco.it", // COLLEGA alla Home Page (la fonte della tua autorità)
-            "name": "Giorgio Tedesco",
-            "url": "https://www.giorgiotedesco.it",
-            "jobTitle": "Solution Architect & Tech Lead" // Coerenza con il nuovo Brand
-        },
-        "publisher": {
-            "@type": "Organization",
-            "name": "Giorgio Tedesco - Tech Consultancy",
-            "logo": {
-                "@type": "ImageObject",
-                "url": "https://www.giorgiotedesco.it/images/logo.png" // Assicurati che esista
-            }
-        },
-        "keywords": post.keywords || ["System Architecture", "Web Development"],
-        "articleSection": post.category || "Tech Blog",
-        "wordCount": post.content.split(/\s+/).length
+        "@graph": [{
+            "@type": "BlogPosting",
+            "@id": `${pageUrl}#blogposting`,
+            "mainEntityOfPage": { "@id": pageUrl },
+            "url": pageUrl,
+            "headline": post.title,
+            "description": post.description || post.excerpt || post.content.slice(0, 160).replace(/["\n]/g, ' '),
+            ...(image ? { "image": [absoluteUrl(image)] } : {}),
+            "datePublished": post.datePublished || post.date,
+            "dateModified": post.dateModified || post.date || post.datePublished,
+            "inLanguage": "en",
+            "isAccessibleForFree": true,
+            "author": { "@id": siteIdentity.personId },
+            "publisher": { "@id": siteIdentity.personId },
+            "keywords": post.keywords || post.tags,
+            "articleSection": post.category || "Tech Blog",
+            "wordCount": post.content.split(/\s+/).length
+        }]
     };
 
     return (

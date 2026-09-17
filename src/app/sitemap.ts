@@ -1,4 +1,5 @@
 import type { MetadataRoute } from 'next'
+import { getAllPosts } from '@/app/lib/markdown/posts'
 
 export const dynamic = 'force-static' // utile per static export
 
@@ -9,21 +10,19 @@ function url(path: string) {
     return `${SITE}${path.endsWith('/') ? path : `${path}/`}`
 }
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const lastModified = new Date()
+    const posts = await getAllPosts()
 
     return [
         { url: url('/'), lastModified },
 
-        { url: url('/about-me'), lastModified },
-        { url: url('/blog'), lastModified },
+        { url: url('/about-me/'), lastModified },
+        { url: url('/blog/'), lastModified },
         { url: url('/it/servizi/visura-ai'), lastModified },
-        //{ url: url('/credits'), lastModified },
-        //{ url: url('/privacy'), lastModified },
-        { url: url('/blog/on-web-development/how-this-website-is-made'), lastModified },
-        { url: url('/blog/on-web-development/on-my-job-in-wonderland'), lastModified },
-        { url: url('/blog/on-cryptocurrencies/how-bitcoin-works'), lastModified },
-
-        // niente 404 in sitemap
+        ...posts.map((post) => ({
+            url: url(`/blog/${post.slug.join('/')}`),
+            lastModified: post.dateModified || post.datePublished || post.date || lastModified,
+        })),
     ]
 }

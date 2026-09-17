@@ -3,6 +3,14 @@ import { getAllPosts } from '@/app/lib/markdown/posts';
 import { Clock, Calendar, ArrowLeft, Linkedin, Twitter, Mail, ArrowRight, TrendingUp } from 'lucide-react';
 
 import { BlogPost } from '@/app/lib/types';
+import type { Metadata } from 'next';
+import { pageMetadata } from '@/app/lib/seo';
+
+export const metadata: Metadata = pageMetadata({
+    title: 'Tech Blog | Giorgio Tedesco',
+    description: 'Engineering notes from Giorgio Tedesco on software architecture, performance, infrastructure and modern web development.',
+    path: '/blog/',
+});
 
 const BlogHeader = () => {
     return (

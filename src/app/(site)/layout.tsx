@@ -1,8 +1,7 @@
 
 import type { Metadata } from "next";
 
-
-import myschema from '@/app/lib/schema.json'
+import { siteIdentity } from '@/app/lib/seo';
 
 import "@/app/(site)/globals.css";
 import 'highlight.js/styles/github-dark.css';
@@ -13,8 +12,9 @@ import Footer from "@/app/components/googlestudioai/Footer";
 import { inter, geistSans, geistMono } from "@/app/fonts";
 
 export const metadata: Metadata = {
-    title: "Giorgio Tedesco | Senior Solution Architect & Tech Lead",
-    description: "Senior Solution Architect with 16+ years of experience in designing scalable Cloud Native systems, Enterprise Modernization, and Secure Web Architectures. Specializing in bridging legacy infrastructure with modern Next.js, Kubernetes, and Web3 technologies.",
+    metadataBase: new URL('https://www.giorgiotedesco.it'),
+    title: siteIdentity.title,
+    description: siteIdentity.description,
 };
 
 
@@ -26,10 +26,6 @@ export default function Layout({
     return (
         <html lang="en" data-theme="light">
             <head>
-                <script
-                    type="application/ld+json"
-                    dangerouslySetInnerHTML={{ __html: JSON.stringify(myschema) }}
-                />
                 <script defer src="https://get.giorgiotedesco.it/script.js" data-website-id="177a1a7f-6206-4656-9668-88f9f69eb853"></script>
             </head>
             <body className={`${inter.variable} ${geistSans.variable} ${geistMono.variable} font-sans text-slate-900 min-h-screen flex flex-col`}>

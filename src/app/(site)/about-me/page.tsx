@@ -1,18 +1,14 @@
-'use client';
+import type { Metadata } from 'next';
+import AboutMeClient from '@/app/components/googlestudioai/AboutMeClient';
+import { pageMetadata } from '@/app/lib/seo';
 
-import AboutFull from "@/app/components/googlestudioai/AboutFull";
-import { useState } from 'react';
-import BookingModal from "@/app/components/googlestudioai/BookingModal";
+export const metadata: Metadata = pageMetadata({
+    title: 'About Giorgio Tedesco | Solution Architect & Tech Lead',
+    description: 'Learn about Giorgio Tedesco, a Senior Solution Architect and Tech Lead focused on scalable, secure software systems and modern engineering practices.',
+    path: '/about-me/',
+});
 
 
 export default function AboutMe() {
-    const [isModalOpen, setIsModalOpen] = useState(false);
-
-    return (
-        <div>
-            {/* <h1>About Me</h1> header removed as it might be redundant with AboutFull's own header, or we can keep it hidden */}
-            <AboutFull onBookCall={() => setIsModalOpen(true)} />
-            <BookingModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
-        </div>
-    );
+    return <AboutMeClient />;
 }
