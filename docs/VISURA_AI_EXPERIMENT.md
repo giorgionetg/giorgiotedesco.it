@@ -22,7 +22,7 @@ La collection deve consentire solo create pubblico, con validazione lato PocketB
 
 ## Verifica prima della pubblicazione
 
-1. In `.env.local` impostare `NEXT_PUBLIC_POCKETBASE_URL` all'istanza PocketBase; il file non va versionato. `.env.example` documenta il nome della variabile.
+1. In locale impostare `NEXT_PUBLIC_POCKETBASE_URL` in `.env` o `.env.local`; il file non va versionato. `.env.example` documenta il nome della variabile. Prima di pubblicare, creare in GitHub Actions la repository variable `NEXT_PUBLIC_POCKETBASE_URL`: il workflow interrompe la build con un errore esplicito se manca.
 2. Controllare che le collection `visura_ai_requests` e `visura_ai_events` consentano Create pubblico e non espongano List/View al pubblico.
 3. Inviare una richiesta di prova con consenso di servizio attivo e controllare che il record riporti `variant_id`, `request_status: new` e `discount_code`.
 4. Verificare che un URL variante (`/it/servizi/visura-ai/<id>/`) salvi lo stesso `<id>` sia nella richiesta sia negli eventi. La route principale salva `visura-ai`.

@@ -40,7 +40,12 @@ jobs:
         run: yarn install
 
       - name: Build
-        run: yarn build
+        env:
+          # Browser configuration supplied by the repository, never hard-coded here.
+          NEXT_PUBLIC_POCKETBASE_URL: ${{ vars.NEXT_PUBLIC_POCKETBASE_URL }}
+        run: |
+          test -n "$NEXT_PUBLIC_POCKETBASE_URL" || { echo "Missing repository variable: NEXT_PUBLIC_POCKETBASE_URL" >&2; exit 1; }
+          yarn build
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3.0.1
