@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 
-export const siteUrl = 'https://www.giorgiotedesco.it';
+export const siteUrl = 'https://giorgiotedesco.it';
 
 export const siteIdentity = {
   name: 'Giorgio Tedesco',

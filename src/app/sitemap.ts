@@ -3,7 +3,7 @@ import { getAllPosts } from '@/app/lib/markdown/posts'
 
 export const dynamic = 'force-static' // utile per static export
 
-const SITE = 'https://www.giorgiotedesco.it'
+const SITE = 'https://giorgiotedesco.it'
 
 function url(path: string) {
     if (path === '/') return `${SITE}/`

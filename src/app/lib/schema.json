@@ -3,12 +3,12 @@
   "@graph": [
     {
       "@type": "Person",
-      "@id": "https://www.giorgiotedesco.it/#person",
-      "url": "https://www.giorgiotedesco.it/",
+      "@id": "https://giorgiotedesco.it/#person",
+      "url": "https://giorgiotedesco.it/",
       "name": "Giorgio Tedesco",
       "givenName": "Giorgio",
       "familyName": "Tedesco",
-      "image": "https://www.giorgiotedesco.it/images/giorgiotedesco-ai-clone.png",
+      "image": "https://giorgiotedesco.it/images/giorgiotedesco-ai-clone.png",
       "jobTitle": "Solution Architect & Tech Lead",
       "description": "Senior Solution Architect with 16+ years of experience in designing scalable Cloud Native systems, Enterprise Modernization, and Secure Web Architectures. Specializing in bridging legacy infrastructure with modern Next.js, Kubernetes, and Web3 technologies.",
       "disambiguatingDescription": "Giorgio Tedesco is a technology executive and solution architect specializing in software engineering and 3D graphics, distinct from the legal professional Avvocato Giorgio Tedesco.",
@@ -38,22 +38,22 @@
     },
     {
       "@type": "WebSite",
-      "@id": "https://www.giorgiotedesco.it/#website",
-      "url": "https://www.giorgiotedesco.it/",
+      "@id": "https://giorgiotedesco.it/#website",
+      "url": "https://giorgiotedesco.it/",
       "name": "Giorgio Tedesco",
       "description": "Senior Solution Architect with 16+ years of experience in designing scalable Cloud Native systems, Enterprise Modernization, and Secure Web Architectures.",
       "inLanguage": "en",
-      "publisher": { "@id": "https://www.giorgiotedesco.it/#person" }
+      "publisher": { "@id": "https://giorgiotedesco.it/#person" }
     },
     {
       "@type": "WebPage",
-      "@id": "https://www.giorgiotedesco.it/#webpage",
-      "url": "https://www.giorgiotedesco.it/",
+      "@id": "https://giorgiotedesco.it/#webpage",
+      "url": "https://giorgiotedesco.it/",
       "name": "Giorgio Tedesco | Senior Solution Architect & Tech Lead",
       "description": "Senior Solution Architect with 16+ years of experience in designing scalable Cloud Native systems, Enterprise Modernization, and Secure Web Architectures. Specializing in bridging legacy infrastructure with modern Next.js, Kubernetes, and Web3 technologies.",
-      "isPartOf": { "@id": "https://www.giorgiotedesco.it/#website" },
-      "about": { "@id": "https://www.giorgiotedesco.it/#person" },
-      "mainEntity": { "@id": "https://www.giorgiotedesco.it/#person" },
+      "isPartOf": { "@id": "https://giorgiotedesco.it/#website" },
+      "about": { "@id": "https://giorgiotedesco.it/#person" },
+      "mainEntity": { "@id": "https://giorgiotedesco.it/#person" },
       "inLanguage": "en"
     }
   ]

@@ -12,7 +12,7 @@ import Footer from "@/app/components/googlestudioai/Footer";
 import { inter, geistSans, geistMono } from "@/app/fonts";
 
 export const metadata: Metadata = {
-    metadataBase: new URL('https://www.giorgiotedesco.it'),
+    metadataBase: new URL('https://giorgiotedesco.it'),
     title: siteIdentity.title,
     description: siteIdentity.description,
 };

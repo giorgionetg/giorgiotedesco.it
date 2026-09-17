@@ -18,7 +18,7 @@ export async function generateMetadata({ params }: { params: Promise<{ variant: 
   return {
     title: `Anteprima — ${variant.eyebrow} | Giorgio Tedesco`,
     description: variant.description,
-    alternates: { canonical: 'https://www.giorgiotedesco.it/it/servizi/visura-ai/' },
+    alternates: { canonical: 'https://giorgiotedesco.it/it/servizi/visura-ai/' },
     robots: { index: false, follow: false },
   };
 }
