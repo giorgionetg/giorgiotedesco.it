@@ -54,6 +54,8 @@ export type VisuraAiRequest = {
   websiteUrl: string;
   interventionType: string;
   intendedOutcome: string;
+  fullName: string;
+  noSiteContext: string;
   phoneNumber: string;
   privacyAccepted: boolean;
   marketingAccepted: boolean;
@@ -74,6 +76,8 @@ export async function submitVisuraAiRequest(request: VisuraAiRequest, variantId 
       website_url: request.websiteUrl,
       intervention_type: request.interventionType,
       intended_outcome: request.intendedOutcome,
+      fullname: request.fullName,
+      no_site_context: request.noSiteContext,
       phone_number: request.phoneNumber,
       consent_service: request.privacyAccepted,
       consent_marketing: request.marketingAccepted,

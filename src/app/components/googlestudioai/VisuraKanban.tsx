@@ -21,9 +21,11 @@ export default function VisuraKanban({ variantId }: VisuraKanbanProps) {
   const [websiteUrl, setWebsiteUrl] = useState('');
   const [interventionType, setInterventionType] = useState('Valutare prima di investire');
   const [intendedOutcome, setIntendedOutcome] = useState('');
+  const [fullName, setFullName] = useState('');
+  const [noSiteContext, setNoSiteContext] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
   const [urlError, setUrlError] = useState('');
-  const [phoneError, setPhoneError] = useState('');
+  const [contactError, setContactError] = useState('');
   const [discountCode, setDiscountCode] = useState<string | null>(null);
   const [isCodeCopied, setIsCodeCopied] = useState(false);
   const [privacyAccepted, setPrivacyAccepted] = useState(false);
@@ -78,11 +80,19 @@ export default function VisuraKanban({ variantId }: VisuraKanbanProps) {
 
   const submitPhone = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    if (phoneNumber.replace(/\D/g, '').length < 8) {
-      setPhoneError('Inserisci un numero di cellulare valido.');
+    if (!fullName.trim()) {
+      setContactError('Inserisci nome e cognome.');
       return;
     }
-    setPhoneError('');
+    if (websiteAvailability === 'no-site' && !noSiteContext.trim()) {
+      setContactError('Racconta brevemente la tua attività e cosa vorresti realizzare.');
+      return;
+    }
+    if (phoneNumber.replace(/\D/g, '').length < 8) {
+      setContactError('Inserisci un numero di cellulare valido.');
+      return;
+    }
+    setContactError('');
     setStep(3);
   };
 
@@ -98,6 +108,8 @@ export default function VisuraKanban({ variantId }: VisuraKanbanProps) {
         websiteUrl,
         interventionType,
         intendedOutcome,
+        fullName,
+        noSiteContext,
         phoneNumber,
         privacyAccepted,
         marketingAccepted,
@@ -114,7 +126,7 @@ export default function VisuraKanban({ variantId }: VisuraKanbanProps) {
   };
 
   return (
-    <section id="avvia-visura" tabIndex={-1} className="scroll-mt-24 overflow-x-hidden border-y border-slate-200 bg-slate-50 py-12 outline-none sm:py-24">
+    <section id="avvia-visura" tabIndex={-1} className="scroll-mt-24 overflow-x-hidden border-y border-slate-200 bg-transparent py-12 outline-none sm:py-24">
       <div className="mx-auto w-full max-w-6xl px-5 sm:px-8">
         <div className="w-full lg:max-w-2xl">
           <p className="font-mono text-xs font-medium uppercase tracking-[0.16em] text-slate-500">Avvia una diagnosi preliminare</p>
@@ -191,14 +203,20 @@ export default function VisuraKanban({ variantId }: VisuraKanbanProps) {
             <AnimatePresence mode="wait">
               {step === 2 ? (
                 <motion.form key="phone-form" initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }} onSubmit={submitPhone} className="mt-6 max-w-xl">
-                  <p className="leading-relaxed text-slate-600">La diagnosi preliminare è avviata. Lascia un numero di cellulare: ti ricontatterò via call per inquadrare i segnali emersi e il contesto della tua impresa.</p>
-                  <label htmlFor="kanban-phone" className="mt-6 block font-medium text-slate-800">Numero di cellulare</label>
-                  <div className={`mt-3 flex items-center rounded-xl border bg-white p-1.5 ${phoneError ? 'border-red-500' : 'border-slate-300 focus-within:border-brand-blue focus-within:ring-2 focus-within:ring-blue-100'}`}>
+                  <p className="leading-relaxed text-slate-600">La diagnosi preliminare è avviata. Lascia i tuoi riferimenti: ti ricontatterò via call per inquadrare i segnali emersi e il contesto della tua impresa.</p>
+                  <label htmlFor="kanban-fullname" className="mt-6 block font-medium text-slate-800">Nome e cognome</label>
+                  <input id="kanban-fullname" type="text" autoComplete="name" required value={fullName} onChange={(event) => setFullName(event.target.value)} placeholder="Mario Rossi" className="input mt-3 w-full border-slate-300 bg-white text-slate-900 placeholder:text-slate-400 focus:border-brand-blue focus:outline-none" />
+                  {websiteAvailability === 'no-site' && <div className="mt-5">
+                    <label htmlFor="no-site-context" className="block font-medium text-slate-800">Raccontami brevemente cosa fai e cosa vorresti realizzare</label>
+                    <textarea id="no-site-context" required value={noSiteContext} onChange={(event) => setNoSiteContext(event.target.value)} rows={4} placeholder="Settore, attività, obiettivo o esigenza iniziale…" className="textarea mt-3 min-h-32 w-full resize-y border-slate-300 bg-white text-slate-900 placeholder:text-slate-400 focus:border-brand-blue focus:outline-none" />
+                  </div>}
+                  <label htmlFor="kanban-phone" className="mt-5 block font-medium text-slate-800">Numero di cellulare</label>
+                  <div className={`mt-3 flex items-center rounded-xl border bg-white p-1.5 ${contactError ? 'border-red-500' : 'border-slate-300 focus-within:border-brand-blue focus-within:ring-2 focus-within:ring-blue-100'}`}>
                     <Phone size={18} className="ml-3 text-slate-500" aria-hidden="true" />
                     <input id="kanban-phone" type="tel" inputMode="tel" autoComplete="tel" value={phoneNumber} onChange={(event) => setPhoneNumber(event.target.value)} placeholder="333 123 4567" className="min-w-0 flex-1 bg-transparent px-3 py-2 text-lg text-slate-900 outline-none placeholder:text-slate-400" />
                     <button type="submit" className="btn border-none bg-brand-blue px-5 font-bold text-white hover:bg-blue-700">Continua</button>
                   </div>
-                  {phoneError && <p className="mt-2 text-sm text-red-700">{phoneError}</p>}
+                  {contactError && <p className="mt-2 text-sm text-red-700">{contactError}</p>}
                 </motion.form>
               ) : step > 2 ? (
                 <motion.p key="phone-done" initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="mt-5 text-sm text-slate-600">Numero inserito. In attesa della conferma finale.</motion.p>
@@ -220,7 +238,7 @@ export default function VisuraKanban({ variantId }: VisuraKanbanProps) {
                   {!isRequestConfirmed && <div className="mt-5 space-y-3 border-t border-slate-200 pt-5 text-sm leading-relaxed text-slate-600">
                     <label className="flex cursor-pointer items-start gap-3">
                       <input type="checkbox" checked={privacyAccepted} onChange={(event) => setPrivacyAccepted(event.target.checked)} className="checkbox checkbox-sm mt-0.5 border-slate-400 [--chkbg:var(--color-brand-blue)] [--chkfg:white]" />
-                      <span>Ho letto l’informativa privacy e autorizzo il trattamento di URL e numero di cellulare per gestire questa richiesta e ricontattarmi.</span>
+                      <span>Ho letto l’informativa privacy e autorizzo il trattamento di nome, URL o descrizione dell’attività e numero di cellulare per gestire questa richiesta e ricontattarmi.</span>
                     </label>
                     <label className="flex cursor-pointer items-start gap-3">
                       <input type="checkbox" checked={marketingAccepted} onChange={(event) => setMarketingAccepted(event.target.checked)} className="checkbox checkbox-sm mt-0.5 border-slate-400 [--chkbg:var(--color-brand-blue)] [--chkfg:white]" />

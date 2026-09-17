@@ -14,11 +14,11 @@ Configurare `NEXT_PUBLIC_POCKETBASE_URL`. Il client invia `POST /api/collections
 
 La collection `visura_ai_events` deve consentire soltanto la creazione pubblica, validare `event_name` (`hero_view`, `hero_cta_click`, `visura_start`) e non esporre regole list/view pubbliche.
 
-Alla conferma il form invia anche `POST /api/collections/visura_ai_requests/records`. La collection deve avere almeno: `service_type`, `variant_id`, `website_availability`, `website_url`, `intervention_type`, `intended_outcome`, `phone_number`, `consent_service`, `consent_marketing`, `discount_code`, `request_status` e `submitted_at`.
+Alla conferma il form invia anche `POST /api/collections/visura_ai_requests/records`. La collection deve avere almeno: `service_type`, `variant_id`, `website_availability`, `website_url`, `intervention_type`, `intended_outcome`, `fullname`, `no_site_context`, `phone_number`, `consent_service`, `consent_marketing`, `discount_code`, `request_status` e `submitted_at`.
 
 Il client invia sempre `request_status: "new"`: il campo puo quindi essere Required nella collection. Impostare `discount_code` come campo testo Required e Unique; il valore e un UUID generato solo dopo l'accettazione del consenso e prima della creazione del record. PocketBase assegna inoltre il proprio `id` univoco a ogni record.
 
-La collection deve consentire solo create pubblico, con validazione lato PocketBase e senza regole list/view/update/delete pubbliche. `website_url` puo essere vuoto solo se `website_availability` e `no-site`; `consent_service` deve essere true per creare una richiesta. `consent_marketing` non deve essere Required, perche `false` e una scelta valida.
+La collection deve consentire solo create pubblico, con validazione lato PocketBase e senza regole list/view/update/delete pubbliche. `fullname` deve essere Required. `website_url` puo essere vuoto solo se `website_availability` e `no-site`; `no_site_context` non deve essere Required lato PocketBase, ma la UI lo richiede quando `website_availability` e `no-site`. `consent_service` deve essere true per creare una richiesta. `consent_marketing` non deve essere Required, perche `false` e una scelta valida.
 
 ## Verifica prima della pubblicazione
 
