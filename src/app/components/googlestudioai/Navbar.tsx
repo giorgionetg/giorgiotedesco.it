@@ -18,6 +18,21 @@ const Navbar: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+    const openMenu = () => setIsMobileMenuOpen(true);
+    const toggleMenu = () => setIsMobileMenuOpen((isOpen) => !isOpen);
+    window.addEventListener('open-mobile-menu', openMenu);
+    window.addEventListener('toggle-mobile-menu', toggleMenu);
+    return () => {
+      window.removeEventListener('open-mobile-menu', openMenu);
+      window.removeEventListener('toggle-mobile-menu', toggleMenu);
+    };
+  }, []);
+
+  useEffect(() => {
+    window.dispatchEvent(new CustomEvent('mobile-menu-state', { detail: { isOpen: isMobileMenuOpen } }));
+  }, [isMobileMenuOpen]);
+
   const openBooking = () => setIsModalOpen(true);
 
   const navLinks = [

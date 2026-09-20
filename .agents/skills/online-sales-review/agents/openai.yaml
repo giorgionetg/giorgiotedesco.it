@@ -1,0 +1,4 @@
+interface:
+  display_name: "Online Sales Review"
+  short_description: "Audit websites as part of the sales process"
+  default_prompt: "Use $online-sales-review to assess this page or website against visitor intent, the buying decision, objections, qualification, CTA, and follow-up."
