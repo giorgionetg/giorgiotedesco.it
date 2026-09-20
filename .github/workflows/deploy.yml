@@ -17,6 +17,8 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -41,11 +43,9 @@ jobs:
 
       - name: Build
         env:
-          # Use the repository variable when configured; keep the public funnel
-          # deployable while the variable is being provisioned.
-          NEXT_PUBLIC_POCKETBASE_URL: ${{ vars.NEXT_PUBLIC_POCKETBASE_URL || 'https://pb.giorgiotedesco.it' }}
+          NEXT_PUBLIC_POCKETBASE_URL: ${{ vars.NEXT_PUBLIC_POCKETBASE_URL }}
         run: |
-          echo "Building with PocketBase endpoint: $NEXT_PUBLIC_POCKETBASE_URL"
+          test -n "$NEXT_PUBLIC_POCKETBASE_URL" || { echo "Missing environment variable: NEXT_PUBLIC_POCKETBASE_URL" >&2; exit 1; }
           yarn build
 
       - name: Upload artifact
