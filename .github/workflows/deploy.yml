@@ -43,7 +43,7 @@ jobs:
 
       - name: Build
         env:
-          NEXT_PUBLIC_POCKETBASE_URL: ${{ vars.NEXT_PUBLIC_POCKETBASE_URL }}
+          NEXT_PUBLIC_POCKETBASE_URL: ${{ vars.NEXT_PUBLIC_POCKETBASE_URL || secrets.NEXT_PUBLIC_POCKETBASE_URL }}
         run: |
           test -n "$NEXT_PUBLIC_POCKETBASE_URL" || { echo "Missing environment variable: NEXT_PUBLIC_POCKETBASE_URL" >&2; exit 1; }
           yarn build
