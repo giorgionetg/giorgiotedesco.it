@@ -1,0 +1,4 @@
+interface:
+  display_name: Commercial Web Copy
+  short_description: Italian copy for websites and better-selling offers
+  default_prompt: Use $commercial-web-copy to create or revise this Italian page with a clear website or communication offer, supported claims, concrete proof, and a specific next step.

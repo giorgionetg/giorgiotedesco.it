@@ -1,0 +1,4 @@
+interface:
+  display_name: "Commercial Website Selling"
+  short_description: "Audit, position, and write sales-focused websites"
+  default_prompt: "Use $commercial-website-selling to review, position, or rewrite this website as part of a measurable sales process without unsupported claims."

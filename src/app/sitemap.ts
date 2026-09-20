@@ -19,7 +19,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
         { url: url('/about-me/'), lastModified },
         { url: url('/blog/'), lastModified },
-        { url: url('/it/servizi/visura-ai'), lastModified },
         ...posts.map((post) => ({
             url: url(`/blog/${post.slug.join('/')}`),
             lastModified: post.dateModified || post.datePublished || post.date || lastModified,

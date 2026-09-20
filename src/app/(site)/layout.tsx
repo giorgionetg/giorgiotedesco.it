@@ -8,6 +8,7 @@ import 'highlight.js/styles/github-dark.css';
 
 import Navbar from "@/app/components/googlestudioai/Navbar";
 import Footer from "@/app/components/googlestudioai/Footer";
+import MobileActionBar from "@/app/components/googlestudioai/MobileActionBar";
 
 import { inter, geistSans, geistMono } from "@/app/fonts";
 
@@ -46,6 +47,7 @@ export default function Layout({
                     {children}
                 </main>
                 <Footer />
+                <MobileActionBar phoneNumber={process.env.NEXT_PUBLIC_PHONE_NUMBER} />
             </body>
         </html>
     );

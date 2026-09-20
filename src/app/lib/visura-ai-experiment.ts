@@ -3,6 +3,11 @@ import heroExperiment from './visura-ai-hero-variants.json';
 export type VisuraHeroVariant = (typeof heroExperiment.variants)[number];
 export type VisuraExperimentEvent = 'hero_view' | 'hero_cta_click' | 'visura_start';
 
+export type ServiceTrackingContext = {
+  experimentId?: string;
+  serviceType?: string;
+};
+
 const visitorStorageKey = 'visura-ai.visitor-id';
 
 export const canonicalVisuraHeroVariant = heroExperiment.variants.find(
@@ -28,16 +33,20 @@ function getStableVisitorId() {
   return visitorId;
 }
 
-export function trackVisuraExperiment(eventName: VisuraExperimentEvent, variantId = canonicalVisuraHeroVariant.id) {
+export function trackVisuraExperiment(
+  eventName: VisuraExperimentEvent,
+  variantId = canonicalVisuraHeroVariant.id,
+  context: ServiceTrackingContext = {},
+) {
   const pocketBaseUrl = process.env.NEXT_PUBLIC_POCKETBASE_URL?.replace(/\/$/, '');
   if (!pocketBaseUrl || typeof window === 'undefined') return;
 
   const payload = JSON.stringify({
-    experiment_id: heroExperiment.experiment_id,
+    experiment_id: context.experimentId ?? heroExperiment.experiment_id,
     variant_id: variantId,
     visitor_id: getStableVisitorId(),
     event_name: eventName,
-    service_type: 'visura-ai',
+    service_type: context.serviceType ?? 'visura-ai',
     occurred_at: new Date().toISOString(),
   });
 
@@ -62,7 +71,11 @@ export type VisuraAiRequest = {
   discountCode: string;
 };
 
-export async function submitVisuraAiRequest(request: VisuraAiRequest, variantId = canonicalVisuraHeroVariant.id) {
+export async function submitVisuraAiRequest(
+  request: VisuraAiRequest,
+  variantId = canonicalVisuraHeroVariant.id,
+  context: ServiceTrackingContext = {},
+) {
   const pocketBaseUrl = process.env.NEXT_PUBLIC_POCKETBASE_URL?.replace(/\/$/, '');
   if (!pocketBaseUrl) throw new Error('PocketBase non configurato');
 
@@ -70,7 +83,7 @@ export async function submitVisuraAiRequest(request: VisuraAiRequest, variantId 
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
-      service_type: 'visura-ai',
+      service_type: context.serviceType ?? 'visura-ai',
       variant_id: variantId,
       website_availability: request.websiteAvailability,
       website_url: request.websiteUrl,

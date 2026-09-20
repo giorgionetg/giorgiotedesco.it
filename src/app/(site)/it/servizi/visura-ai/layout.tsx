@@ -6,6 +6,7 @@ export const metadata: Metadata = pageMetadata({
   description: 'Una diagnosi preliminare del sito: messaggio, struttura, SEO visibile, punti di contatto e priorità da verificare.',
   path: '/it/servizi/visura-ai/',
   locale: 'it_IT',
+  robots: { index: false, follow: false },
 });
 
 export default function VisuraAiServiceLayout({ children }: { children: React.ReactNode }) {
