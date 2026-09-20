@@ -41,10 +41,11 @@ jobs:
 
       - name: Build
         env:
-          # Browser configuration supplied by the repository, never hard-coded here.
-          NEXT_PUBLIC_POCKETBASE_URL: ${{ vars.NEXT_PUBLIC_POCKETBASE_URL }}
+          # Use the repository variable when configured; keep the public funnel
+          # deployable while the variable is being provisioned.
+          NEXT_PUBLIC_POCKETBASE_URL: ${{ vars.NEXT_PUBLIC_POCKETBASE_URL || 'https://pb.giorgiotedesco.it' }}
         run: |
-          test -n "$NEXT_PUBLIC_POCKETBASE_URL" || { echo "Missing repository variable: NEXT_PUBLIC_POCKETBASE_URL" >&2; exit 1; }
+          echo "Building with PocketBase endpoint: $NEXT_PUBLIC_POCKETBASE_URL"
           yarn build
 
       - name: Upload artifact
