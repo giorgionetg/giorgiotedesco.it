@@ -7,6 +7,7 @@
     "build": "next build",
     "email:dev": "email dev --dir src/emails/templates --port 3883",
     "email:export": "email export --dir src/emails/templates --outDir emails-out",
+    "artifact:export": "node scripts/export-single-file.mjs",
     "start": "next start",
     "lint": "eslint",
     "checkout": "npx serve@latest out"
