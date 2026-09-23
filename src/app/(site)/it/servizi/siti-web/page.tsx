@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
-import DemoPage04 from '@/app/(site)/it/demo-page-04/page';
 import VisuraKanban from '@/app/components/googlestudioai/VisuraKanban';
+import WebsiteServiceLanding from '@/app/components/googlestudioai/WebsiteServiceLanding';
 import { absoluteUrl, pageMetadata, siteIdentity } from '@/app/lib/seo';
 
 const path = '/it/servizi/siti-web/';
@@ -76,7 +76,7 @@ export default function WebsiteServicePage() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c') }} />
-      <DemoPage04
+      <WebsiteServiceLanding
         primaryHref="#analisi-sito-web"
         leadForm={
           <VisuraKanban

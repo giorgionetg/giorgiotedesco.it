@@ -47,7 +47,10 @@ export default function Layout({
                     {children}
                 </main>
                 <Footer />
-                <MobileActionBar phoneNumber={process.env.NEXT_PUBLIC_PHONE_NUMBER} />
+                <MobileActionBar
+                    contactEmail={process.env.NEXT_PUBLIC_CONTACT_EMAIL}
+                    phoneNumber={process.env.NEXT_PUBLIC_PHONE_NUMBER}
+                />
             </body>
         </html>
     );

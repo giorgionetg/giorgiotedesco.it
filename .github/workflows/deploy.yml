@@ -44,8 +44,12 @@ jobs:
       - name: Build
         env:
           NEXT_PUBLIC_POCKETBASE_URL: ${{ vars.NEXT_PUBLIC_POCKETBASE_URL || secrets.NEXT_PUBLIC_POCKETBASE_URL }}
+          NEXT_PUBLIC_CONTACT_EMAIL: ${{ vars.NEXT_PUBLIC_CONTACT_EMAIL || secrets.NEXT_PUBLIC_CONTACT_EMAIL }}
+          NEXT_PUBLIC_PHONE_NUMBER: ${{ vars.NEXT_PUBLIC_PHONE_NUMBER || secrets.NEXT_PUBLIC_PHONE_NUMBER }}
         run: |
           test -n "$NEXT_PUBLIC_POCKETBASE_URL" || { echo "Missing environment variable: NEXT_PUBLIC_POCKETBASE_URL" >&2; exit 1; }
+          test -n "$NEXT_PUBLIC_CONTACT_EMAIL" || { echo "Missing environment variable: NEXT_PUBLIC_CONTACT_EMAIL" >&2; exit 1; }
+          test -n "$NEXT_PUBLIC_PHONE_NUMBER" || { echo "Missing environment variable: NEXT_PUBLIC_PHONE_NUMBER" >&2; exit 1; }
           yarn build
 
       - name: Upload artifact

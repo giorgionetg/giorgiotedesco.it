@@ -1,17 +1,6 @@
-import type { Metadata } from 'next';
 import type { ReactNode } from 'react';
 import { ArrowDownRight, ArrowRight, Check, CircleAlert, Mail } from 'lucide-react';
-import SmoothScrollLink from '@/app/components/googlestudioai/SmoothScrollLink';
-import { pageMetadata } from '@/app/lib/seo';
-
-export const metadata: Metadata = pageMetadata({
-  title: 'Siti commerciali per PMI e studi professionali | Giorgio Tedesco',
-  description:
-    'Un unico professionista per offerta, contenuti, sviluppo e misurazione del sito di PMI e studi professionali.',
-  path: '/it/servizi/siti-web/',
-  locale: 'it_IT',
-  robots: { index: false, follow: false },
-});
+import SmoothScrollLink from './SmoothScrollLink';
 
 const checks = [
   'chiarisco l’offerta e il percorso che porta alla richiesta',
@@ -19,15 +8,15 @@ const checks = [
   'configuro le azioni da misurare e preparo l’integrazione con il framework proprietario',
 ];
 
-type DemoPage04Props = {
+type WebsiteServiceLandingProps = {
   leadForm?: ReactNode;
-  primaryHref?: string;
+  primaryHref: string;
 };
 
-export default function DemoPage04({
+export default function WebsiteServiceLanding({
   leadForm,
-  primaryHref = 'mailto:hello@giorgiotedesco.it?subject=Analisi%20del%20sito%20attuale',
-}: DemoPage04Props = {}) {
+  primaryHref,
+}: WebsiteServiceLandingProps) {
   return (
     <div lang="it" className="text-slate-900">
       <section id="siti-web-hero" className="relative overflow-hidden border-b border-slate-200 bg-white/70">
