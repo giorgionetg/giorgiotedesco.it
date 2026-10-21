@@ -13,6 +13,10 @@ const Navbar: React.FC = () => {
   const pathname = usePathname();
 
   useEffect(() => {
+    document.documentElement.lang = pathname.startsWith('/it/') ? 'it' : 'en';
+  }, [pathname]);
+
+  useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
@@ -34,12 +38,13 @@ const Navbar: React.FC = () => {
   }, [isMobileMenuOpen]);
 
   const openBooking = () => setIsModalOpen(true);
+  const blogHref = pathname.startsWith('/it/') ? '/it/blog/' : '/blog/';
 
   const navLinks = [
     { name: 'Home', href: '/' },
     // { name: 'Digital Garden', href: '/digital-garden' },
     { name: 'About Me', href: '/about-me/' },
-    { name: 'Blog', href: '/blog/' },
+    { name: 'Blog', href: blogHref },
     // { name: 'Case Studies', href: '/cases' },
   ];
 

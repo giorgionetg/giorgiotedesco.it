@@ -1,124 +1,18 @@
-import React from 'react';
-import { getPostBySlug, getAllPosts } from '@/app/lib/markdown/posts';
-import ReactMarkdown from 'react-markdown';
-import remarkGfm from 'remark-gfm';
+import { getPostBySlug, getAllPosts, getPostLanguageAlternates, getLegacyPostRoutes } from '@/app/lib/markdown/posts';
 import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
 import BlogHeader from '@/app/components/googlestudioai/BlogHeader';
+import { MarkdownRenderer } from '@/app/components/googlestudioai/MarkdownRenderer';
 import SideBar from '@/app/components/googlestudioai/SideBar';
-
-import rehypeHighlight from 'rehype-highlight';
-import { absoluteUrl, pageMetadata, postImage, siteIdentity } from '@/app/lib/seo';
-
-type MarkdownRendererProps = {
-  content: string;
-};
-
-export function MarkdownRenderer({ content }: MarkdownRendererProps) {
-  return (
-    <ReactMarkdown
-      remarkPlugins={[remarkGfm]}
-      rehypePlugins={[rehypeHighlight]}
-      components={{
-        pre({ children, ...props }) {
-          return (
-            <pre
-              {...props}
-              className="not-prose my-6 overflow-x-auto rounded-xl border border-slate-800 bg-slate-950 p-4 text-sm leading-6 shadow-lg"
-            >
-              {children}
-            </pre>
-          );
-        },
-
-        code({ className, children, ...props }) {
-          const isBlockCode =
-            className?.includes('language-') || className?.includes('hljs');
-
-          if (isBlockCode) {
-            return (
-              <code
-                {...props}
-                className={`${className ?? ''} font-mono text-sm`}
-              >
-                {children}
-              </code>
-            );
-          }
-
-          return (
-            <code
-              {...props}
-              className="rounded bg-slate-100 px-1.5 py-0.5 font-mono text-sm text-slate-900"
-            >
-              {children}
-            </code>
-          );
-        },
-
-        a({ children, href, ...props }) {
-          return (
-            <a
-              {...props}
-              href={href}
-              target={href?.startsWith('http') ? '_blank' : undefined}
-              rel={href?.startsWith('http') ? 'noopener noreferrer' : undefined}
-              className="font-medium text-brand-blue underline underline-offset-4"
-            >
-              {children}
-            </a>
-          );
-        },
-
-        table({ children, ...props }) {
-          return (
-            <div className="not-prose my-8 overflow-x-auto">
-              <table
-                {...props}
-                className="w-full border-collapse rounded-lg text-left text-sm"
-              >
-                {children}
-              </table>
-            </div>
-          );
-        },
-
-        th({ children, ...props }) {
-          return (
-            <th
-              {...props}
-              className="border border-slate-200 bg-slate-100 px-4 py-2 font-semibold text-slate-900"
-            >
-              {children}
-            </th>
-          );
-        },
-
-        td({ children, ...props }) {
-          return (
-            <td
-              {...props}
-              className="border border-slate-200 px-4 py-2 align-top text-slate-700"
-            >
-              {children}
-            </td>
-          );
-        },
-      }}
-    >
-      {content}
-    </ReactMarkdown>
-  );
-}
+import { absoluteUrl, pageMetadata, postImage, siteIdentity, siteUrl } from '@/app/lib/seo';
 
 
-import BookingModal from "@/app/components/googlestudioai/BookingModal";
 // 1. Generazione statica dei percorsi
 export async function generateStaticParams() {
     const posts = await getAllPosts();
-    return posts.map((post) => ({
+    return [...posts.map((post) => ({
         slug: post.slug, // Assicurati che questo sia un array se usi [...slug]
-    }));
+    })), ...getLegacyPostRoutes('en').map((route) => ({ slug: [...route.from] }))];
 }
 
 // 2. NUOVO: Generazione Metadati HTML (Title, Description, OpenGraph)
@@ -131,14 +25,17 @@ export async function generateMetadata(props: { params: Promise<{ slug: string[]
 
     const title = `${post.title} | Giorgio Tedesco`;
     const description = post.description || post.excerpt || post.content.slice(0, 160).replace(/\n/g, ' ') + '...';
-    return pageMetadata({
+    const languages = await getPostLanguageAlternates(post, 'en');
+    const metadata = pageMetadata({
         title,
         description,
-        path: `/blog/${params.slug.join('/')}/`,
+        path: `/blog/${post.slug.join('/')}/`,
         type: 'article',
+        languages,
         image: postImage(post),
         publishedTime: post.datePublished || post.date,
     });
+    return params.slug.join('/') === post.slug.join('/') ? metadata : { ...metadata, robots: { index: false, follow: true } };
 }
 
 // 3. Componente Pagina
@@ -150,11 +47,27 @@ export default async function BlogPost(props: { params: Promise<{ slug: string[]
         notFound();
     }
 
+    if (params.slug.join('/') !== post.slug.join('/')) {
+        const target = `/blog/${post.slug.join('/')}/`;
+        return <>
+            <meta httpEquiv="refresh" content={`0;url=${target}`} />
+            <main className="container mx-auto max-w-3xl px-6 py-24 text-center">
+                <h1 className="text-2xl font-bold text-slate-900">Articolo spostato</h1>
+                <p className="mt-4 text-slate-600"><a className="text-brand-blue underline" href={target}>Vai al nuovo indirizzo</a>.</p>
+            </main>
+        </>;
+    }
+
     // URL Stabile per l'ID univoco
     const pageUrl = absoluteUrl(`/blog/${params.slug.join('/')}/`);
     const image = postImage(post);
 
     // Schema LD strutturato per collegarsi alla tua identità "Architect"
+    const publishedTime = post.datePublished || post.date;
+    const modifiedTime = post.dateModified && (!publishedTime || new Date(post.dateModified) >= new Date(publishedTime))
+        ? post.dateModified
+        : publishedTime;
+    const blogUrl = absoluteUrl('/blog/');
     const jsonLd = {
         "@context": "https://schema.org",
         "@graph": [{
@@ -165,15 +78,37 @@ export default async function BlogPost(props: { params: Promise<{ slug: string[]
             "headline": post.title,
             "description": post.description || post.excerpt || post.content.slice(0, 160).replace(/["\n]/g, ' '),
             ...(image ? { "image": [absoluteUrl(image)] } : {}),
-            "datePublished": post.datePublished || post.date,
-            "dateModified": post.dateModified || post.date || post.datePublished,
+            ...(publishedTime ? { "datePublished": publishedTime } : {}),
+            ...(modifiedTime ? { "dateModified": modifiedTime } : {}),
             "inLanguage": "en",
             "isAccessibleForFree": true,
             "author": { "@id": siteIdentity.personId },
-            "publisher": { "@id": siteIdentity.personId },
+            "publisher": { "@id": `${siteUrl}/#organization` },
             "keywords": post.keywords || post.tags,
             "articleSection": post.category || "Tech Blog",
-            "wordCount": post.content.split(/\s+/).length
+            "wordCount": post.content.split(/\s+/).length,
+            "breadcrumb": { "@id": `${pageUrl}#breadcrumb` }
+        }, {
+            "@type": "Person",
+            "@id": siteIdentity.personId,
+            "name": siteIdentity.name,
+            "url": `${siteUrl}/`,
+            "image": siteIdentity.personImage,
+            "sameAs": siteIdentity.sameAs
+        }, {
+            "@type": "Organization",
+            "@id": `${siteUrl}/#organization`,
+            "name": siteIdentity.name,
+            "url": `${siteUrl}/`,
+            "logo": { "@type": "ImageObject", "url": siteIdentity.personImage }
+        }, {
+            "@type": "BreadcrumbList",
+            "@id": `${pageUrl}#breadcrumb`,
+            "itemListElement": [
+                { "@type": "ListItem", "position": 1, "name": "Home", "item": absoluteUrl('/') },
+                { "@type": "ListItem", "position": 2, "name": "Blog", "item": blogUrl },
+                { "@type": "ListItem", "position": 3, "name": post.title, "item": pageUrl }
+            ]
         }]
     };
 
@@ -182,7 +117,7 @@ export default async function BlogPost(props: { params: Promise<{ slug: string[]
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{
-                    __html: JSON.stringify(jsonLd)
+                    __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c')
                 }}
             />
             <BlogHeader title={post.title} written={new Date(post.datePublished || post.date || '').toLocaleDateString('en-US', {
@@ -190,10 +125,9 @@ export default async function BlogPost(props: { params: Promise<{ slug: string[]
                 month: 'long',
                 day: 'numeric'
             })} category={post.category || 'Tech'} />
-            <div className="container mx-auto px-6 py-12 max-w-7xl bg-white/95 backdrop-blur-sm mb-10 rounded-lg shadow-lg">
-                <div className="grid lg:grid-cols-12 gap-12 max-w-6xl mx-auto">
-                    {/*<main className="lg:col-span-8 space-y-12">*/}
-                    <main className="lg:col-span-12">
+            <div className="container mx-auto mb-10 max-w-7xl px-6">
+                <div className="mx-auto grid max-w-6xl items-start gap-8 lg:grid-cols-[minmax(0,1fr)_18rem] lg:gap-12">
+                    <main className="min-w-0 rounded-lg bg-white/95 px-6 py-10 shadow-lg backdrop-blur-sm sm:px-10 sm:py-12 lg:px-12">
                         <article className="prose prose-lg prose-slate prose-headings:font-bold prose-headings:text-slate-900 prose-a:text-brand-blue max-w-none dark:prose-invert">
 
                             <div className="markdown-content">
@@ -210,7 +144,7 @@ export default async function BlogPost(props: { params: Promise<{ slug: string[]
                             </div>
                         </div>
                     </main>
-                    {/*<SideBar />*/}
+                    <SideBar />
                 </div>
             </div>
         </>

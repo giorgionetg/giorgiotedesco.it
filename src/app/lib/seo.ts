@@ -35,6 +35,7 @@ type PageMetadataOptions = {
   image?: string;
   publishedTime?: string;
   robots?: Metadata['robots'];
+  languages?: Record<string, string>;
 };
 
 export function pageMetadata({
@@ -46,6 +47,7 @@ export function pageMetadata({
   image,
   publishedTime,
   robots,
+  languages,
 }: PageMetadataOptions): Metadata {
   const url = absoluteUrl(path);
   const imageUrl = image ? absoluteUrl(image) : undefined;
@@ -54,7 +56,7 @@ export function pageMetadata({
     title,
     description,
     ...(robots ? { robots } : {}),
-    alternates: { canonical: url },
+    alternates: { canonical: url, ...(languages ? { languages } : {}) },
     openGraph: {
       type,
       title,

@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { getAllPosts } from '@/app/lib/markdown/posts';
-import { Clock, Calendar, ArrowLeft, Linkedin, Twitter, Mail, ArrowRight, TrendingUp } from 'lucide-react';
+import { Calendar } from 'lucide-react';
 
 import { BlogPost } from '@/app/lib/types';
 import type { Metadata } from 'next';
@@ -21,6 +21,9 @@ const BlogHeader = () => {
                 <p className="text-lg text-slate-600 max-w-2xl mx-auto">
                     Deep dives into engineering challenges, performance optimization, and software craftsmanship.
                 </p>
+                <Link href="/it/blog/" className="mt-6 inline-flex rounded-full border border-slate-200 px-4 py-2 text-sm font-semibold text-brand-blue transition-colors hover:border-brand-blue hover:bg-blue-50">
+                    Leggi il blog in italiano
+                </Link>
             </div>
         </div>
     );
@@ -118,7 +121,7 @@ const SelectedPostHeader = ({ selectedPost }: { selectedPost: BlogPost }) => {
 
 export default async function BlogIndex() {
     let posts = await getAllPosts();
-    let selected = posts[0];
+    const selected = posts[0];
     posts = posts.slice(1);
     
     return (

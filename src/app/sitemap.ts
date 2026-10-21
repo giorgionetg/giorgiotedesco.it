@@ -13,14 +13,20 @@ function url(path: string) {
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const lastModified = new Date()
     const posts = await getAllPosts()
+    const italianPosts = await getAllPosts('it')
 
     return [
         { url: url('/'), lastModified },
 
         { url: url('/about-me/'), lastModified },
         { url: url('/blog/'), lastModified },
+        { url: url('/it/blog/'), lastModified },
         ...posts.map((post) => ({
             url: url(`/blog/${post.slug.join('/')}`),
+            lastModified: post.dateModified || post.datePublished || post.date || lastModified,
+        })),
+        ...italianPosts.map((post) => ({
+            url: url(`/it/blog/${post.slug.join('/')}`),
             lastModified: post.dateModified || post.datePublished || post.date || lastModified,
         })),
     ]

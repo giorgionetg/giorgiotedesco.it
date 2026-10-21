@@ -9,6 +9,7 @@ import 'highlight.js/styles/github-dark.css';
 import Navbar from "@/app/components/googlestudioai/Navbar";
 import Footer from "@/app/components/googlestudioai/Footer";
 import MobileActionBar from "@/app/components/googlestudioai/MobileActionBar";
+import UmamiAnalytics from "@/app/components/googlestudioai/UmamiAnalytics";
 
 import { inter, geistSans, geistMono } from "@/app/fonts";
 
@@ -27,7 +28,7 @@ export default function Layout({
     return (
         <html lang="en" data-theme="light">
             <head>
-                <script defer src="https://get.giorgiotedesco.it/script.js" data-website-id="177a1a7f-6206-4656-9668-88f9f69eb853"></script>
+                <UmamiAnalytics />
             </head>
             <body className={`${inter.variable} ${geistSans.variable} ${geistMono.variable} font-sans text-slate-900 min-h-screen flex flex-col`}>
                 {/* Architectural Grid Background implemented via CSS in layout or globals */}
