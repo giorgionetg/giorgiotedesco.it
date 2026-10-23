@@ -3,7 +3,7 @@ slug: il-3d-quello-nuovo
 title: Il 3D, quello nuovo
 description: Sperimentando con 3D
 category: sul-3d
-tags: ["week-38", "gaussian splatting", "dev"]
+tags: ["week-38", "gaussian splatting", "dev", "Scritto da Umano"]
 
 datePublished: "2026-09-14T09:00:00+08:00"
 dateModified: "2026-09-14T09:00:00+08:00"

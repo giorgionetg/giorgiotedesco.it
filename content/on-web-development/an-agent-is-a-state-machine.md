@@ -3,7 +3,7 @@ slug: an-agent-is-a-state-machine
 title: "An Agent Is a State Machine"
 description: "Part I — From LangGraph to XState, before calling the LLM."
 category: on-web-development
-tags: ["devs", "llm", "agent", "LangGraph", "XState", "local-first"]
+tags: ["devs", "llm", "agent", "LangGraph", "XState", "local-first", "Written by Human"]
 image: /ai-images/chatgpt-20260601.png
 datePublished: "2026-05-07T09:00:00+01:00"
 dateModified: "2026-06-01T09:00:00+01:00"

@@ -4,7 +4,7 @@ title: Una scomoda verità
 description: Sviluppare ai giorni distopici, nostri.
 category: sul-web-marketing
 image: /ai-images/chatgpt-20260907.png
-tags: ["week-37", "back-to-dev", "marketing", "stories"]
+tags: ["week-37", "back-to-dev", "marketing", "stories", "Scritto da Umano"]
 translationKey: una-scomoda-verita
 datePublished: "2026-09-07T09:00:00+08:00"
 dateModified: "2026-09-07T09:00:00+08:00"

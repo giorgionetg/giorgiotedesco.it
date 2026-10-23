@@ -3,7 +3,7 @@ slug: how-i-engineered-my-job-search-with-a-privacy-first-ai-pipeline-in-2024-su
 title: How I Engineered My Job Search with a privacy-first AI Pipeline in 2024 Summer
 description: Beyond Web Scraping; Engineering an Intelligent, Privacy-First Pipeline for Targeted Job Hunting
 category: on-web-development
-tags: ["typescript", "supabase", "playwright", "ollama", "small LLM", "embedding LLM", "redis"]
+tags: ["typescript", "supabase", "playwright", "ollama", "small LLM", "embedding LLM", "redis", "Written by Human"]
 datePublished: "2026-02-01T09:00:00+08:00"
 dateModified: "2026-02-01T09:00:00+08:00"
 ---

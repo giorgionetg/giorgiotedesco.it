@@ -3,7 +3,7 @@ slug: september-back-to-school
 title: Settembre, back to school
 description: Scorcio su tutti i recap/roadmap e sviluppi.
 category: sul-web-marketing
-tags: ["week-36", "back-to-school", "marketing", "idee", "dev", "teable.io", "crm", "crawler", "osservatorio"]
+tags: ["week-36", "back-to-school", "marketing", "idee", "dev", "teable.io", "crm", "crawler", "osservatorio", "Scritto da Umano"]
 translationKey: september-back-to-school
 links:
 

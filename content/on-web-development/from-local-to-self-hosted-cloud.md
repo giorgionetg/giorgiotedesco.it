@@ -3,7 +3,7 @@ slug: from-local-to-self-hosted-cloud
 title: "From Local Directories to a Self-Hosted Cloud: The Architectural Evolution"
 description: "A deep dive into migrating from folder-centric development to a professional self-hosted stack using Forgejo, Traefik, PocketBase, and GarageHQ."
 category: on-web-development
-tags: ["devops", "self-hosting", "docker", "traefik", "pocketbase", "nextjs", "forgejo", "garagehq"]
+tags: ["devops", "self-hosting", "docker", "traefik", "pocketbase", "nextjs", "forgejo", "garagehq", "Written by Human"]
 image: /ai-images/from-local-to-self-hosted-cloud.png
 datePublished: "2026-03-07T09:00:00+01:00"
 dateModified: "2026-03-07T09:00:00+01:00"

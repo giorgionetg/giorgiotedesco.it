@@ -34,17 +34,13 @@ Il form non chiede il telefono. Raccoglie:
 
 Gli UTM presenti nell’URL vengono mantenuti. Se mancano, il form ricava una sorgente iniziale dal referrer (per esempio articolo interno, LinkedIn, motore di ricerca o accesso diretto). Gli articoli di Paolo usano `utm_source=giorgiotedesco.it`, `utm_medium=article`, `utm_campaign=ai-sitter-validation` e `utm_content=paolo-27-agenti`.
 
-## PocketBase: prerequisito di attivazione invio lead
+## PocketBase: collection lead
 
-Il client invia i lead a `POST /api/collections/ai_sitter_leads/records` usando l’istanza PocketBase già configurata da `NEXT_PUBLIC_POCKETBASE_URL`. Questa collection non è verificata né creata da questo repository. Prima di considerare il funnel operativo:
+La collection `ai_sitter_leads` è stata creata nell’istanza `pb.giorgiotedesco.it` il 23 ottobre 2026. Contiene i campi attesi dal form: `email`, `service_type`, `variant_id`, `landing_variant`, `project_type`, `tools` (JSON), `completion_state`, `desired_outcome`, `description`, `project_url`, `fullname`, `consent_service`, `consent_marketing`, `utm_source`, `utm_medium`, `utm_campaign`, `utm_content`, `referrer`, `request_status` e `submitted_at`, oltre ai campi standard PocketBase. `email` e `consent_service` sono obbligatori.
 
-1. Creare `ai_sitter_leads` nella stessa istanza PocketBase, se non esiste.
-2. Aggiungere i campi del payload sopra. `tools` deve accettare più valori; `email` deve essere obbligatorio; `fullname` e `project_url` devono essere facoltativi.
-3. Limitare le regole pubbliche a `create`; non consentire `list`, `view`, `update` o `delete` pubblici. Validare lato PocketBase che `consent_service` sia true e che `service_type` sia `ai-sitter`.
-4. Verificare CORS per il dominio di produzione e inviare un lead di prova; controllare il record nel pannello autenticato, senza rendere pubbliche le regole di lettura.
-5. Lasciare configurata `NEXT_PUBLIC_POCKETBASE_URL` nell’ambiente locale e nell’environment GitHub Pages `github-pages`, come già richiesto dal workflow.
+La regola `Create` è pubblica solo quando il payload dichiara `consent_service = true` e `service_type = "ai-sitter"`. `List/Search`, `View`, `Update` e `Delete` restano riservati ai superuser. La lettura anonima è stata verificata e restituisce HTTP 403; la collection è vuota e non sono stati inseriti record di prova. La sintassi della regola segue i filtri PocketBase e usa i valori della richiesta (`@request.body`).
 
-La pagina può essere esplorata in locale senza PocketBase, ma l’invio del form restituisce un errore finché endpoint e collection non sono pronti. Non inviare dati di clienti reali prima di avere verificato la collection e l’informativa privacy da mostrare agli utenti. Il form attuale non punta a una pagina privacy perché nel worktree non ne è stata trovata una.
+`NEXT_PUBLIC_POCKETBASE_URL` è la variabile usata dal client e dal workflow GitHub Pages. Il preflight CORS da `https://giorgiotedesco.it` per `POST` è stato verificato: PocketBase risponde `204` e consente `Content-Type`. Non è stato inviato un lead di prova, quindi il flusso completo di creazione resta da verificare. Prima di raccogliere lead reali va aggiunto un link all’informativa privacy: nel worktree non è stata trovata una pagina privacy a cui collegare il form.
 
 ## Eventi Umami
 

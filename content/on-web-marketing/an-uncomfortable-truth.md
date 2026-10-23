@@ -4,7 +4,7 @@ title: An Uncomfortable Truth
 description: A story about AI agents, endless prompts, and the value of deciding what is worth doing.
 category: on-web-marketing
 image: /ai-images/chatgpt-20260907.png
-tags: ["week-37", "back-to-dev", "marketing", "stories"]
+tags: ["week-37", "back-to-dev", "marketing", "stories", "Translated with AI"]
 translationKey: una-scomoda-verita
 datePublished: "2026-09-07T09:00:00+08:00"
 dateModified: "2026-09-07T09:00:00+08:00"

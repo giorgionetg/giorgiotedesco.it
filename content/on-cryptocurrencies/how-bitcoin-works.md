@@ -3,7 +3,7 @@ slug: how-bitcoin-works
 title: How Bitcoin works
 description: A little description to discover how Bitcoin and other cryptocurrencies work.
 category: on-cryptocurrencies
-tags: ["bitcoin", "ethereum", "xrp", "erc20", "defi"]
+tags: ["bitcoin", "ethereum", "xrp", "erc20", "defi", "Written by Human"]
 links:
 
 datePublished: "2020-09-05T09:00:00+08:00"

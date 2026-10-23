@@ -3,7 +3,7 @@ slug: september-back-to-school
 title: "September: Back to School"
 description: A month of building, 8,000 websites found, and a lesson in the difference between a software problem and a sales problem.
 category: on-web-marketing
-tags: ["week-36", "back-to-school", "marketing", "ideas", "development", "teable.io", "crm", "crawler", "observatory"]
+tags: ["week-36", "back-to-school", "marketing", "ideas", "development", "teable.io", "crm", "crawler", "observatory", "Translated with AI"]
 translationKey: september-back-to-school
 datePublished: "2026-09-01T09:00:00+08:00"
 dateModified: "2026-09-01T09:00:00+08:00"

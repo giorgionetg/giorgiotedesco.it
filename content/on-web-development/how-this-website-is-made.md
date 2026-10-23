@@ -3,7 +3,7 @@ slug: how-this-website-is-made
 title: How this website is made
 description: A little tutorial to discover what there is behind this website
 category: on-web-development
-tags: ["frontend", "backend", "JavaScript", "CSS", "HTML"]
+tags: ["frontend", "backend", "JavaScript", "CSS", "HTML", "Written by Human"]
 datePublished: "2023-09-14T09:00:00+08:00"
 dateModified: "2020-12-22T09:00:00+08:00"
 ---
