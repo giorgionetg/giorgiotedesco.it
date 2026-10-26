@@ -52,6 +52,9 @@ jobs:
           test -n "$NEXT_PUBLIC_PHONE_NUMBER" || { echo "Missing environment variable: NEXT_PUBLIC_PHONE_NUMBER" >&2; exit 1; }
           yarn build
 
+      - name: Validate SEO build
+        run: yarn validate:seo
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3.0.1
         with:

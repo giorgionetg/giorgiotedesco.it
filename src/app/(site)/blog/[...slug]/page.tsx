@@ -19,9 +19,10 @@ export async function generateStaticParams() {
 // Questo è ciò che appare nella tab del browser e nelle preview social
 export async function generateMetadata(props: { params: Promise<{ slug: string[] }> }): Promise<Metadata> {
     const params = await props.params;
-    const post = await getPostBySlug(params.slug);
+    const result = await getPostBySlug(params.slug);
 
-    if (!post) return {};
+    if (!result) return {};
+    const { post, requestedSlug } = result;
 
     const title = `${post.title} | Giorgio Tedesco`;
     const description = post.description || post.excerpt || post.content.slice(0, 160).replace(/\n/g, ' ') + '...';
@@ -35,19 +36,20 @@ export async function generateMetadata(props: { params: Promise<{ slug: string[]
         image: postImage(post),
         publishedTime: post.datePublished || post.date,
     });
-    return params.slug.join('/') === post.slug.join('/') ? metadata : { ...metadata, robots: { index: false, follow: true } };
+    return requestedSlug.join('/') === post.slug.join('/') ? metadata : { ...metadata, robots: { index: false, follow: true } };
 }
 
 // 3. Componente Pagina
 export default async function BlogPost(props: { params: Promise<{ slug: string[] }> }) {
     const params = await props.params;
-    const post = await getPostBySlug(params.slug);
+    const result = await getPostBySlug(params.slug);
 
-    if (!post) {
+    if (!result) {
         notFound();
     }
+    const { post, requestedSlug } = result;
 
-    if (params.slug.join('/') !== post.slug.join('/')) {
+    if (requestedSlug.join('/') !== post.slug.join('/')) {
         const target = `/blog/${post.slug.join('/')}/`;
         return <>
             <meta httpEquiv="refresh" content={`0;url=${target}`} />
@@ -59,7 +61,7 @@ export default async function BlogPost(props: { params: Promise<{ slug: string[]
     }
 
     // URL Stabile per l'ID univoco
-    const pageUrl = absoluteUrl(`/blog/${params.slug.join('/')}/`);
+    const pageUrl = absoluteUrl(`/blog/${post.slug.join('/')}/`);
     const image = postImage(post);
 
     // Schema LD strutturato per collegarsi alla tua identità "Architect"

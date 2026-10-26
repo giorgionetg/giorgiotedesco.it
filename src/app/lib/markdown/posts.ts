@@ -2,22 +2,10 @@ import fs from 'fs/promises';
 import { existsSync } from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
+import legacyPostRoutes from './legacy-post-routes.json';
 
 const contentDirectory = path.join(process.cwd(), 'content');
 const italianContentDirectory = path.join(contentDirectory, 'it');
-
-const legacyPostRoutes = {
-    en: [
-        { from: ['on-webmarketing', 'an-uncomfortable-truth'], to: ['on-web-marketing', 'an-uncomfortable-truth'] },
-        { from: ['on-webmarketing', 'september-back-to-school'], to: ['on-web-marketing', 'september-back-to-school'] },
-    ],
-    it: [
-        { from: ['web-marketing', 'il-3d-quello-nuovo'], to: ['sul-3d', 'il-3d-quello-nuovo'] },
-        { from: ['web-marketing', 'september-back-to-school'], to: ['sul-web-marketing', 'september-back-to-school'] },
-        { from: ['web-marketing', 'una-scomoda-verita'], to: ['sul-web-marketing', 'una-scomoda-verita'] },
-        { from: ['web-marketing', 'tanti-auguri-papa'], to: ['tanti-auguri'] },
-    ],
-} as const;
 
 export function getLegacyPostRoutes(locale: 'en' | 'it' = 'en') {
     return legacyPostRoutes[locale];
@@ -76,10 +64,10 @@ export async function getAllPosts(locale: 'en' | 'it' = 'en'): Promise<Post[]> {
         });
 }
 
-export async function getPostBySlug(slug: string[], locale: 'en' | 'it' = 'en'): Promise<Post | null> {
+export async function getPostBySlug(slug: string[], locale: 'en' | 'it' = 'en') {
     try {
         const route = legacyPostRoutes[locale].find((candidate) => candidate.from.join('/') === slug.join('/'));
-        const resolvedSlug = route ? [...route.to] : slug;
+        const resolvedSlug = route ? [...route.to] : [...slug];
         const relativePath = resolvedSlug.join(path.sep) + '.md';
         const rootDirectory = locale === 'it' ? italianContentDirectory : contentDirectory;
         const filePath = path.join(rootDirectory, relativePath);
@@ -91,12 +79,13 @@ export async function getPostBySlug(slug: string[], locale: 'en' | 'it' = 'en'):
         const fileContents = await fs.readFile(filePath, 'utf8');
         const { data, content } = matter(fileContents);
 
-        return {
+        const post: Post = {
             ...data,
-            slug,
-            title: data.title || slug[slug.length - 1],
+            slug: resolvedSlug,
+            title: data.title || resolvedSlug[resolvedSlug.length - 1],
             content,
         };
+        return { requestedSlug: [...slug], resolvedSlug, post };
     } catch (error) {
         console.log(error);
         return null;

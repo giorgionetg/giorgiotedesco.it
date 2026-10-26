@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build --webpack",
+    "validate:seo": "node scripts/validate-seo-build.mjs",
     "email:dev": "email dev --dir src/emails/templates --port 3883",
     "email:export": "email export --dir src/emails/templates --outDir emails-out",
     "artifact:export": "node scripts/export-single-file.mjs",

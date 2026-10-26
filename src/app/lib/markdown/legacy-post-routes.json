@@ -1,0 +1,12 @@
+{
+  "en": [
+    { "from": ["on-webmarketing", "an-uncomfortable-truth"], "to": ["on-web-marketing", "an-uncomfortable-truth"] },
+    { "from": ["on-webmarketing", "september-back-to-school"], "to": ["on-web-marketing", "september-back-to-school"] }
+  ],
+  "it": [
+    { "from": ["web-marketing", "il-3d-quello-nuovo"], "to": ["sul-3d", "il-3d-quello-nuovo"] },
+    { "from": ["web-marketing", "september-back-to-school"], "to": ["sul-web-marketing", "september-back-to-school"] },
+    { "from": ["web-marketing", "una-scomoda-verita"], "to": ["sul-web-marketing", "una-scomoda-verita"] },
+    { "from": ["web-marketing", "tanti-auguri-papa"], "to": ["tanti-auguri"] }
+  ]
+}

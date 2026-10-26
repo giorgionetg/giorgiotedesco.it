@@ -11,7 +11,7 @@ Blog Markdown files live in `content/` for English and `content/it/` for Italian
 | `in-general` | `in-generale` | General topics |
 | no category | no category | Leave `category` out of frontmatter; the Italian `tanti-auguri` post is an example |
 
-An English category folder rename from `on-webmarketing` to `on-web-marketing` and the Italian category moves changed some article paths. The previous routes are listed in `legacyPostRoutes` in `src/app/lib/markdown/posts.ts`. The catch-all article pages generate static forwarding pages for these old paths, while canonical metadata, language alternates and the sitemap use the new routes.
+An English category folder rename from `on-webmarketing` to `on-web-marketing` and the Italian category moves changed some article paths. The previous routes are listed in `src/app/lib/markdown/legacy-post-routes.json`. The catch-all article pages generate static forwarding pages for these old paths, while canonical metadata, language alternates and the sitemap use the new routes.
 
 ## Static hosting behavior
 
@@ -21,6 +21,6 @@ When moving or renaming a post:
 
 1. Move the Markdown file into its localized category directory.
 2. Set or update the localized `category` frontmatter value; omit it for uncategorized posts.
-3. If the public path changes, add an old-to-new entry in `legacyPostRoutes`.
+3. If the public path changes, add an old-to-new entry in `src/app/lib/markdown/legacy-post-routes.json`.
 4. Keep `translationKey` unchanged for translated articles.
 5. Confirm that generated article links and the sitemap point to the canonical route.

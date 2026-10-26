@@ -17,8 +17,9 @@ async function findPost(slug: string[]) {
 
 export async function generateMetadata(props: { params: Promise<{ slug: string[] }> }): Promise<Metadata> {
   const { slug } = await props.params;
-  const post = await findPost(slug);
-  if (!post) return {};
+  const result = await findPost(slug);
+  if (!result) return {};
+  const { post, requestedSlug } = result;
   const languages = await getPostLanguageAlternates(post, 'it');
 
   const metadata = pageMetadata({
@@ -31,15 +32,16 @@ export async function generateMetadata(props: { params: Promise<{ slug: string[]
     image: postImage(post),
     publishedTime: post.datePublished || post.date,
   });
-  return slug.join('/') === post.slug.join('/') ? metadata : { ...metadata, robots: { index: false, follow: true } };
+  return requestedSlug.join('/') === post.slug.join('/') ? metadata : { ...metadata, robots: { index: false, follow: true } };
 }
 
 export default async function ItalianBlogPost(props: { params: Promise<{ slug: string[] }> }) {
   const { slug } = await props.params;
-  const post = await findPost(slug);
-  if (!post) notFound();
+  const result = await findPost(slug);
+  if (!result) notFound();
+  const { post, requestedSlug } = result;
 
-  if (slug.join('/') !== post.slug.join('/')) {
+  if (requestedSlug.join('/') !== post.slug.join('/')) {
     const target = `/it/blog/${post.slug.join('/')}/`;
     return <>
       <meta httpEquiv="refresh" content={`0;url=${target}`} />
@@ -50,7 +52,7 @@ export default async function ItalianBlogPost(props: { params: Promise<{ slug: s
     </>;
   }
 
-  const pageUrl = absoluteUrl(`/it/blog/${slug.join('/')}/`);
+  const pageUrl = absoluteUrl(`/it/blog/${post.slug.join('/')}/`);
   const image = postImage(post);
   const publishedTime = post.datePublished || post.date;
   const modifiedTime = post.dateModified && (!publishedTime || new Date(post.dateModified) >= new Date(publishedTime))
