@@ -90,10 +90,9 @@ const Navbar: React.FC = () => {
           }`}
       >
         <div className="navbar container mx-auto px-4 max-w-7xl">
-          <div className="navbar-start">
+          <div className="navbar-start w-auto shrink-0 lg:w-1/2">
             <Link href="/" className="text-2xl tracking-tighter text-slate-900 hover:opacity-80 transition-opacity flex items-center group">
-              <span className={`font-bold text-slate-800 ${session ? 'hidden sm:inline' : ''}`}>GiorgioTedesco</span>
-              {session && <span className="font-bold text-slate-800 sm:hidden">GT</span>}
+              <span className="font-bold text-slate-800">GiorgioTedesco</span>
               <span className="font-bold text-brand-blue group-hover:underline decoration-2 underline-offset-4">.it</span>
             </Link>
           </div>
@@ -113,7 +112,7 @@ const Navbar: React.FC = () => {
             </ul>
           </div>
 
-          <div className="navbar-end gap-3">
+          <div className="navbar-end min-w-0 flex-1 gap-1 md:gap-3 lg:flex-none">
             <button className="hidden md:flex btn btn-ghost btn-sm text-slate-600 hover:text-brand-blue">
               <a href="/download/giorgio-tedesco-resume.pdf" target="_blank" download className="flex items-center gap-2">
                 <Download size={18} />
@@ -121,7 +120,7 @@ const Navbar: React.FC = () => {
               </a>
             </button>
             {session ? <div className="flex min-w-0 items-center gap-1 sm:gap-2">
-              <Link href="/login/" title={accountHandle ? `@${accountHandle}` : session.did} className="max-w-[118px] truncate rounded-lg px-1 py-2 text-sm font-semibold text-brand-blue hover:bg-blue-50 focus-visible:outline-2 focus-visible:outline-brand-blue sm:max-w-[190px] md:max-w-[230px]">
+              <Link href="/login/" title={accountHandle ? `@${accountHandle}` : session.did} className="min-w-0 max-w-[118px] truncate rounded-lg px-1 py-2 text-sm font-semibold text-brand-blue hover:bg-blue-50 focus-visible:outline-2 focus-visible:outline-brand-blue sm:max-w-[190px] md:max-w-[230px]">
                 {accountHandle ? `@${accountHandle}` : session.did}
               </Link>
               <button type="button" onClick={signOut} disabled={isSigningOut} aria-label="Sign out" title="Sign out" className="btn btn-ghost btn-circle btn-sm text-slate-700 hover:text-brand-blue focus-visible:outline-2 focus-visible:outline-brand-blue disabled:opacity-50">
