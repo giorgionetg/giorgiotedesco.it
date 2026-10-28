@@ -1,11 +1,6 @@
 'use client';
 import React from 'react';
-import { ArrowRight, Github, Linkedin, Twitter, Download } from 'lucide-react';
-
-interface HeroProps {
-  onBookCall: () => void;
-  onDownloadCV: () => void;
-}
+import { Download } from 'lucide-react';
 // Engineering <span className="text-brand-blue">Resilient</span> Digital Products.
 const HeroTitle = () => {
   return (
@@ -25,7 +20,7 @@ const heroData = {
 
 
 
-const Hero: React.FC<HeroProps> = ({ onBookCall, onDownloadCV }) => {
+const Hero: React.FC = () => {
   return (
     <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-transparent">
       <div className="absolute top-[-10%] left-1/2 -translate-x-1/2 w-[140%] max-w-none h-[600px] bg-sky-100/70 rounded-[100%] blur-[80px] -z-10 pointer-events-none opacity-80" />
@@ -47,14 +42,10 @@ const Hero: React.FC<HeroProps> = ({ onBookCall, onDownloadCV }) => {
             {heroData.skills}
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <button onClick={onBookCall} className="btn bg-brand-blue hover:bg-blue-700 text-white font-bold shadow-xl shadow-blue-500/20 hover:scale-105 transition-transform border-none min-w-[180px] btn-lg">
-              Book a Call <ArrowRight size={20} />
-            </button>
             <a
               href="/download/giorgio-tedesco-resume.pdf"
               target="_blank"
               download
-              onClick={onDownloadCV}
               className="btn btn-outline btn-lg hover:bg-ice-50/50 hover:text-brand-blue hover:border-brand-blue text-slate-700 min-w-[180px] bg-white/50 backdrop-blur-sm"
             >
               <Download size={20} /> Download CV

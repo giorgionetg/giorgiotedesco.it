@@ -1,0 +1,12 @@
+{
+  "client_id": "https://giorgiotedesco.it/oauth-client-metadata.json",
+  "client_name": "GiorgioTedesco.it",
+  "client_uri": "https://giorgiotedesco.it/",
+  "redirect_uris": ["https://giorgiotedesco.it/"],
+  "scope": "atproto account:email",
+  "grant_types": ["authorization_code", "refresh_token"],
+  "response_types": ["code"],
+  "token_endpoint_auth_method": "none",
+  "application_type": "web",
+  "dpop_bound_access_tokens": true
+}

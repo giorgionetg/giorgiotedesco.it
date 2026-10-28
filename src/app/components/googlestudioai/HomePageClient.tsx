@@ -1,18 +1,13 @@
 'use client';
 
-import { useState } from 'react';
 import AboutMe from '@/app/components/googlestudioai/AboutMe';
-import BookingModal from '@/app/components/googlestudioai/BookingModal';
 import Hero from '@/app/components/googlestudioai/Hero';
+import AtprotoCallback from '@/app/components/googlestudioai/AtprotoCallback';
 
 export default function HomePageClient() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
   return <>
-    <Hero
-      onBookCall={() => setIsModalOpen((isOpen) => !isOpen)}
-      onDownloadCV={() => console.log('Download CV clicked')}
-    />
+    <AtprotoCallback />
+    <Hero />
     <AboutMe />
     <div className="w-full bg-slate-900 text-white py-12 overflow-hidden border-b border-slate-800">
       <div className="container mx-auto px-6 text-center max-w-7xl">
@@ -24,6 +19,5 @@ export default function HomePageClient() {
         </div>
       </div>
     </div>
-    <BookingModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
   </>;
 }
