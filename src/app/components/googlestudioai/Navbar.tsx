@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Menu, X, Download, LogOut } from 'lucide-react';
+import { Menu, X, Download, LogOut, UserRound } from 'lucide-react';
 import { initializeOAuth, type OAuthSession } from '@/app/lib/atproto-oauth';
 
 const Navbar: React.FC = () => {
@@ -120,7 +120,10 @@ const Navbar: React.FC = () => {
               </a>
             </button>
             {session ? <div className="flex min-w-0 items-center gap-1 sm:gap-2">
-              <Link href="/login/" title={accountHandle ? `@${accountHandle}` : session.did} className="min-w-0 max-w-[118px] truncate rounded-lg px-1 py-2 text-sm font-semibold text-brand-blue hover:bg-blue-50 focus-visible:outline-2 focus-visible:outline-brand-blue sm:max-w-[190px] md:max-w-[230px]">
+              <Link href="/login/" aria-label="Account e preferenze" title={accountHandle ? `@${accountHandle}` : session.did} className="btn btn-ghost btn-circle btn-sm text-brand-blue md:hidden">
+                <UserRound size={20} aria-hidden="true" />
+              </Link>
+              <Link href="/login/" title={accountHandle ? `@${accountHandle}` : session.did} className="hidden min-w-0 max-w-[230px] truncate rounded-lg px-1 py-2 text-sm font-semibold text-brand-blue hover:bg-blue-50 focus-visible:outline-2 focus-visible:outline-brand-blue md:block">
                 {accountHandle ? `@${accountHandle}` : session.did}
               </Link>
               <button type="button" onClick={signOut} disabled={isSigningOut} aria-label="Sign out" title="Sign out" className="btn btn-ghost btn-circle btn-sm text-slate-700 hover:text-brand-blue focus-visible:outline-2 focus-visible:outline-brand-blue disabled:opacity-50">
@@ -152,6 +155,7 @@ const Navbar: React.FC = () => {
               {navLinks.map((link) => (
                 <li key={link.href}><Link href={link.href} onClick={() => setIsMobileMenuOpen(false)}>{link.name}</Link></li>
               ))}
+              {session && <li><Link href="/login/" onClick={() => setIsMobileMenuOpen(false)}>Preferenze</Link></li>}
             </ul>
             <div className="divider my-4"></div>
             <div className="flex flex-col gap-4">
