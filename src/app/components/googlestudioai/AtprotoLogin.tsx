@@ -1,13 +1,16 @@
 'use client';
 
 import { useEffect, useState, type FormEvent } from 'react';
+import { useRouter } from 'next/navigation';
 import { getOAuthClient, initializeOAuth, type OAuthSession } from '@/app/lib/atproto-oauth';
 import AtprotoConsents from '@/app/components/googlestudioai/AtprotoConsents';
+import { findNewsletterConsent } from '@/app/lib/newsletter-consents';
 
 type PublicProfile = { handle?: string; displayName?: string; avatar?: string };
 type AccountSession = { email?: string; emailConfirmed?: boolean };
 
-export default function AtprotoLogin() {
+export default function AtprotoLogin({ page = 'login' }: { page?: 'login' | 'account' | 'thanks' }) {
+  const router = useRouter();
   const [handle, setHandle] = useState('');
   const [session, setSession] = useState<OAuthSession>();
   const [profile, setProfile] = useState<PublicProfile>();
@@ -45,6 +48,21 @@ export default function AtprotoLogin() {
   }, [session]);
 
   useEffect(() => {
+    if (status === 'loading' || status === 'error') return;
+    if (!session) {
+      if (page !== 'login') router.replace('/login/');
+      return;
+    }
+    if (page !== 'login' || emailStatus === 'loading') return;
+    if (!accountEmail) { router.replace('/thanks/'); return; }
+    let active = true;
+    findNewsletterConsent(process.env.NEXT_PUBLIC_POCKETBASE_URL || 'https://pb.giorgiotedesco.it', accountEmail)
+      .then((record) => { if (active) router.replace(record ? '/account/' : '/thanks/'); })
+      .catch(() => { if (active) setError('Could not check your preferences. Please reload the page and try again.'); });
+    return () => { active = false; };
+  }, [session, status, emailStatus, accountEmail, page, router]);
+
+  useEffect(() => {
     if (!session) return;
     let active = true;
     session.fetchHandler('/xrpc/com.atproto.server.getSession')
@@ -79,7 +97,7 @@ export default function AtprotoLogin() {
     if (!session) return;
     try {
       await session.signOut();
-      window.location.reload();
+      window.location.assign('/login/');
     } catch {
       setError('Could not sign out. Please try again.');
       setStatus('error');
@@ -99,10 +117,14 @@ export default function AtprotoLogin() {
     }
   }
 
+  if ((page !== 'login' && !session && status !== 'error') || (page === 'login' && session)) {
+    return <p role="status" className="text-slate-600">{error || 'Checking your account…'}</p>;
+  }
+
   return <>
     <div>
       <p className="mb-5 inline-flex rounded-full border border-blue-200 bg-white/70 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.14em] text-brand-blue">AT Protocol</p>
-      {session ? <AtprotoConsents did={session.did} email={accountEmail} username={profile?.handle} /> : <>
+      {session ? <AtprotoConsents did={session.did} email={accountEmail} username={profile?.handle} page={page === 'account' ? 'account' : 'thanks'} /> : <>
         <h1 className="max-w-xl text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl">Your identity, connected.</h1>
         <p className="mt-6 max-w-lg text-lg leading-relaxed text-slate-600">Sign in with your AT Protocol handle. Your account stays with your provider; this page shows your identity after authorization.</p>
       </>}

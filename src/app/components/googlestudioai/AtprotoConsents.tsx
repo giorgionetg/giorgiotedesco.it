@@ -4,9 +4,9 @@ import Link from 'next/link';
 import { useEffect, useState, type FormEvent } from 'react';
 import { findNewsletterConsent, submitNewsletterConsent } from '@/app/lib/newsletter-consents';
 
-type AtprotoConsentsProps = { did: string; email?: string; username?: string };
+type AtprotoConsentsProps = { did: string; email?: string; username?: string; page: 'account' | 'thanks' };
 
-export default function AtprotoConsents({ did, email, username }: AtprotoConsentsProps) {
+export default function AtprotoConsents({ did, email, username, page }: AtprotoConsentsProps) {
   const [newsletter, setNewsletter] = useState(false);
   const [marketing, setMarketing] = useState(false);
   const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle');
@@ -74,7 +74,7 @@ export default function AtprotoConsents({ did, email, username }: AtprotoConsent
   if (loadedKey !== loadKey) return <p role="status" className="text-slate-600">Caricamento preferenze…</p>;
 
   return <form onSubmit={submit} aria-labelledby="consents-title" className="max-w-xl">
-    <h1 id="consents-title" className="text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl">Special thanks</h1>
+    <h1 id="consents-title" className="text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl">{page === 'thanks' ? 'Special thanks' : 'Le tue preferenze'}</h1>
     <p className="mt-6 text-lg leading-relaxed text-slate-600">
       {hasSaved ? 'Le tue preferenze sono state salvate. Puoi selezionare le opzioni che desideri.' : 'Il login è avvenuto, ma io ancora non ho ricevuto i dati che vuoi condividere con me. Per condividerli, spunta le caselle qui sotto.'}
     </p>
@@ -100,6 +100,7 @@ export default function AtprotoConsents({ did, email, username }: AtprotoConsent
     {loadError && <p role="alert" className="mt-3 text-sm text-red-700">Non è stato possibile recuperare le preferenze. Ricarica la pagina e riprova.</p>}
     {!email && <p role="status" className="mt-2 text-xs text-slate-500">Per condividere la tua email, autorizzane prima l’accesso nel tuo account AT Protocol.</p>}
     {status === 'sent' && !message && <p role="status" className="mt-2 text-sm text-emerald-700">Preferenze inviate.</p>}
+    {page === 'thanks' && <Link href="/account/" className="mt-4 inline-block text-sm font-semibold text-brand-blue underline underline-offset-4">Vai al tuo account</Link>}
     {status === 'error' && <p role="alert" className="mt-2 text-sm text-red-700">Non è stato possibile confermare il salvataggio. Prima di riprovare, contattami per verificare se la richiesta è arrivata.</p>}
   </form>;
 }

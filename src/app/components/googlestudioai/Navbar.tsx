@@ -75,7 +75,6 @@ const Navbar: React.FC = () => {
   const blogHref = pathname.startsWith('/it/') ? '/it/blog/' : '/blog/';
 
   const navLinks = [
-    { name: 'Home', href: '/' },
     // { name: 'Digital Garden', href: '/digital-garden' },
     { name: 'About Me', href: '/about-me/' },
     { name: 'Blog', href: blogHref },
@@ -89,8 +88,8 @@ const Navbar: React.FC = () => {
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled || pathname !== '/' ? 'bg-white/90 backdrop-blur-md shadow-sm py-2' : 'bg-transparent py-4'
           }`}
       >
-        <div className="navbar container mx-auto px-4 max-w-7xl">
-          <div className="navbar-start w-auto shrink-0 lg:w-1/2">
+        <div className="navbar container mx-auto px-4 max-w-7xl lg:grid lg:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)]">
+          <div className="navbar-start w-auto shrink-0">
             <Link href="/" className="text-2xl tracking-tighter text-slate-900 hover:opacity-80 transition-opacity flex items-center group">
               <span className="font-bold text-slate-800">GiorgioTedesco</span>
               <span className="font-bold text-brand-blue group-hover:underline decoration-2 underline-offset-4">.it</span>
@@ -112,7 +111,7 @@ const Navbar: React.FC = () => {
             </ul>
           </div>
 
-          <div className="navbar-end min-w-0 flex-1 gap-1 md:gap-3 lg:flex-none">
+          <div className="navbar-end min-w-0 flex-1 gap-1 md:gap-3 lg:w-auto">
             <button className="hidden md:flex btn btn-ghost btn-sm text-slate-600 hover:text-brand-blue">
               <a href="/download/giorgio-tedesco-resume.pdf" target="_blank" download className="flex items-center gap-2">
                 <Download size={18} />
@@ -120,10 +119,10 @@ const Navbar: React.FC = () => {
               </a>
             </button>
             {session ? <div className="flex min-w-0 items-center gap-1 sm:gap-2">
-              <Link href="/login/" aria-label="Account e preferenze" title={accountHandle ? `@${accountHandle}` : session.did} className="btn btn-ghost btn-circle btn-sm text-brand-blue md:hidden">
+              <Link href="/account/" aria-label="Account e preferenze" title={accountHandle ? `@${accountHandle}` : session.did} className="btn btn-ghost btn-circle btn-sm text-brand-blue md:hidden">
                 <UserRound size={20} aria-hidden="true" />
               </Link>
-              <Link href="/login/" title={accountHandle ? `@${accountHandle}` : session.did} className="hidden min-w-0 max-w-[230px] truncate rounded-lg px-1 py-2 text-sm font-semibold text-brand-blue hover:bg-blue-50 focus-visible:outline-2 focus-visible:outline-brand-blue md:block">
+              <Link href="/account/" title={accountHandle ? `@${accountHandle}` : session.did} className="hidden min-w-0 max-w-[230px] truncate rounded-lg px-1 py-2 text-sm font-semibold text-brand-blue hover:bg-blue-50 focus-visible:outline-2 focus-visible:outline-brand-blue md:block">
                 {accountHandle ? `@${accountHandle}` : session.did}
               </Link>
               <button type="button" onClick={signOut} disabled={isSigningOut} aria-label="Sign out" title="Sign out" className="btn btn-ghost btn-circle btn-sm text-slate-700 hover:text-brand-blue focus-visible:outline-2 focus-visible:outline-brand-blue disabled:opacity-50">
@@ -155,7 +154,7 @@ const Navbar: React.FC = () => {
               {navLinks.map((link) => (
                 <li key={link.href}><Link href={link.href} onClick={() => setIsMobileMenuOpen(false)}>{link.name}</Link></li>
               ))}
-              {session && <li><Link href="/login/" onClick={() => setIsMobileMenuOpen(false)}>Preferenze</Link></li>}
+              {session && <li><Link href="/account/" onClick={() => setIsMobileMenuOpen(false)}>Preferenze</Link></li>}
             </ul>
             <div className="divider my-4"></div>
             <div className="flex flex-col gap-4">
