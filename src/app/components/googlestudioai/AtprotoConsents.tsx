@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { useEffect, useRef, useState, type FormEvent } from 'react';
+import { useEffect, useState, type FormEvent } from 'react';
 import { findNewsletterConsent, submitNewsletterConsent } from '@/app/lib/newsletter-consents';
 
 type AtprotoConsentsProps = { did: string; email?: string; username?: string };
@@ -15,7 +15,6 @@ export default function AtprotoConsents({ did, email, username }: AtprotoConsent
   const [hasSaved, setHasSaved] = useState(false);
   const [recordId, setRecordId] = useState<string>();
   const [message, setMessage] = useState('');
-  const deleteDialog = useRef<HTMLDialogElement>(null);
   const pocketBaseUrl = process.env.NEXT_PUBLIC_POCKETBASE_URL || 'https://pb.giorgiotedesco.it';
   const loadKey = `${did}\n${email ?? ''}`;
 
@@ -95,16 +94,8 @@ export default function AtprotoConsents({ did, email, username }: AtprotoConsent
     <button type="submit" disabled={status === 'sending'} className="btn mt-5 w-full rounded-xl border-none bg-brand-blue font-semibold text-white disabled:cursor-not-allowed disabled:opacity-50">{status === 'sending' ? 'Invio in corso…' : 'Aggiorna le preferenze'}</button>
     <button type="button" disabled={status === 'sending'} onClick={() => { void saveChoices(false, false); }} className="btn mt-3 w-full rounded-xl border border-orange-600 bg-white font-semibold text-orange-700 hover:bg-orange-50">Revoca tutte le preferenze</button>
     <hr className="my-6 border-slate-200" />
-    <button type="button" onClick={() => deleteDialog.current?.showModal()} className="btn w-full rounded-xl border-none bg-red-700 font-semibold text-white hover:bg-red-800">Rimuovi account completamente</button>
-    <dialog ref={deleteDialog} aria-labelledby="delete-account-title" className="m-auto w-[min(28rem,calc(100%-2rem))] rounded-2xl border border-slate-200 p-6 shadow-xl backdrop:bg-slate-900/50">
-      <h2 id="delete-account-title" className="text-xl font-semibold text-slate-900">Rimuovi account completamente?</h2>
-      <p className="mt-3 text-sm leading-relaxed text-slate-700">Questa azione rimuoverà i tuoi dati e il collegamento a giorgiotedesco.it. L’operazione non sarà recuperabile e non eliminerà il tuo account AT Protocol presso il provider.</p>
-      <p className="mt-3 text-sm text-slate-600">La funzione non è ancora disponibile e nessun dato verrà eliminato ora.</p>
-      <div className="mt-6 flex flex-wrap justify-end gap-3">
-        <button type="button" onClick={() => deleteDialog.current?.close()} className="rounded-lg border border-slate-300 px-4 py-2 font-medium text-slate-900">Chiudi</button>
-        <button type="button" disabled className="rounded-lg bg-red-700 px-4 py-2 font-medium text-white opacity-50">Rimuovi account</button>
-      </div>
-    </dialog>
+    <button type="button" disabled aria-describedby="remove-account-unavailable" className="btn w-full cursor-not-allowed rounded-xl border-none bg-red-700 font-semibold text-white opacity-50">Rimuovi account completamente</button>
+    <p id="remove-account-unavailable" className="mt-2 text-xs text-slate-500">Funzione non ancora disponibile.</p>
     {message && <p role="status" className="mt-3 text-sm text-orange-800">{message}</p>}
     {loadError && <p role="alert" className="mt-3 text-sm text-red-700">Non è stato possibile recuperare le preferenze. Ricarica la pagina e riprova.</p>}
     {!email && <p role="status" className="mt-2 text-xs text-slate-500">Per condividere la tua email, autorizzane prima l’accesso nel tuo account AT Protocol.</p>}
