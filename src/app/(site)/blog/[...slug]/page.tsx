@@ -5,6 +5,7 @@ import BlogHeader from '@/app/components/googlestudioai/BlogHeader';
 import { MarkdownRenderer } from '@/app/components/googlestudioai/MarkdownRenderer';
 import SideBar from '@/app/components/googlestudioai/SideBar';
 import { absoluteUrl, pageMetadata, postImage, siteIdentity, siteUrl } from '@/app/lib/seo';
+import { siteRole } from '@/app/lib/site-role';
 
 
 // 1. Generazione statica dei percorsi
@@ -142,7 +143,7 @@ export default async function BlogPost(props: { params: Promise<{ slug: string[]
                             </div>
                             <div>
                                 <h4 className="font-bold text-slate-900">Giorgio Tedesco</h4>
-                                <p className="text-sm text-slate-600"><b>Solution Architect & Tech Lead</b>. Passionate about performance, DX, and clean code.</p>
+                                <p className="text-sm text-slate-600"><b>{siteRole}</b>. Passionate about performance, DX, and clean code.</p>
                             </div>
                         </div>
                     </main>

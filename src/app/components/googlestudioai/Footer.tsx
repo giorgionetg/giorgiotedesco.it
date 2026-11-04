@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import BookingModal from './BookingModal';
+import { siteRole } from '@/app/lib/site-role';
 
 const Footer: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -16,7 +17,7 @@ const Footer: React.FC = () => {
               <span className="font-bold text-white">GiorgioTedesco</span>
               <span className="font-bold text-brand-blue">.it</span>
             </div>
-            <p className="font-medium text-slate-100">Full-Stack Architect · Tech Lead</p>
+            <p className="font-medium text-slate-100">{siteRole}</p>
             <p className="text-sm text-slate-500 leading-relaxed max-w-xs">
               Designing and leading scalable web platforms under real-world constraints.
             </p>

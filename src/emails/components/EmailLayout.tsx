@@ -11,6 +11,7 @@ import {
 import type { ReactNode } from "react";
 
 import { emailTokens } from "./tokens";
+import { siteRole } from "@/app/lib/site-role";
 
 type EmailLayoutProps = {
   children: ReactNode;
@@ -59,7 +60,7 @@ export default function EmailLayout({ children, preview }: EmailLayoutProps) {
                 <span className="text-brand-blue">.it</span>
               </Text>
               <Text className="m-0 mt-[4px] text-[13px] font-medium text-slate-500">
-                Full-Stack Architect · Tech Lead
+                {siteRole}
               </Text>
             </Section>
 
@@ -70,7 +71,7 @@ export default function EmailLayout({ children, preview }: EmailLayoutProps) {
                 You are receiving this email from giorgiotedesco.it.
               </Text>
               <Text className="m-0 mt-[8px] text-[12px] leading-[20px] text-slate-500">
-                Giorgio Tedesco · Senior Solution Architect
+                Giorgio Tedesco · {siteRole}
               </Text>
             </Section>
           </Container>

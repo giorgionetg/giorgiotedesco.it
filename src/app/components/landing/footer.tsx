@@ -1,4 +1,5 @@
 import Logo from "../Logo";
+import { siteRole } from '@/app/lib/site-role';
 
 
 export default async function Footer() {
@@ -11,7 +12,7 @@ export default async function Footer() {
                 <p>
                     <span className="font-bold">Dott. Giorgio Tedesco</span>
                     <br />
-                    Senior Full Stack Developer
+                    {siteRole}
                 </p>
             </aside>
             <nav>

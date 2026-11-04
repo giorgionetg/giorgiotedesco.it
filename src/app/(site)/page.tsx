@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import HomePageClient from '@/app/components/googlestudioai/HomePageClient';
-import myschema from '@/app/lib/schema.json';
+import { homeSchema } from '@/app/lib/schema';
 import { pageMetadata, siteIdentity } from '@/app/lib/seo';
 
 export const metadata: Metadata = pageMetadata({
@@ -13,7 +13,7 @@ export default function HomePage() {
     return (<>
         <script
             type="application/ld+json"
-            dangerouslySetInnerHTML={{ __html: JSON.stringify(myschema) }}
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(homeSchema) }}
         />
         <HomePageClient />
     </>);

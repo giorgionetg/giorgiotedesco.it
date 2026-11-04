@@ -1,5 +1,6 @@
 import React from 'react';
 import { Terminal, Cpu, Heart, Globe, Box, ArrowRight, ShieldCheck, GitBranch, Database, Layers, Cuboid, Workflow } from 'lucide-react';
+import { siteRole } from '@/app/lib/site-role';
 
 interface AboutFullProps {
    onBookCall: () => void;
@@ -16,7 +17,7 @@ const AboutFull: React.FC<AboutFullProps> = ({ onBookCall }) => {
 
                   <div className="lg:w-2/3">
                      <span className="font-mono text-brand-blue font-bold tracking-widest text-sm uppercase mb-6 block">
-                        Solution Architect & Tech Lead
+                        {siteRole}
                      </span>
                      <h1 className="text-5xl md:text-7xl font-serif font-medium text-slate-900 leading-[1.1] mb-8">
                         Designing Systems for the <br />
@@ -50,7 +51,7 @@ const AboutFull: React.FC<AboutFullProps> = ({ onBookCall }) => {
 
                <div className="grid md:grid-cols-2 gap-16 items-center mb-24">
                   <div>
-                     <h3 className="text-3xl font-serif text-slate-900 mb-6">The "Tech Lead" Mindset</h3>
+                     <h3 className="text-3xl font-serif text-slate-900 mb-6">The Engineering Mindset</h3>
                      <div className="w-16 h-1 bg-brand-orange mb-6"></div>
                      <p className="text-lg text-slate-600 leading-relaxed mb-4">
                         In modern software engineering, the challenge isn't just making it work—it's making it maintainable, secure, and scalable.
@@ -83,7 +84,7 @@ const AboutFull: React.FC<AboutFullProps> = ({ onBookCall }) => {
                   </div>
                   <div className="md:w-1/2 grid grid-cols-2 gap-4">
                      <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
-                        <span className="block text-4xl font-bold text-slate-900 mb-2">Architect</span>
+                        <span className="block text-2xl font-bold text-slate-900 mb-2">{siteRole}</span>
                         <span className="text-sm text-slate-500 font-medium uppercase">Role Focus</span>
                      </div>
                      <div className="bg-slate-900 p-6 rounded-2xl shadow-sm text-white">

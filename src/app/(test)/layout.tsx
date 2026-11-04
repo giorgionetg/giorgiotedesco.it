@@ -2,7 +2,8 @@
 import type { Metadata } from "next";
 import { geistSans, geistMono } from "@/app/fonts";
 
-import myschema from '@/app/lib/schema.json'
+import { homeSchema } from '@/app/lib/schema'
+import { siteIdentity } from '@/app/lib/seo'
 
 import "@/app/(site)/globals.css";
 import Logo from "@/app/components/Logo";
@@ -12,8 +13,8 @@ import MainBlock from "../components/layouts/MainBlock";
 import Sidebar from "../components/layouts/SideBar";
 
 export const metadata: Metadata = {
-  title: "Giorgio Tedesco | Full Stack Web Developer & 3D Artist",
-  description: "Sviluppatore Web Full Stack specializzato in Laravel, WordPress e tecnologie 3D come Blender e Unity. Esperienza nella gestione DNS e infrastrutture web.",
+  title: siteIdentity.title,
+  description: `${siteIdentity.description} Experience with Laravel, WordPress, Blender, Unity, DNS, and web infrastructure.`,
 };
 export default function Layout({
   children,
@@ -25,7 +26,7 @@ export default function Layout({
       <head>
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(myschema) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(homeSchema) }}
         />
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>

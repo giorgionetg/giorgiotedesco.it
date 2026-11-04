@@ -1,4 +1,5 @@
 import React from 'react';
+import { siteRole } from '@/app/lib/site-role';
 
 const AboutMe: React.FC = () => {
   return (
@@ -41,7 +42,7 @@ const AboutMe: React.FC = () => {
                 Ciao! I'm{" "}
                 <strong className="text-slate-900 font-semibold">Giorgio</strong>, a{" "}
                 <strong className="text-slate-900 font-semibold">
-                  Senior Full-Stack Architect and Tech Lead
+                  {siteRole}
                 </strong>{" "}
                 with over a decade of experience designing and leading complex web platforms
                 for enterprises and SMEs.

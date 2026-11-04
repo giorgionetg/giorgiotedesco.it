@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { BlogPost } from '@/app/lib/types';
 import { Clock, Calendar, ArrowLeft, Linkedin, Twitter, Mail, ArrowRight, TrendingUp } from 'lucide-react';
+import { siteRole } from '@/app/lib/site-role';
 
 const posts: BlogPost[] = [
    {
@@ -122,7 +123,7 @@ const Blog: React.FC = () => {
                         </div>
                         <div>
                            <h4 className="font-bold text-slate-900">Giorgio Tedesco</h4>
-                           <p className="text-sm text-slate-600">Senior Software Engineer & Frontend Architect. Passionate about performance, DX, and clean code.</p>
+                           <p className="text-sm text-slate-600">{siteRole}. Passionate about performance, DX, and clean code.</p>
                         </div>
                      </div>
                   </main>
@@ -247,7 +248,7 @@ const Blog: React.FC = () => {
                         </p>
                      </div>
                      <div className="p-6 hidden md:flex items-center justify-center border-l border-slate-50">
-                        <div className="btn btn-ghost btn-circle text-slate-300 group-hover:text-brand-blue group-hover:bg-blue-50 transition-all">
+                        <div className="btn btn-ghost btn-circle text-brand-blue group-hover:bg-blue-50 transition-all">
                            <ArrowRight />
                         </div>
                      </div>

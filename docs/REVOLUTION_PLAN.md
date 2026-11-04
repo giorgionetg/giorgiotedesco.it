@@ -47,7 +47,7 @@ consulenza senior.
   slash (`package.json`, `next.config.ts`).
 - **Evidenza**: route attive `/`, `/about-me/`, `/blog/` e sei post Markdown;
   sei bozze restano in `content/draft/`.
-- **Evidenza**: homepage pubblicata “Senior Full-Stack Architect & Tech Lead”,
+- **Evidenza**: homepage con ruolo definito da `NEXT_PUBLIC_SITE_ROLE`,
   CTA `Book a Call` e download CV.
 - **Evidenza**: navigazione limitata a Home, About Me, Blog; nessuna pagina
   servizi, contatti, brief o casi pubblicata.

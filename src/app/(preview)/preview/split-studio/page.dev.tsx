@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { siteRole } from '@/app/lib/site-role';
 
 export default function SplitStudioPreviewPage() {
   return (
@@ -27,7 +28,7 @@ export default function SplitStudioPreviewPage() {
               </div>
               <div>
                 <strong>Senior</strong>
-                <p className="hm-lede">IC + tech lead</p>
+                <p className="hm-lede">{siteRole}</p>
               </div>
             </div>
           </div>

@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { getAllPosts, getPostBySlug, getPostLanguageAlternates, getLegacyPostRoutes } from '@/app/lib/markdown/posts';
 import { absoluteUrl, pageMetadata, postImage, siteIdentity, siteUrl } from '@/app/lib/seo';
+import { siteRole } from '@/app/lib/site-role';
 import BlogHeader from '@/app/components/googlestudioai/BlogHeader';
 import { MarkdownRenderer } from '@/app/components/googlestudioai/MarkdownRenderer';
 import SideBar from '@/app/components/googlestudioai/SideBar';
@@ -118,7 +119,7 @@ export default async function ItalianBlogPost(props: { params: Promise<{ slug: s
           </article>
           <div className="mx-auto mt-16 flex max-w-4xl items-center gap-4 rounded-xl border border-slate-100 bg-slate-50 p-6">
             <img src="/images/giorgiotedesco-ai-clone.png" alt="Giorgio Tedesco" className="h-16 w-16 rounded-full object-cover" />
-            <div><h2 className="font-bold text-slate-900">Giorgio Tedesco</h2><p className="text-sm text-slate-600">Solution Architect &amp; Tech Lead.</p></div>
+            <div><h2 className="font-bold text-slate-900">Giorgio Tedesco</h2><p className="text-sm text-slate-600">{siteRole}.</p></div>
           </div>
         </main>
         <SideBar />

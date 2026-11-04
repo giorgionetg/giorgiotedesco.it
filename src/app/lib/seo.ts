@@ -1,12 +1,13 @@
 import type { Metadata } from 'next';
+import { siteRole } from './site-role';
 
 export const siteUrl = 'https://giorgiotedesco.it';
 
 export const siteIdentity = {
   name: 'Giorgio Tedesco',
-  title: 'Giorgio Tedesco | Senior Solution Architect & Tech Lead',
+  title: `Giorgio Tedesco | ${siteRole}`,
   description:
-    'Senior Solution Architect with 16+ years of experience in designing scalable Cloud Native systems, Enterprise Modernization, and Secure Web Architectures. Specializing in bridging legacy infrastructure with modern Next.js, Kubernetes, and Web3 technologies.',
+    `${siteRole} with 16+ years of experience in designing scalable Cloud Native systems, Enterprise Modernization, and Secure Web Architectures. Specializing in bridging legacy infrastructure with modern Next.js, Kubernetes, and Web3 technologies.`,
   personId: `${siteUrl}/#person`,
   websiteId: `${siteUrl}/#website`,
   personImage: `${siteUrl}/images/giorgiotedesco-ai-clone.png`,
