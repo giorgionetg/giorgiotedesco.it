@@ -1,4 +1,6 @@
 ---
+recommendedServices: []
+relatedPosts: [sullo-sviluppo-web/un-agente-e-una-macchina-a-stati, sul-web-marketing/una-scomoda-verita]
 slug: una-pipeline-ai-privacy-first-per-cercare-lavoro
 title: Come ho progettato una pipeline AI privacy-first per cercare lavoro nell'estate 2024
 description: "Oltre il web scraping: una pipeline intelligente e rispettosa della privacy per una ricerca di lavoro mirata."

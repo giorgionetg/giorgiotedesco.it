@@ -1,4 +1,5 @@
 export const CONSENT_KEY = 'privacy.preferences.v1';
+export const PENDING_SERVICE_CLICKS_KEY = 'blog.service-clicks.pending.v1';
 export type Preferences = { analytics: boolean; external: boolean; savedAt: number };
 const SIX_MONTHS = 183 * 24 * 60 * 60 * 1000;
 

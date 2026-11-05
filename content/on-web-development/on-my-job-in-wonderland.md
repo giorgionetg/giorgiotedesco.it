@@ -1,4 +1,6 @@
 ---
+recommendedServices: []
+relatedPosts: [on-web-development/from-local-to-self-hosted-cloud, on-web-development/how-this-website-is-made]
 slug: on-my-job-in-wonderland
 title: On my job in Wonderland Engine Company
 description: My first experience in team work and remote working.

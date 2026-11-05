@@ -1,4 +1,6 @@
 ---
+recommendedServices: []
+relatedPosts: [on-web-development/today-i-post-somewhere-else-if-i-can, on-web-development/from-local-to-self-hosted-cloud]
 slug: how-bitcoin-works
 title: How Bitcoin works
 description: A little description to discover how Bitcoin and other cryptocurrencies work.

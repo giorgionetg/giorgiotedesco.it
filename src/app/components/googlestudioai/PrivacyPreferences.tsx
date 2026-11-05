@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { CONSENT_KEY, readPreferences } from '@/app/lib/tracking-consent';
+import { CONSENT_KEY, PENDING_SERVICE_CLICKS_KEY, readPreferences } from '@/app/lib/tracking-consent';
 
 export default function PrivacyPreferences() {
   const [open, setOpen] = useState(false);
@@ -25,7 +25,10 @@ export default function PrivacyPreferences() {
   function save(nextAnalytics: boolean, nextExternal: boolean) {
     try {
       localStorage.setItem(CONSENT_KEY, JSON.stringify({ analytics: nextAnalytics, external: nextExternal, savedAt: Date.now() }));
-      if (!nextAnalytics) localStorage.removeItem('visura-ai.visitor-id');
+      if (!nextAnalytics) {
+        localStorage.removeItem('visura-ai.visitor-id');
+        try { sessionStorage.removeItem(PENDING_SERVICE_CLICKS_KEY); } catch { /* Storage may be unavailable. */ }
+      }
       window.location.reload();
     } catch { setError(true); }
   }

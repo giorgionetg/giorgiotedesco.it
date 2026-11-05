@@ -25,9 +25,13 @@ export interface Post {
   coverImage?: string;
   readingTime?: string; // Common field name, formerly readTime?
   translationKey?: string;
+  recommendedServices?: ServiceId[];
+  relatedPosts?: string[];
   draft?: boolean;
   [key: string]: any;
 }
+
+export type ServiceId = 'websites' | 'visura-ai' | 'ai-sitter';
 
 export type BlogPost = Post;
 

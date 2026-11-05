@@ -1,4 +1,6 @@
 ---
+recommendedServices: []
+relatedPosts: [on-web-development/how-i-engineered-my-job-search-with-a-privacy-first-ai-pipeline-in-2024-summer, on-web-marketing/an-uncomfortable-truth]
 slug: an-agent-is-a-state-machine
 title: "An Agent Is a State Machine"
 description: "Part I — From LangGraph to XState, before calling the LLM."

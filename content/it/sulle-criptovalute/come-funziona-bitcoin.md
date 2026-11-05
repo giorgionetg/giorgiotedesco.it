@@ -1,4 +1,6 @@
 ---
+recommendedServices: []
+relatedPosts: [sullo-sviluppo-web/oggi-posto-in-un-altro-posto-se-posso, sullo-sviluppo-web/da-cartelle-locali-a-cloud-self-hosted]
 slug: come-funziona-bitcoin
 title: Come funziona Bitcoin
 description: Una breve introduzione al funzionamento di Bitcoin e delle altre criptovalute.

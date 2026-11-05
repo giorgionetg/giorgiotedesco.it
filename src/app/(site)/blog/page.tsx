@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { getAllPosts } from '@/app/lib/markdown/posts';
 import { Calendar } from 'lucide-react';
+import BlogPostCard from '@/app/components/googlestudioai/BlogPostCard';
 
 import { BlogPost } from '@/app/lib/types';
 import type { Metadata } from 'next';
@@ -28,55 +29,6 @@ const BlogHeader = () => {
         </div>
     );
 }
-
-const CardArticle = ({ post }: { post: BlogPost }) => {
-  const href = `/blog/${post.slug.join('/')}`;
-  const date = post.datePublished || post.date;
-
-  return (
-    <article className="group relative min-h-[380px] overflow-hidden rounded-4xl shadow-xl border border-base-200 bg-base-200">
-      
-        <img
-          src={post.image || '/ai-images/gemini-gt-placeholder.jpg'}
-          alt={post.title}
-          className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-        />
-      
-
-      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/55 to-black/15" />
-
-      <div className="relative z-10 flex min-h-[380px] flex-col justify-end p-6 text-white">
-        <div className="mb-5">
-          {date && (
-            <div className="mb-2 text-sm text-white/70">
-              {new Date(date).toLocaleDateString('en-GB', {
-                day: 'numeric',
-                month: 'long',
-                year: 'numeric',
-              })}
-            </div>
-          )}
-
-          <h2 className="text-2xl font-bold leading-tight">
-            <Link href={href} className="hover:text-primary transition-colors">
-              {post.title}
-            </Link>
-          </h2>
-
-          {post.excerpt && (
-            <p className="mt-3 line-clamp-3 text-sm leading-relaxed text-white/80">
-              {post.excerpt}
-            </p>
-          )}
-        </div>
-
-        <Link href={href} className="btn btn-primary w-full rounded-full text-sm font-bold hover:bg-primary-focus transition-colors">
-          Read More
-        </Link>
-      </div>
-    </article>
-  );
-};
 
 const SelectedPostHeader = ({ selectedPost }: { selectedPost: BlogPost }) => {
     return (
@@ -132,7 +84,7 @@ export default async function BlogIndex() {
                 <h1 className="text-4xl text-center md:text-left font-bold mb-8">Latest Posts</h1>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     {posts.map((post) => (
-                        <CardArticle key={post.slug.join('/')} post={post} />
+                        <BlogPostCard key={post.slug.join('/')} post={post} />
                     ))}
                 </div>
             </div>

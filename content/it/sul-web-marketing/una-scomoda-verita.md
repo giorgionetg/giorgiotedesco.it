@@ -1,4 +1,5 @@
 ---
+recommendedServices: [ai-sitter]
 slug: una-scomoda-verita
 title: Una scomoda verità
 description: Sviluppare ai giorni distopici, nostri.

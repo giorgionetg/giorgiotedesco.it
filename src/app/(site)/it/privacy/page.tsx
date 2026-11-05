@@ -53,6 +53,7 @@ export default function PrivacyPage() {
               <p>Oltre ai cookie, alcune funzionalità possono usare altri spazi di memoria del browser, come il localStorage e IndexedDB. Le informazioni in questa sezione sono in corso di verifica e saranno completate con le durate e i dettagli dei singoli strumenti.</p>
               <h3>Statistiche con Umami</h3>
               <p>Con il tuo consenso, in produzione il sito carica Umami da get.giorgiotedesco.it per raccogliere statistiche sulle visite e su alcune interazioni. La configurazione dell’installazione e gli eventuali dati memorizzati nel browser sono da verificare.</p>
+              <p>I clic dagli articoli del blog ai servizi suggeriti vengono misurati con il percorso dell’articolo, la lingua e l’identificativo del servizio. Se Umami non è ancora caricato, il clic resta in attesa nella scheda del browser fino al caricamento della pagina successiva. Senza consenso alle statistiche non viene inviato alcun evento.</p>
               <h3>Esperimenti Visura AI</h3>
               <p>Con il tuo consenso alle statistiche, alcune pagine Visura AI usano il localStorage del browser per salvare un identificativo denominato <code>visura-ai.visitor-id</code>. L’identificativo, la variante visualizzata e gli eventi di interazione vengono inviati a PocketBase per misurare gli esperimenti. Il codice non imposta una scadenza per questo dato nel browser; l’identificativo viene rimosso dal browser se revochi il consenso alle statistiche.</p>
               <h3>Le tue preferenze</h3>

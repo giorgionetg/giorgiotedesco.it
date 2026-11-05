@@ -4,8 +4,11 @@ import { Metadata } from 'next';
 import BlogHeader from '@/app/components/googlestudioai/BlogHeader';
 import { MarkdownRenderer } from '@/app/components/googlestudioai/MarkdownRenderer';
 import SideBar from '@/app/components/googlestudioai/SideBar';
+import RelatedPosts from '@/app/components/googlestudioai/RelatedPosts';
 import { absoluteUrl, pageMetadata, postImage, siteIdentity, siteUrl } from '@/app/lib/seo';
+import { selectRelatedPosts } from '@/app/lib/markdown/related-posts';
 import { siteRole } from '@/app/lib/site-role';
+import { standardDocumentUri } from '@/app/lib/standard-site';
 
 
 // 1. Generazione statica dei percorsi
@@ -115,8 +118,12 @@ export default async function BlogPost(props: { params: Promise<{ slug: string[]
         }]
     };
 
+    const showServices = post.recommendedServices?.length !== 0;
+    const relatedPosts = showServices ? [] : selectRelatedPosts(post, await getAllPosts('en'));
+
     return (
         <>
+            {standardDocumentUri(post.atUri) && <link rel="site.standard.document" href={standardDocumentUri(post.atUri)} />}
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{
@@ -129,7 +136,7 @@ export default async function BlogPost(props: { params: Promise<{ slug: string[]
                 day: 'numeric'
             })} category={post.category || 'Tech'} />
             <div className="container mx-auto mb-10 max-w-7xl px-6">
-                <div className="mx-auto grid max-w-6xl items-start gap-8 lg:grid-cols-[minmax(0,1fr)_18rem] lg:gap-12">
+                <div className={showServices || relatedPosts.length ? 'mx-auto grid max-w-6xl items-start gap-8 lg:grid-cols-[minmax(0,1fr)_18rem] lg:gap-12' : 'mx-auto max-w-3xl'}>
                     <main className="min-w-0 rounded-lg bg-white/95 px-6 py-10 shadow-lg backdrop-blur-sm sm:px-10 sm:py-12 lg:px-12">
                         <article className="prose prose-lg prose-slate prose-headings:font-bold prose-headings:text-slate-900 prose-a:text-brand-blue max-w-none dark:prose-invert">
 
@@ -147,7 +154,7 @@ export default async function BlogPost(props: { params: Promise<{ slug: string[]
                             </div>
                         </div>
                     </main>
-                    <SideBar />
+                    {showServices ? <SideBar locale="en" article={post.slug.join('/')} recommendedServices={post.recommendedServices} /> : <RelatedPosts locale="en" posts={relatedPosts} />}
                 </div>
             </div>
         </>

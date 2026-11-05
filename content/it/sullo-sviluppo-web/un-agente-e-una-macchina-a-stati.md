@@ -1,4 +1,6 @@
 ---
+recommendedServices: []
+relatedPosts: [sullo-sviluppo-web/una-pipeline-ai-privacy-first-per-cercare-lavoro, sul-web-marketing/una-scomoda-verita]
 slug: un-agente-e-una-macchina-a-stati
 title: Un agente è una macchina a stati
 description: Parte I — Da LangGraph a XState, prima di chiamare il modello linguistico.

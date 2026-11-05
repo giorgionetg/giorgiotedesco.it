@@ -1,4 +1,5 @@
 ---
+recommendedServices: [ai-sitter]
 slug: an-uncomfortable-truth
 title: An Uncomfortable Truth
 description: A story about AI agents, endless prompts, and the value of deciding what is worth doing.

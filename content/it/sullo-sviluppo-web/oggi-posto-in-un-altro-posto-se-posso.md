@@ -1,4 +1,7 @@
 ---
+recommendedServices: []
+relatedPosts: [sulle-criptovalute/come-funziona-bitcoin, sullo-sviluppo-web/da-cartelle-locali-a-cloud-self-hosted]
+atUri: "at://did:plc:27g2oqb2vz6k2mkezsx4a2sx/site.standard.document/3mywmbunz6c2w"
 slug: oggi-posto-in-un-altro-posto-se-posso
 title: Oggi posto in un altro posto, se posso.
 description: Sono caduto come una mosca nel mondo alternativo di Bluesky.social.

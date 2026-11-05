@@ -30,6 +30,11 @@ export default function PrivacyPage() {
               <p>When you submit a form, I may receive the information you enter, such as your name, email address or phone number, website address, and details about your project or business. The information requested depends on the form.</p>
               <p>I use this information to review and respond to your request and discuss a possible service with you. Data submitted through forms connected to PocketBase is managed via pb.giorgiotedesco.it. Without the necessary information, I may be unable to respond or handle your request.</p>
             </section>
+            <section aria-labelledby="privacy-newsletter">
+              <h2 id="privacy-newsletter">Newsletter</h2>
+              <p>If you subscribe from the homepage, your full name, email address and newsletter consent are sent to PocketBase at pb.giorgiotedesco.it to manage the subscription. The form does not opt you into separate marketing messages.</p>
+              <p>To withdraw your newsletter consent, contact {email ? <a href={`mailto:${email}`}>{email}</a> : 'the site owner'}.</p>
+            </section>
             <section aria-labelledby="privacy-infrastructure">
               <h2 id="privacy-infrastructure">Services and infrastructure</h2>
               <div className="overflow-x-auto">
@@ -53,6 +58,7 @@ export default function PrivacyPage() {
               <p>In addition to cookies, some features may use other browser storage, such as localStorage and IndexedDB. The information in this section is being verified and will be completed with the duration and details of each tool.</p>
               <h3>Umami statistics</h3>
               <p>With your consent, the live site loads Umami from get.giorgiotedesco.it to collect statistics on visits and certain interactions. The installation’s configuration and any data stored in the browser still need to be verified.</p>
+              <p>Clicks from blog articles to suggested services are measured with the article path, language and service identifier. If Umami has not loaded yet, a pending click is held in this browser tab until the next page loads. No such event is sent without statistics consent.</p>
               <h3>Visura AI experiments</h3>
               <p>With your consent to statistics, some Visura AI pages use browser localStorage to save an identifier named <code>visura-ai.visitor-id</code>. The identifier, the variant shown and interaction events are sent to PocketBase to measure experiments. The code does not set an expiry for this browser data; the identifier is removed from the browser if you withdraw consent to statistics.</p>
               <h3>Your preferences</h3>

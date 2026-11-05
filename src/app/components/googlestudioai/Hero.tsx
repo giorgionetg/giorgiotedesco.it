@@ -9,12 +9,17 @@ const HeroTitle = () => {
   );
 };
 
-const heroData = {
-  title: <HeroTitle />,
-  subtitle: 'I design and build scalable and robust web platforms, from frontend and APIs to authentication and cloud infrastructure.',
-  skills: 'React · Next.js · TypeScript · Node.js · Docker · Kubernetes',
+const webPlatformArticle = '/blog/on-web-development/what-is-a-web-platform/';
+
+const SubTitle: React.FC = () => {
+  return <>I design and build scalable and robust <a href={webPlatformArticle} className="font-bold text-brand-blue underline underline-offset-4 transition-colors hover:text-interaction-orange focus-visible:text-interaction-orange">web platforms</a>, from frontend and APIs to authentication and cloud infrastructure.</>;
 }
 
+const heroData = {
+  title: <HeroTitle />,
+  subtitle: <SubTitle />,
+  skills: 'React · Next.js · TypeScript · Node.js · Docker · Kubernetes',
+}
 
 
 const Hero: React.FC = () => {

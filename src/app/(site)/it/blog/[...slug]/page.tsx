@@ -3,9 +3,12 @@ import { notFound } from 'next/navigation';
 import { getAllPosts, getPostBySlug, getPostLanguageAlternates, getLegacyPostRoutes } from '@/app/lib/markdown/posts';
 import { absoluteUrl, pageMetadata, postImage, siteIdentity, siteUrl } from '@/app/lib/seo';
 import { siteRole } from '@/app/lib/site-role';
+import { standardDocumentUri } from '@/app/lib/standard-site';
 import BlogHeader from '@/app/components/googlestudioai/BlogHeader';
 import { MarkdownRenderer } from '@/app/components/googlestudioai/MarkdownRenderer';
 import SideBar from '@/app/components/googlestudioai/SideBar';
+import RelatedPosts from '@/app/components/googlestudioai/RelatedPosts';
+import { selectRelatedPosts } from '@/app/lib/markdown/related-posts';
 
 export async function generateStaticParams() {
   const posts = await getAllPosts('it');
@@ -108,11 +111,15 @@ export default async function ItalianBlogPost(props: { params: Promise<{ slug: s
     ],
   };
 
+  const showServices = post.recommendedServices?.length !== 0;
+  const relatedPosts = showServices ? [] : selectRelatedPosts(post, await getAllPosts('it'));
+
   return <>
+    {standardDocumentUri(post.atUri) && <link rel="site.standard.document" href={standardDocumentUri(post.atUri)} />}
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c') }} />
     <BlogHeader title={post.title} written={new Date(post.datePublished || post.date || '').toLocaleDateString('it-IT', { year: 'numeric', month: 'long', day: 'numeric' })} category={post.category || 'Articolo'} />
     <div lang="it" className="container mx-auto mb-10 max-w-7xl px-6">
-      <div className="mx-auto grid max-w-6xl items-start gap-8 lg:grid-cols-[minmax(0,1fr)_18rem] lg:gap-12">
+      <div className={showServices || relatedPosts.length ? 'mx-auto grid max-w-6xl items-start gap-8 lg:grid-cols-[minmax(0,1fr)_18rem] lg:gap-12' : 'mx-auto max-w-3xl'}>
         <main className="min-w-0 rounded-lg bg-white/95 px-6 py-10 shadow-lg backdrop-blur-sm sm:px-10 sm:py-12 lg:px-12">
           <article className="prose prose-lg prose-slate mx-auto max-w-4xl prose-headings:font-bold prose-headings:text-slate-900 prose-a:text-brand-blue dark:prose-invert">
             <MarkdownRenderer content={post.content} />
@@ -122,7 +129,7 @@ export default async function ItalianBlogPost(props: { params: Promise<{ slug: s
             <div><h2 className="font-bold text-slate-900">Giorgio Tedesco</h2><p className="text-sm text-slate-600">{siteRole}.</p></div>
           </div>
         </main>
-        <SideBar />
+        {showServices ? <SideBar locale="it" article={post.slug.join('/')} recommendedServices={post.recommendedServices} /> : <RelatedPosts locale="it" posts={relatedPosts} />}
       </div>
     </div>
   </>;

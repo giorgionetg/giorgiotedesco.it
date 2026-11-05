@@ -1,4 +1,5 @@
 ---
+recommendedServices: [websites]
 slug: da-cartelle-locali-a-cloud-self-hosted
 title: "Dalle cartelle locali a un cloud self-hosted: l'evoluzione dell'architettura"
 description: Il passaggio da progetti raccolti in cartelle locali a uno stack self-hosted con Forgejo, Traefik, PocketBase e GarageHQ.

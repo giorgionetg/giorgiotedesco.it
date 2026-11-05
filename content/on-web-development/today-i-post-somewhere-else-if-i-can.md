@@ -1,4 +1,6 @@
 ---
+recommendedServices: []
+relatedPosts: [on-cryptocurrencies/how-bitcoin-works, on-web-development/from-local-to-self-hosted-cloud]
 slug: today-i-post-somewhere-else-if-i-can
 title: Today I post somewhere else, if I can.
 description: I fell like a fly into Bluesky's alternative world.

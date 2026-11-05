@@ -1,4 +1,5 @@
 ---
+recommendedServices: [websites]
 slug: how-this-website-is-made
 title: How this website is made
 description: A little tutorial to discover what there is behind this website

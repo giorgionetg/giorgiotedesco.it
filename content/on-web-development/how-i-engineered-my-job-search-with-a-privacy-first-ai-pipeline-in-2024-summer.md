@@ -1,4 +1,6 @@
 ---
+recommendedServices: []
+relatedPosts: [on-web-development/an-agent-is-a-state-machine, on-web-marketing/an-uncomfortable-truth]
 slug: how-i-engineered-my-job-search-with-a-privacy-first-ai-pipeline-in-2024-summer
 title: How I Engineered My Job Search with a privacy-first AI Pipeline in 2024 Summer
 description: Beyond Web Scraping; Engineering an Intelligent, Privacy-First Pipeline for Targeted Job Hunting

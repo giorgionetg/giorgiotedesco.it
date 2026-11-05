@@ -1,4 +1,5 @@
 ---
+recommendedServices: [visura-ai]
 slug: september-back-to-school
 title: Settembre, back to school
 description: Scorcio su tutti i recap/roadmap e sviluppi.

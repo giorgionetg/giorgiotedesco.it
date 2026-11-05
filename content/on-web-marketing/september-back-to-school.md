@@ -1,4 +1,5 @@
 ---
+recommendedServices: [visura-ai]
 slug: september-back-to-school
 title: "September: Back to School"
 description: A month of building, 8,000 websites found, and a lesson in the difference between a software problem and a sales problem.

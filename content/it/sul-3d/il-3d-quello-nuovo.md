@@ -1,4 +1,6 @@
 ---
+recommendedServices: []
+relatedPosts: [sullo-sviluppo-web/il-mio-lavoro-in-wonderland-engine, sullo-sviluppo-web/come-e-fatto-questo-sito]
 slug: il-3d-quello-nuovo
 title: Il 3D, quello nuovo
 description: Sperimentando con 3D
