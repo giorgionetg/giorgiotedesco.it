@@ -2,11 +2,13 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import BookingModal from './BookingModal';
 import { siteRole } from '@/app/lib/site-role';
 
 const Footer: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const italian = usePathname()?.startsWith('/it/') ?? false;
 
   return (
     <footer className="bg-slate-900 text-slate-300 pt-16 pb-36 md:pb-16 border-t border-slate-800 relative z-10">
@@ -57,7 +59,7 @@ const Footer: React.FC = () => {
 
         <div className="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-slate-500">
           <p>© {new Date().getFullYear()} Giorgio Tedesco. All rights reserved.</p>
-          <Link href="/privacy/" className="underline underline-offset-4 hover:text-white">Informativa privacy</Link>
+          <Link href={italian ? '/it/privacy/' : '/privacy/'} className="underline underline-offset-4 hover:text-white">{italian ? 'Informativa privacy' : 'Privacy notice'}</Link>
           <button type="button" onClick={() => window.dispatchEvent(new Event('privacy:open'))} className="rounded-lg border border-slate-500 px-4 py-2 font-semibold text-slate-100 hover:border-white hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">Preferenze privacy</button>
         </div>
       </div>

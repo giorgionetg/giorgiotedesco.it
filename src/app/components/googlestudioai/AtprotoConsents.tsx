@@ -89,7 +89,7 @@ export default function AtprotoConsents({ did, email, username, page }: AtprotoC
       </label>
     </div>
     <p className="mt-5 text-xs leading-relaxed text-slate-500">
-      Le scelte sono facoltative. Consulta l’<Link href="/privacy/" className="font-medium text-brand-blue underline underline-offset-2">informativa privacy</Link>.
+      Le scelte sono facoltative. Consulta l’<Link href="/it/privacy/" className="font-medium text-brand-blue underline underline-offset-2">informativa privacy</Link>.
     </p>
     <button type="submit" disabled={status === 'sending'} className="btn mt-5 w-full rounded-xl border-none bg-brand-blue font-semibold text-white disabled:cursor-not-allowed disabled:opacity-50">{status === 'sending' ? 'Invio in corso…' : 'Aggiorna le preferenze'}</button>
     <button type="button" disabled={status === 'sending'} onClick={() => { void saveChoices(false, false); }} className="btn mt-3 w-full rounded-xl border border-orange-600 bg-white font-semibold text-orange-700 hover:bg-orange-50">Revoca tutte le preferenze</button>

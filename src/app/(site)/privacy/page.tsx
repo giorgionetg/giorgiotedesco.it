@@ -4,7 +4,7 @@ import BlogHeader from '@/app/components/googlestudioai/BlogHeader';
 
 export const metadata: Metadata = {
   title: 'Privacy | Giorgio Tedesco',
-  description: 'Informativa privacy di GiorgioTedesco.it.',
+  description: 'Privacy notice for GiorgioTedesco.it.',
   robots: { index: false, follow: false },
 };
 
@@ -12,86 +12,86 @@ export default function PrivacyPage() {
   const name = process.env.NEXT_PUBLIC_PRIVACY_CONTROLLER_NAME?.trim();
   const email = process.env.NEXT_PUBLIC_PRIVACY_EMAIL?.trim();
 
-  return <div lang="it">
-    <BlogHeader title="Informativa privacy" category="Privacy e dati personali" showReadingTime={false} />
+  return <div lang="en">
+    <BlogHeader title="Privacy notice" category="Privacy and personal data" showReadingTime={false} />
     <div className="container mx-auto mb-20 max-w-7xl px-6">
       <div className="mx-auto grid max-w-6xl items-start gap-8 lg:grid-cols-[minmax(0,1fr)_18rem] lg:gap-12">
         <article className="min-w-0 rounded-lg bg-white/95 px-6 py-10 shadow-lg backdrop-blur-sm sm:px-10 sm:py-12 lg:px-12">
           <div className="prose prose-lg prose-slate mx-auto max-w-4xl prose-headings:font-bold prose-headings:text-slate-900 prose-a:text-brand-blue">
-            <p className="text-sm font-semibold uppercase tracking-wide text-brand-blue">Bozza in preparazione</p>
-            <p>Questa pagina è in preparazione. Qui troverai le informazioni su come vengono trattati i dati personali quando visiti il sito o utilizzi i servizi collegati.</p>
+            <p className="text-sm font-semibold uppercase tracking-wide text-brand-blue">Draft in progress · <a href="/it/privacy/" lang="it">Italiano</a></p>
+            <p>This page is being prepared. It will explain how personal data is processed when you visit the site or use connected services.</p>
             {(name || email) && <section aria-labelledby="privacy-controller">
-              <h2 id="privacy-controller">Titolare del trattamento</h2>
+              <h2 id="privacy-controller">Data controller</h2>
               {name && <p>{name}</p>}
-              {email && <p>Per informazioni sui tuoi dati puoi scrivere a <a href={`mailto:${email}`}>{email}</a>.</p>}
+              {email && <p>For questions about your data, contact <a href={`mailto:${email}`}>{email}</a>.</p>}
             </section>}
             <section aria-labelledby="privacy-requests">
-              <h2 id="privacy-requests">Richieste di contatto e servizi</h2>
-              <p>Quando invii una richiesta tramite i moduli, posso ricevere i dati che inserisci, come nome, indirizzo email o numero di telefono, indirizzo del sito e informazioni sul progetto o sull’attività. Le informazioni richieste cambiano in base al modulo utilizzato.</p>
-              <p>Uso questi dati per esaminare la richiesta, risponderti e valutare con te un eventuale servizio. I dati inviati ai moduli collegati a PocketBase sono gestiti tramite pb.giorgiotedesco.it. Se non fornisci i dati necessari, potrei non essere in grado di rispondere o gestire la richiesta.</p>
+              <h2 id="privacy-requests">Contact and service requests</h2>
+              <p>When you submit a form, I may receive the information you enter, such as your name, email address or phone number, website address, and details about your project or business. The information requested depends on the form.</p>
+              <p>I use this information to review and respond to your request and discuss a possible service with you. Data submitted through forms connected to PocketBase is managed via pb.giorgiotedesco.it. Without the necessary information, I may be unable to respond or handle your request.</p>
             </section>
             <section aria-labelledby="privacy-infrastructure">
-              <h2 id="privacy-infrastructure">Servizi e Infrastruttura</h2>
+              <h2 id="privacy-infrastructure">Services and infrastructure</h2>
               <div className="overflow-x-auto">
                 <table>
-                  <thead><tr><th>Servizio</th><th>Indirizzo internet</th><th>Hosting / VPS</th><th>Link</th></tr></thead>
+                  <thead><tr><th>Service</th><th>Internet address</th><th>Hosting / VPS</th><th>Link</th></tr></thead>
                   <tbody>
-                    <tr><td>Sito web</td><td>giorgiotedesco.it</td><td>GitHub Pages</td><td><a href="https://github.com/giorgionetg/giorgiotedesco.it">Repository</a></td></tr>
+                    <tr><td>Website</td><td>giorgiotedesco.it</td><td>GitHub Pages</td><td><a href="https://github.com/giorgionetg/giorgiotedesco.it">Repository</a></td></tr>
                     <tr><td>PocketBase</td><td>pb.giorgiotedesco.it</td><td>Hetzner</td><td><a href="https://www.hetzner.com/">Hetzner</a></td></tr>
                     <tr><td>Umami</td><td>get.giorgiotedesco.it</td><td>DigitalOcean</td><td><a href="https://www.digitalocean.com/">DigitalOcean</a></td></tr>
-                    <tr><td>dex-id.it</td><td>dex-id.it</td><td>Hetzner e cloud privato</td><td><a href="https://www.hetzner.com/">Hetzner</a></td></tr>
+                    <tr><td>dex-id.it</td><td>dex-id.it</td><td>Hetzner and private cloud</td><td><a href="https://www.hetzner.com/">Hetzner</a></td></tr>
                   </tbody>
                 </table>
               </div>
-              <p>Il codice e i contenuti principali del sito sono disponibili nella repository indicata nella tabella.</p>
-              <p>GitHub informa che, quando visiti un sito pubblicato con GitHub Pages, il tuo indirizzo IP viene registrato e conservato per finalità di sicurezza, anche se non hai effettuato l’accesso a GitHub. Puoi consultare la <a href="https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages">documentazione di GitHub Pages</a>.</p>
-              <p>I dati inviati attraverso i moduli e le altre funzionalità che usano il database vengono gestiti da PocketBase. Le statistiche del sito utilizzano Umami.</p>
-              <p>Le informazioni sui dati raccolti, sulle finalità, sui tempi di conservazione e sui fornitori coinvolti sono ancora da verificare e completare.</p>
+              <p>The site’s code and main content are available in the repository linked in the table.</p>
+              <p>GitHub states that when you visit a site hosted on GitHub Pages, your IP address is logged and stored for security purposes, even if you are not signed in to GitHub. See the <a href="https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages">GitHub Pages documentation</a>.</p>
+              <p>Data submitted through forms and other features that use the database is managed by PocketBase. The site uses Umami for statistics.</p>
+              <p>Information about the data collected, purposes, retention periods and providers involved still needs to be verified and completed.</p>
             </section>
             <section aria-labelledby="privacy-tracking">
-              <h2 id="privacy-tracking">Cookie e altri dati nel browser</h2>
-              <p>Oltre ai cookie, alcune funzionalità possono usare altri spazi di memoria del browser, come il localStorage e IndexedDB. Le informazioni in questa sezione sono in corso di verifica e saranno completate con le durate e i dettagli dei singoli strumenti.</p>
-              <h3>Statistiche con Umami</h3>
-              <p>Con il tuo consenso, in produzione il sito carica Umami da get.giorgiotedesco.it per raccogliere statistiche sulle visite e su alcune interazioni. La configurazione dell’installazione e gli eventuali dati memorizzati nel browser sono da verificare.</p>
-              <h3>Esperimenti Visura AI</h3>
-              <p>Con il tuo consenso alle statistiche, alcune pagine Visura AI usano il localStorage del browser per salvare un identificativo denominato <code>visura-ai.visitor-id</code>. L’identificativo, la variante visualizzata e gli eventi di interazione vengono inviati a PocketBase per misurare gli esperimenti. Il codice non imposta una scadenza per questo dato nel browser; l’identificativo viene rimosso dal browser se revochi il consenso alle statistiche.</p>
-              <h3>Le tue preferenze</h3>
-              <p>La scelta sulle statistiche e sui contenuti esterni viene salvata nel browser con la chiave <code>privacy.preferences.v1</code>. Dopo 183 giorni viene richiesta nuovamente. Puoi modificarla in qualsiasi momento dal collegamento «Preferenze privacy» nel piè di pagina.</p>
-              <h3>Accesso AT Protocol</h3>
-              <p>La funzionalità di accesso utilizza una libreria che può conservare informazioni nel localStorage e in IndexedDB per gestire la sessione e il processo di autenticazione. I dati effettivamente memorizzati e le relative durate sono da verificare.</p>
-              <h3>Servizi esterni</h3>
+              <h2 id="privacy-tracking">Cookies and other browser storage</h2>
+              <p>In addition to cookies, some features may use other browser storage, such as localStorage and IndexedDB. The information in this section is being verified and will be completed with the duration and details of each tool.</p>
+              <h3>Umami statistics</h3>
+              <p>With your consent, the live site loads Umami from get.giorgiotedesco.it to collect statistics on visits and certain interactions. The installation’s configuration and any data stored in the browser still need to be verified.</p>
+              <h3>Visura AI experiments</h3>
+              <p>With your consent to statistics, some Visura AI pages use browser localStorage to save an identifier named <code>visura-ai.visitor-id</code>. The identifier, the variant shown and interaction events are sent to PocketBase to measure experiments. The code does not set an expiry for this browser data; the identifier is removed from the browser if you withdraw consent to statistics.</p>
+              <h3>Your preferences</h3>
+              <p>Your choice about statistics and external content is saved in the browser under the key <code>privacy.preferences.v1</code>. You will be asked again after 183 days. You can change your choice at any time using the “Preferenze privacy” button in the footer.</p>
+              <h3>AT Protocol sign-in</h3>
+              <p>The sign-in feature uses a library that may store information in localStorage and IndexedDB to manage the session and authentication process. The data actually stored and its duration still need to be verified.</p>
+              <h3>External services</h3>
               <div className="overflow-x-auto">
                 <table>
-                  <thead><tr><th>Servizio</th><th>Utilizzo sul sito</th><th>Informazioni</th></tr></thead>
+                  <thead><tr><th>Service</th><th>Use on this site</th><th>Information</th></tr></thead>
                   <tbody>
-                    <tr><td>Cal.com</td><td>Lo script per le prenotazioni viene inizializzato quando apri la prenotazione e hai consentito i contenuti esterni.</td><td><a href="https://cal.com/privacy">Informativa Cal.com</a></td></tr>
-                    <tr><td>YouTube</td><td>Alcune pagine possono incorporare video.</td><td><a href="https://policies.google.com/privacy?hl=it">Informativa Google</a></td></tr>
-                    <tr><td>SuperSplat</td><td>Alcune pagine possono incorporare modelli 3D.</td><td><a href="https://superspl.at/">Sito del servizio</a></td></tr>
-                    <tr><td>Hovod</td><td>Servizio raggiungibile su snack.sentica.io, ospitato sul computer locale del titolare.</td><td><a href="https://snack.sentica.io/">snack.sentica.io</a></td></tr>
+                    <tr><td>Cal.com</td><td>The booking script is initialized when you open the booking feature and have allowed external content.</td><td><a href="https://cal.com/privacy">Cal.com privacy notice</a></td></tr>
+                    <tr><td>YouTube</td><td>Some pages may embed videos.</td><td><a href="https://policies.google.com/privacy?hl=it">Google privacy notice</a></td></tr>
+                    <tr><td>SuperSplat</td><td>Some pages may embed 3D models.</td><td><a href="https://superspl.at/">Service website</a></td></tr>
+                    <tr><td>Hovod</td><td>Service available at snack.sentica.io, hosted on the controller’s local computer.</td><td><a href="https://snack.sentica.io/">snack.sentica.io</a></td></tr>
                   </tbody>
                 </table>
               </div>
-              <p>I dati eventualmente memorizzati o raccolti da questi servizi, e le condizioni del loro caricamento, sono da verificare.</p>
-              <p>La presenza, le finalità e la durata dei cookie e degli altri identificativi utilizzati dai servizi esterni saranno verificate anche durante la navigazione, l’accesso e l’interazione con i contenuti.</p>
+              <p>Any data stored or collected by these services, and the conditions under which they load, remain to be verified.</p>
+              <p>The presence, purposes and duration of cookies and other identifiers used by external services will also be checked during browsing, sign-in and interactions with content.</p>
             </section>
             <section aria-labelledby="privacy-rights">
-              <h2 id="privacy-rights">I tuoi diritti</h2>
-              <p>Nei casi previsti dal GDPR puoi chiedere l’accesso ai tuoi dati, la loro rettifica o cancellazione, la limitazione del trattamento, opporti al trattamento e richiedere la portabilità dei dati. Quando il trattamento si basa sul consenso, puoi revocarlo in qualsiasi momento: la revoca non pregiudica la liceità del trattamento precedente.</p>
-              {email && <p>Per esercitare questi diritti puoi scrivere a <a href={`mailto:${email}`}>{email}</a>.</p>}
-              <p>Puoi inoltre proporre reclamo al <a href="https://www.garanteprivacy.it/">Garante per la protezione dei dati personali</a> o a un’altra autorità di controllo competente.</p>
+              <h2 id="privacy-rights">Your rights</h2>
+              <p>Where applicable under the GDPR, you may request access to, correction or erasure of your data, restriction of processing, object to processing and request data portability. Where processing is based on consent, you may withdraw it at any time; this does not affect the lawfulness of earlier processing.</p>
+              {email && <p>To exercise these rights, contact <a href={`mailto:${email}`}>{email}</a>.</p>}
+              <p>You may also lodge a complaint with the <a href="https://www.garanteprivacy.it/">Italian Data Protection Authority</a> or another competent supervisory authority.</p>
             </section>
           </div>
         </article>
         <aside aria-labelledby="presentation-title" className="w-full min-w-0 lg:sticky lg:top-24">
-          <p className="text-xs font-bold uppercase tracking-[0.16em] text-brand-orange">Conosciamoci</p>
-          <h2 id="presentation-title" className="mt-2 text-xl font-bold tracking-tight text-slate-900">Una breve presentazione</h2>
+          <p className="text-xs font-bold uppercase tracking-[0.16em] text-brand-orange">Get to know me</p>
+          <h2 id="presentation-title" className="mt-2 text-xl font-bold tracking-tight text-slate-900">A short introduction</h2>
           <div className="mt-5 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
             <div className="flex aspect-video items-center justify-center bg-slate-900 text-white" aria-hidden="true">
               <Video size={32} className="text-slate-400" />
             </div>
             <div className="p-5">
-              <p className="font-semibold text-slate-900">Ciao, sono Giorgio</p>
-              <p className="mt-2 text-sm leading-6 text-slate-600">Qui troverai presto un video in cui mi presento.</p>
+              <p className="font-semibold text-slate-900">Hi, I’m Giorgio</p>
+              <p className="mt-2 text-sm leading-6 text-slate-600">A video introduction will be available here soon.</p>
             </div>
           </div>
         </aside>
