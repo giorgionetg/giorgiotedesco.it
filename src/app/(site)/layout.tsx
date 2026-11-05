@@ -10,6 +10,7 @@ import Navbar from "@/app/components/googlestudioai/Navbar";
 import Footer from "@/app/components/googlestudioai/Footer";
 import MobileActionBar from "@/app/components/googlestudioai/MobileActionBar";
 import UmamiAnalytics from "@/app/components/googlestudioai/UmamiAnalytics";
+import PrivacyPreferences from "@/app/components/googlestudioai/PrivacyPreferences";
 
 import { inter, geistSans, geistMono } from "@/app/fonts";
 
@@ -48,6 +49,7 @@ export default function Layout({
                     {children}
                 </main>
                 <Footer />
+                <PrivacyPreferences />
                 <MobileActionBar
                     contactEmail={process.env.NEXT_PUBLIC_CONTACT_EMAIL}
                     phoneNumber={process.env.NEXT_PUBLIC_PHONE_NUMBER}

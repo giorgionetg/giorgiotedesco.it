@@ -1,4 +1,5 @@
 import heroExperiment from './visura-ai-hero-variants.json';
+import { readPreferences } from './tracking-consent';
 
 export type VisuraHeroVariant = (typeof heroExperiment.variants)[number];
 export type VisuraExperimentEvent = 'hero_view' | 'hero_cta_click' | 'visura_start';
@@ -39,7 +40,7 @@ export function trackVisuraExperiment(
   context: ServiceTrackingContext = {},
 ) {
   const pocketBaseUrl = process.env.NEXT_PUBLIC_POCKETBASE_URL?.replace(/\/$/, '');
-  if (!pocketBaseUrl || typeof window === 'undefined') return;
+  if (!pocketBaseUrl || typeof window === 'undefined' || !readPreferences()?.analytics) return;
 
   const payload = JSON.stringify({
     experiment_id: context.experimentId ?? heroExperiment.experiment_id,

@@ -6,6 +6,7 @@ import Image from 'next/image';
 import QRCode from 'qrcode';
 import { FormEvent, useEffect, useState } from 'react';
 import { submitVisuraAiRequest, trackVisuraExperiment } from '@/app/lib/visura-ai-experiment';
+import ExternalEmbed from './ExternalEmbed';
 
 type Step = 1 | 2 | 3;
 
@@ -267,7 +268,7 @@ export default function VisuraKanban({
                       <p className="flex items-center gap-2 text-sm font-medium text-brand-blue"><Check size={16} /> Richiesta confermata in questa sessione.</p>
                       {!isWebsiteService && <div className="mt-5 grid grid-cols-1 gap-5 lg:grid-cols-4">
                         <div className="aspect-video overflow-hidden rounded-xl bg-slate-950 lg:col-span-3">
-                          <iframe
+                          <ExternalEmbed
                             className="h-full w-full"
                             src="https://www.youtube-nocookie.com/embed/INMeCbjnAfE"
                             title="Video placeholder della Visura AI"

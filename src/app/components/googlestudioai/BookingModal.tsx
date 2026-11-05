@@ -1,8 +1,9 @@
 
 import React, { useState, useEffect } from 'react';
-import { X, Briefcase, Building2, Calendar, ArrowRight } from 'lucide-react';
+import { X, Briefcase, Building2 } from 'lucide-react';
 import { UserType } from '@/app/lib/types';
 import Cal, { getCalApi } from "@calcom/embed-react";
+import { readPreferences } from '@/app/lib/tracking-consent';
 
 interface BookingModalProps {
   isOpen: boolean;
@@ -14,13 +15,16 @@ const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose, locale = '
   const [selectedType, setSelectedType] = useState<UserType | null>(null);
 
   useEffect(() => {
+    if (!isOpen || !readPreferences()?.external) return;
     (async function () {
       const cal = await getCalApi({ "namespace": "30min" });
       cal("ui", { "hideEventTypeDetails": false, "layout": "month_view" });
     })();
-  }, []);
+  }, [isOpen]);
 
   if (!isOpen) return null;
+
+  if (!readPreferences()?.external) return <div className="modal modal-open"><div className="modal-box"><h2 className="text-xl font-bold">Prenotazioni</h2><p className="mt-3">Per usare la prenotazione integrata, abilita i contenuti esterni nelle preferenze privacy.</p><div className="modal-action"><button onClick={() => { onClose(); window.dispatchEvent(new Event('privacy:open')); }} className="btn">Preferenze privacy</button><button onClick={onClose} className="btn">Chiudi</button></div></div></div>;
 
   const handleBack = () => setSelectedType(null);
 

@@ -1,3 +1,5 @@
+import { readPreferences } from './tracking-consent';
+
 export const aiSitterExperiment = {
   id: 'ai-sitter-validation',
   defaultVariant: 'A',
@@ -53,7 +55,7 @@ export function trackAiSitterEvent(
   event: string,
   data: Record<string, string | number | boolean | undefined> = {},
 ) {
-  if (typeof window === 'undefined') return;
+  if (typeof window === 'undefined' || !readPreferences()?.analytics) return;
   if (window.umami) {
     window.umami.track(event, data);
     return;

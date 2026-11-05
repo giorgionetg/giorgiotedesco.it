@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect } from 'react';
+import { readPreferences } from '@/app/lib/tracking-consent';
 
 const localHosts = new Set(['localhost', '127.0.0.1', '::1', '[::1]']);
 
@@ -9,7 +10,7 @@ export default function UmamiAnalytics() {
     const hostname = window.location.hostname;
     const isLocalHost = localHosts.has(hostname) || hostname.endsWith('.localhost') || hostname.endsWith('.local');
 
-    if (process.env.NODE_ENV !== 'production' || isLocalHost) return;
+    if (process.env.NODE_ENV !== 'production' || isLocalHost || !readPreferences()?.analytics) return;
 
     const script = document.createElement('script');
     script.defer = true;

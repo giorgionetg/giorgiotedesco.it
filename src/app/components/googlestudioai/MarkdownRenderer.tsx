@@ -1,6 +1,7 @@
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import rehypeHighlight from 'rehype-highlight';
+import ExternalEmbed from './ExternalEmbed';
 
 const supersplatEmbedPattern = /<iframe\s+src="https:\/\/superspl\.at\/s\?id=([a-zA-Z0-9_-]+)"\s+width="100%"\s+height="(\d{2,4})"\s+allow="fullscreen; xr-spatial-tracking"\s*\/?\s*>/g;
 
@@ -21,7 +22,7 @@ export function MarkdownRenderer({ content }: { content: string }) {
           const parsedHeight = Number(height);
           const safeHeight = Number.isFinite(parsedHeight) ? Math.min(Math.max(parsedHeight, 200), 1200) : 500;
           return (
-            <iframe
+            <ExternalEmbed
               src={`https://superspl.at/s?id=${encodeURIComponent(id)}`}
               title="Modello 3D interattivo su SuperSplat"
               width="100%"
