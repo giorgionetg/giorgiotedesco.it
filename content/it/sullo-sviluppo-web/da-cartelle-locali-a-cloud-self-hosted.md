@@ -1,4 +1,5 @@
 ---
+atUri: "at://did:plc:27g2oqb2vz6k2mkezsx4a2sx/site.standard.document/3mghebatk76ja"
 recommendedServices: [websites]
 slug: da-cartelle-locali-a-cloud-self-hosted
 title: "Dalle cartelle locali a un cloud self-hosted: l'evoluzione dell'architettura"

@@ -1,0 +1,11 @@
+# Standard.site records
+
+`yarn build` runs `standard-site:generate` first. It reads published Markdown under `content/` (excluding `draft/` and `draft: true`), writes one `site.standard.document` JSON per article here, and adds a stable TID `atUri` to each article's frontmatter. Existing valid TID URIs are preserved. Repeated runs keep the same URI. The record description combines the frontmatter `description` with the first three prose paragraphs of the article, in reading order. Markdown formatting is removed from the excerpt. The site's SEO description remains the original frontmatter value. The record path, title and publication date also come from the Markdown.
+
+`yarn standard-site:publish` also writes those records to the PDS with `putRecord`, using the `atUri` key. In a terminal it prompts for an app password without displaying it; in automation it uses `ATPROTO_APP_PASSWORD` from the environment. Use an AT Protocol app password, never the account password. The GitHub Pages workflow runs it after a successful build and SEO validation when the `ATPROTO_APP_PASSWORD` secret exists in the `github-pages` environment. Without that secret the build still generates the JSON and frontmatter, but skips PDS publication.
+
+Records also carry `langs: ["it"]` or `["en"]` as a language tag and `locale: "it-IT"` or `"en-US"` as a regional preference. These are extensions to the current Standard.site document lexicon; readers may ignore them. The site URL remains the canonical article location.
+
+`yarn standard-site:remove` lists the live document records belonging to this publication without deleting anything. `node scripts/standard-site-remove.mjs --delete` removes only those records after saving a JSON backup under `/tmp/`. It requires the same `ATPROTO_APP_PASSWORD` environment variable. A subsequent GitHub Pages build with that secret will republish the articles.
+
+GitHub: Settings → Environments → `github-pages` → Environment secrets → New environment secret → `ATPROTO_APP_PASSWORD`. Locally, set the variable in your shell or a private, untracked environment file before running `yarn standard-site:publish`; do not commit the password. The build does not persist its generated source changes to Git: commit the generated Markdown and JSON when you want them tracked in the repository.

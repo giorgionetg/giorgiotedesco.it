@@ -1,0 +1,12 @@
+{
+  "$type": "site.standard.document",
+  "site": "at://did:plc:27g2oqb2vz6k2mkezsx4a2sx/site.standard.publication/3mywkviwovv25",
+  "path": "/blog/on-web-development/how-this-website-is-made/",
+  "title": "How this website is made",
+  "description": "A little tutorial to discover what there is behind this website\n\nTo follow this little story I will have to going deep in some arguments. But I will try to stay easy long the way. First we have to separate two concepts:\n\nCommonly the technologies are differents, but in the last decade a lot of things changed.\n\nFirst, what does it means frontend? Frontend is the code that works on your client/browser, building graphics, validation, and merging all contents in a layout of the page you visit. In this page I have some codes to manage the navigation bar, some codes to parallax and displays main image after navbar, and finally the content that you're reading right now. All these technologies are:",
+  "langs": [
+    "en"
+  ],
+  "locale": "en-US",
+  "publishedAt": "2023-09-14T01:00:00.000Z"
+}

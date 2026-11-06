@@ -1,4 +1,5 @@
 ---
+atUri: "at://did:plc:27g2oqb2vz6k2mkezsx4a2sx/site.standard.document/3mzc4p6ulw7wu"
 recommendedServices: [websites, visura-ai]
 slug: what-is-a-web-platform
 title: What is a Web Platform

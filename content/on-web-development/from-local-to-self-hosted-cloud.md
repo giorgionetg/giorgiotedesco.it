@@ -1,4 +1,5 @@
 ---
+atUri: "at://did:plc:27g2oqb2vz6k2mkezsx4a2sx/site.standard.document/3mghebatk7aej"
 recommendedServices: [websites]
 slug: from-local-to-self-hosted-cloud
 title: "From Local Directories to a Self-Hosted Cloud: The Architectural Evolution"

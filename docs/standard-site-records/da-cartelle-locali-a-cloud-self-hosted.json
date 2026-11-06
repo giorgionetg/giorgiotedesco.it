@@ -1,0 +1,12 @@
+{
+  "$type": "site.standard.document",
+  "site": "at://did:plc:27g2oqb2vz6k2mkezsx4a2sx/site.standard.publication/3mywkviwovv25",
+  "path": "/it/blog/sullo-sviluppo-web/da-cartelle-locali-a-cloud-self-hosted/",
+  "title": "Dalle cartelle locali a un cloud self-hosted: l'evoluzione dell'architettura",
+  "description": "Il passaggio da progetti raccolti in cartelle locali a uno stack self-hosted con Forgejo, Traefik, PocketBase e GarageHQ.\n\nVolevo smettere di costruire progetti concentrati in una cartella. Ho iniziato come tutti: una cartella locale con binari e codice mescolati insieme. Funziona per una settimana, poi si rompe.\n\nHo deciso di spostare tutto su un'infrastruttura cloud professionale e self-hosted. Niente dipendenze dal cloud pubblico, niente scuse del tipo «sul mio computer funziona». Volevo uno stack pulito, disaccoppiato e containerizzato, da poter riavviare ovunque in pochi minuti.\n\nPer prima cosa ho abbandonato la cartella locale e sono passato a Forgejo. L'ho distribuito in container per avere il pieno controllo del flusso Git.",
+  "langs": [
+    "it"
+  ],
+  "locale": "it-IT",
+  "publishedAt": "2026-03-07T08:00:00.000Z"
+}

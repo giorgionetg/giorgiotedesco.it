@@ -1,0 +1,12 @@
+{
+  "$type": "site.standard.document",
+  "site": "at://did:plc:27g2oqb2vz6k2mkezsx4a2sx/site.standard.publication/3mywkviwovv25",
+  "path": "/blog/on-web-development/how-i-engineered-my-job-search-with-a-privacy-first-ai-pipeline-in-2024-summer/",
+  "title": "How I Engineered My Job Search with a privacy-first AI Pipeline in 2024 Summer",
+  "description": "Beyond Web Scraping; Engineering an Intelligent, Privacy-First Pipeline for Targeted Job Hunting\n\nIn today’s competitive tech market, the difference between a software engineer and a true problem solver lies in the ability to orchestrate diverse tools to create real-world value. I recently built an end-to-end system to optimize my job search—transitioning from raw institutional data to deep semantic analysis using local AI. By carefully selecting my stack and optimizing every request, I managed to run the entire data extraction and enrichment process for just €0.7.\n\nGiven the resource-heavy nature of browser rendering (Playwright) and AI inference (Ollama), I designed the system with an asynchronous pipeline divided into clear checkpoints. I adopted a \"1 click, 1 check, let's go\" philosophy: each stage saves its state to Supabase and waits for a manual green light before proceeding. This ensures data integrity and prevents resource exhaustion.\n\nThe first step was extracting a targeted list of companies from the official \"Registro delle Imprese.\"",
+  "langs": [
+    "en"
+  ],
+  "locale": "en-US",
+  "publishedAt": "2026-02-01T01:00:00.000Z"
+}

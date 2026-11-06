@@ -1,0 +1,12 @@
+{
+  "$type": "site.standard.document",
+  "site": "at://did:plc:27g2oqb2vz6k2mkezsx4a2sx/site.standard.publication/3mywkviwovv25",
+  "path": "/it/blog/sul-web-marketing/september-back-to-school/",
+  "title": "Settembre, back to school",
+  "description": "Scorcio su tutti i recap/roadmap e sviluppi.\n\nQuando il codice non funziona, basta un test.\n\nAgosto, mese di pensieri. Mese costruttivo passato a costruire.\n\nOgni singolo pezzo iniziava ad incastrarsi: modalità di ricerca, primi feeding di dati, loop.",
+  "langs": [
+    "it"
+  ],
+  "locale": "it-IT",
+  "publishedAt": "2026-09-01T01:00:00.000Z"
+}

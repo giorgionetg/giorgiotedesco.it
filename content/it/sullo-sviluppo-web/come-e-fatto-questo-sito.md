@@ -1,4 +1,5 @@
 ---
+atUri: "at://did:plc:27g2oqb2vz6k2mkezsx4a2sx/site.standard.document/3k7cwt23t3gmj"
 recommendedServices: [websites]
 slug: come-e-fatto-questo-sito
 title: Come è fatto questo sito

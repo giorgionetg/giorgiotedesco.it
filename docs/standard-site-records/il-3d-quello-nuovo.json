@@ -1,0 +1,12 @@
+{
+  "$type": "site.standard.document",
+  "site": "at://did:plc:27g2oqb2vz6k2mkezsx4a2sx/site.standard.publication/3mywkviwovv25",
+  "path": "/it/blog/sul-3d/il-3d-quello-nuovo/",
+  "title": "Il 3D, quello nuovo",
+  "description": "Sperimentando con 3D\n\nSperimentando quà e là con Gaussian Splatting...",
+  "langs": [
+    "it"
+  ],
+  "locale": "it-IT",
+  "publishedAt": "2026-09-14T01:00:00.000Z"
+}

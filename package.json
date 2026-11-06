@@ -12,7 +12,11 @@
     "artifact:export": "node scripts/export-single-file.mjs",
     "start": "next start",
     "lint": "eslint",
-    "checkout": "npx serve@latest out"
+    "checkout": "npx serve@latest out",
+    "standard-site:generate": "node scripts/standard-site-sync.mjs",
+    "standard-site:publish": "node scripts/standard-site-sync.mjs --publish",
+    "prebuild": "yarn standard-site:generate",
+    "standard-site:remove": "node scripts/standard-site-remove.mjs"
   },
   "dependencies": {
     "@atproto/oauth-client-browser": "^0.5.11",

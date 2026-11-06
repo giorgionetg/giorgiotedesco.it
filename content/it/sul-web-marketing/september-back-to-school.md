@@ -1,4 +1,5 @@
 ---
+atUri: "at://did:plc:27g2oqb2vz6k2mkezsx4a2sx/site.standard.document/3mug7s4c3imtc"
 recommendedServices: [visura-ai]
 slug: september-back-to-school
 title: Settembre, back to school

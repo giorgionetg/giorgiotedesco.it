@@ -1,4 +1,5 @@
 ---
+atUri: "at://did:plc:27g2oqb2vz6k2mkezsx4a2sx/site.standard.document/3hiku2n7tyta4"
 recommendedServices: []
 relatedPosts: [sullo-sviluppo-web/oggi-posto-in-un-altro-posto-se-posso, sullo-sviluppo-web/da-cartelle-locali-a-cloud-self-hosted]
 slug: come-funziona-bitcoin

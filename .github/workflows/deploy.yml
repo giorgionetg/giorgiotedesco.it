@@ -19,6 +19,8 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: github-pages
+    env:
+      ATPROTO_APP_PASSWORD: ${{ secrets.ATPROTO_APP_PASSWORD }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -57,6 +59,10 @@ jobs:
 
       - name: Validate SEO build
         run: yarn validate:seo
+
+      - name: Publish Standard.site records
+        if: ${{ env.ATPROTO_APP_PASSWORD != '' }}
+        run: yarn standard-site:publish
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3.0.1

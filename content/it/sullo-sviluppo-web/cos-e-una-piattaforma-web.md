@@ -1,4 +1,5 @@
 ---
+atUri: "at://did:plc:27g2oqb2vz6k2mkezsx4a2sx/site.standard.document/3mzc4p6ullizk"
 recommendedServices: [websites, visura-ai]
 slug: cos-e-una-piattaforma-web
 title: Cos'è una piattaforma web

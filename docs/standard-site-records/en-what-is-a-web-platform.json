@@ -1,0 +1,12 @@
+{
+  "$type": "site.standard.document",
+  "site": "at://did:plc:27g2oqb2vz6k2mkezsx4a2sx/site.standard.publication/3mywkviwovv25",
+  "path": "/blog/on-web-development/what-is-a-web-platform/",
+  "title": "What is a Web Platform",
+  "description": "What makes a web platform different from a brochure site, and how it can support sales and customer relationships.\n\nUnlike a brochure site, a web platform includes technology that supports your actual work. It might help with sales or power an internal application:\n\nI still remember a marketing lesson from more than 23 years ago:\n\nWhy does that matter? Because a visit is the first step, the first \"yes\" from a potential customer. Someone can browse your site and leave without ever becoming a customer, as most visitors do.",
+  "langs": [
+    "en"
+  ],
+  "locale": "en-US",
+  "publishedAt": "2026-11-02T01:00:00.000Z"
+}

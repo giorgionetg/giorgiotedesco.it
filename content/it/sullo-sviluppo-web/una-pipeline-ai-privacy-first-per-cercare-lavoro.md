@@ -1,4 +1,5 @@
 ---
+atUri: "at://did:plc:27g2oqb2vz6k2mkezsx4a2sx/site.standard.document/3mdr4wwl32pg7"
 recommendedServices: []
 relatedPosts: [sullo-sviluppo-web/un-agente-e-una-macchina-a-stati, sul-web-marketing/una-scomoda-verita]
 slug: una-pipeline-ai-privacy-first-per-cercare-lavoro

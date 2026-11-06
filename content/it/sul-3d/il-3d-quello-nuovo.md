@@ -1,4 +1,5 @@
 ---
+atUri: "at://did:plc:27g2oqb2vz6k2mkezsx4a2sx/site.standard.document/3mvgvu3btv2ie"
 recommendedServices: []
 relatedPosts: [sullo-sviluppo-web/il-mio-lavoro-in-wonderland-engine, sullo-sviluppo-web/come-e-fatto-questo-sito]
 slug: il-3d-quello-nuovo

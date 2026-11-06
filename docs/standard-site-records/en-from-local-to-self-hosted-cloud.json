@@ -1,0 +1,12 @@
+{
+  "$type": "site.standard.document",
+  "site": "at://did:plc:27g2oqb2vz6k2mkezsx4a2sx/site.standard.publication/3mywkviwovv25",
+  "path": "/blog/on-web-development/from-local-to-self-hosted-cloud/",
+  "title": "From Local Directories to a Self-Hosted Cloud: The Architectural Evolution",
+  "description": "A deep dive into migrating from folder-centric development to a professional self-hosted stack using Forgejo, Traefik, PocketBase, and GarageHQ.\n\nI decided to move everything into a professional, self-hosted cloud infrastructure. No public cloud dependencies, no \"it works on my machine\" excuses. I wanted a clean, decoupled, and containerized stack that I could \"re-ignite\" anywhere in minutes.\n\nI split the infrastructure: Core Repo: Pure logic and app code. Infra Repo: Docker Compose, routing, and environment orchestration.\n\nBy setting up a Private Container Registry inside Forgejo, I shifted the workflow. I don't push code to servers anymore. I build an image, push it to my registry, and pull it in production. Clean. Atomic. Versioned.",
+  "langs": [
+    "en"
+  ],
+  "locale": "en-US",
+  "publishedAt": "2026-03-07T08:00:00.000Z"
+}

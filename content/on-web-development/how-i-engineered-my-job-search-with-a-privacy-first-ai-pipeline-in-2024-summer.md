@@ -1,4 +1,5 @@
 ---
+atUri: "at://did:plc:27g2oqb2vz6k2mkezsx4a2sx/site.standard.document/3mdr4wwl3obhr"
 recommendedServices: []
 relatedPosts: [on-web-development/an-agent-is-a-state-machine, on-web-marketing/an-uncomfortable-truth]
 slug: how-i-engineered-my-job-search-with-a-privacy-first-ai-pipeline-in-2024-summer

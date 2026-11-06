@@ -1,0 +1,12 @@
+{
+  "$type": "site.standard.document",
+  "site": "at://did:plc:27g2oqb2vz6k2mkezsx4a2sx/site.standard.publication/3mywkviwovv25",
+  "path": "/it/blog/sullo-sviluppo-web/una-pipeline-ai-privacy-first-per-cercare-lavoro/",
+  "title": "Come ho progettato una pipeline AI privacy-first per cercare lavoro nell'estate 2024",
+  "description": "Oltre il web scraping: una pipeline intelligente e rispettosa della privacy per una ricerca di lavoro mirata.\n\nNel competitivo mercato tecnologico di oggi, la differenza tra un ingegnere software e una persona capace di risolvere davvero i problemi sta nel saper orchestrare strumenti diversi per creare valore concreto. Di recente ho costruito un sistema completo per ottimizzare la mia ricerca di lavoro: dai dati grezzi delle fonti istituzionali fino a un'analisi semantica approfondita con l'AI locale. Selezionando con attenzione lo stack e ottimizzando ogni richiesta, ho eseguito l'intero processo di estrazione e arricchimento dei dati con una spesa di appena 0,7 €.\n\nDato il peso del rendering nel browser (Playwright) e dell'inferenza AI (Ollama), ho progettato una pipeline asincrona divisa in checkpoint chiari. Ho adottato la filosofia «un clic, un controllo, si procede»: ogni fase salva il proprio stato in Supabase e attende un via libera manuale prima di continuare. Così proteggo l'integrità dei dati e limito il rischio di esaurire le risorse.\n\nIl primo passo è stato estrarre un elenco mirato di aziende dal Registro delle Imprese ufficiale.",
+  "langs": [
+    "it"
+  ],
+  "locale": "it-IT",
+  "publishedAt": "2026-02-01T01:00:00.000Z"
+}

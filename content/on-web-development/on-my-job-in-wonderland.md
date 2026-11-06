@@ -1,4 +1,5 @@
 ---
+atUri: "at://did:plc:27g2oqb2vz6k2mkezsx4a2sx/site.standard.document/3k7hxquzdpfac"
 recommendedServices: []
 relatedPosts: [on-web-development/from-local-to-self-hosted-cloud, on-web-development/how-this-website-is-made]
 slug: on-my-job-in-wonderland

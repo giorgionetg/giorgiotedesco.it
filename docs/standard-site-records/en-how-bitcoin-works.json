@@ -1,0 +1,12 @@
+{
+  "$type": "site.standard.document",
+  "site": "at://did:plc:27g2oqb2vz6k2mkezsx4a2sx/site.standard.publication/3mywkviwovv25",
+  "path": "/blog/on-cryptocurrencies/how-bitcoin-works/",
+  "title": "How Bitcoin works",
+  "description": "A little description to discover how Bitcoin and other cryptocurrencies work.\n\nAll cryptocurrencies works at the almost same way. Cryptocurrencies are based on a Peer to Peer (P2P) network. Down here we cover multiple arguments inerhit how cryptocurrencies works:\n\nAt the end of reading you will be able to understand the basics. Each section here it is only a little overview of how the bitcoin and cryptocurrencies works. In the next months I will deeply going over any section below.\n\nThe BitCoin Core software works as a Peer in a network composed by thousand of peer (that's why most of people call it: decentralization). The two main task of a peer are:",
+  "langs": [
+    "en"
+  ],
+  "locale": "en-US",
+  "publishedAt": "2020-09-05T01:00:00.000Z"
+}

@@ -1,4 +1,5 @@
 ---
+atUri: "at://did:plc:27g2oqb2vz6k2mkezsx4a2sx/site.standard.document/3mwk4exqdrzkd"
 recommendedServices: []
 relatedPosts: [sullo-sviluppo-web/il-mio-lavoro-in-wonderland-engine, sullo-sviluppo-web/oggi-posto-in-un-altro-posto-se-posso]
 slug: tanti-auguri

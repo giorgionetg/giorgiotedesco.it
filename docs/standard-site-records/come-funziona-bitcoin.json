@@ -1,0 +1,12 @@
+{
+  "$type": "site.standard.document",
+  "site": "at://did:plc:27g2oqb2vz6k2mkezsx4a2sx/site.standard.publication/3mywkviwovv25",
+  "path": "/it/blog/sulle-criptovalute/come-funziona-bitcoin/",
+  "title": "Come funziona Bitcoin",
+  "description": "Una breve introduzione al funzionamento di Bitcoin e delle altre criptovalute.\n\nQuasi tutte le criptovalute funzionano in modo simile. Si basano su una rete peer-to-peer (P2P). Qui vediamo alcuni aspetti del loro funzionamento:\n\nAlla fine avrai le basi per orientarti. Ogni sezione offre solo una panoramica di Bitcoin e delle criptovalute; nei prossimi mesi approfondirò ciascun argomento.\n\nIl software Bitcoin Core funziona come un peer in una rete composta da migliaia di nodi (è da qui che deriva l'idea di decentralizzazione). I compiti principali di un peer sono:",
+  "langs": [
+    "it"
+  ],
+  "locale": "it-IT",
+  "publishedAt": "2020-09-05T01:00:00.000Z"
+}

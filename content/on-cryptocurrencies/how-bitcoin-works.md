@@ -1,4 +1,5 @@
 ---
+atUri: "at://did:plc:27g2oqb2vz6k2mkezsx4a2sx/site.standard.document/3hiku2n7tz252"
 recommendedServices: []
 relatedPosts: [on-web-development/today-i-post-somewhere-else-if-i-can, on-web-development/from-local-to-self-hosted-cloud]
 slug: how-bitcoin-works

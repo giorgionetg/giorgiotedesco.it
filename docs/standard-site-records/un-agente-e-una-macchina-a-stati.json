@@ -1,0 +1,12 @@
+{
+  "$type": "site.standard.document",
+  "site": "at://did:plc:27g2oqb2vz6k2mkezsx4a2sx/site.standard.publication/3mywkviwovv25",
+  "path": "/it/blog/sullo-sviluppo-web/un-agente-e-una-macchina-a-stati/",
+  "title": "Un agente è una macchina a stati",
+  "description": "Parte I — Da LangGraph a XState, prima di chiamare il modello linguistico.\n\nParte I — Da LangGraph a XState, prima di chiamare il modello linguistico.\n\nUn approfondimento sullo sviluppo con agenti AI e LLM, da LangGraph a XState.\n\nIn breve: programmare agenti è costoso. Può costare quanto un ingegnere full-stack.",
+  "langs": [
+    "it"
+  ],
+  "locale": "it-IT",
+  "publishedAt": "2026-05-07T08:00:00.000Z"
+}
